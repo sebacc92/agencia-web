@@ -257,6 +257,66 @@ a:hover {
     0 0 20px rgba(124, 58, 237, 0.1);
 }
 
+/* ===== NEUMORPHIC GREEN BUTTON VARIANT ===== */
+.btn-neumorphic-green {
+  background: linear-gradient(135deg,
+    #10b981 0%,     /* emerald-500 */
+    #059669 25%,    /* emerald-600 */
+    #047857 50%,    /* emerald-700 */
+    #065f46 75%,    /* emerald-800 */
+    #064e3b 100%    /* emerald-900 */
+  );
+  color: white;
+  box-shadow:
+    0 8px 25px rgba(16, 185, 129, 0.3),
+    0 4px 10px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-neumorphic-green::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.btn-neumorphic-green:hover {
+  background: linear-gradient(135deg,
+    #059669 0%,     /* emerald-600 */
+    #047857 25%,    /* emerald-700 */
+    #065f46 50%,    /* emerald-800 */
+    #064e3b 75%,    /* emerald-900 */
+    #1f2937 100%    /* gray-800 */
+  );
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 15px 40px rgba(16, 185, 129, 0.4),
+    0 8px 20px rgba(16, 185, 129, 0.3),
+    0 0 30px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-neumorphic-green:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 4px 15px rgba(16, 185, 129, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* ===== CARDS - Light Theme ===== */
 .card {
   background: rgba(255, 255, 255, 0.8);

@@ -1,0 +1,201 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.6.3",
+  "pathMappings": {
+    "~/*": [
+      "./src/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "my-qwik-empty-starter": [
+        {
+          "file": ".gitignore",
+          "hash": "12636369212910082877"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "18026352017748956344"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "2125652616757145198"
+        },
+        {
+          "file": ".vscode/qwik-city.code-snippets",
+          "hash": "7944545274723969739"
+        },
+        {
+          "file": ".vscode/qwik.code-snippets",
+          "hash": "12570788749085479650"
+        },
+        {
+          "file": "README.md",
+          "hash": "12695644029125156110"
+        },
+        {
+          "file": "eslint.config.js",
+          "hash": "16942524381004217762"
+        },
+        {
+          "file": "package.json",
+          "hash": "9336733467346276809",
+          "deps": [
+            "npm:@builder.io/qwik",
+            "npm:@builder.io/qwik-city",
+            "npm:@eslint/js",
+            "npm:@qwik-ui/headless",
+            "npm:@qwik-ui/styled",
+            "npm:@qwik-ui/utils",
+            "npm:@qwikest/icons",
+            "npm:@tailwindcss/vite",
+            "npm:@types/node",
+            "npm:class-variance-authority",
+            "npm:eslint",
+            "npm:eslint-plugin-qwik",
+            "npm:globals",
+            "npm:nx",
+            "npm:prettier",
+            "npm:prettier-plugin-tailwindcss",
+            "npm:qwik-ui",
+            "npm:tailwindcss",
+            "npm:tw-animate-css",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:typescript-plugin-css-modules",
+            "npm:undici",
+            "npm:vite",
+            "npm:vite-tsconfig-paths"
+          ]
+        },
+        {
+          "file": "pnpm-lock.yaml",
+          "hash": "13646645832394638201"
+        },
+        {
+          "file": "prettier.config.js",
+          "hash": "17378294471063641443"
+        },
+        {
+          "file": "public/favicon.svg",
+          "hash": "446107399934622830"
+        },
+        {
+          "file": "public/images/oso_panda_usando_notebook.png",
+          "hash": "15318841200368468282"
+        },
+        {
+          "file": "public/manifest.json",
+          "hash": "12573047294351719872"
+        },
+        {
+          "file": "public/robots.txt",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "qwik-ui.config.json",
+          "hash": "17189465645030050949"
+        },
+        {
+          "file": "qwik.env.d.ts",
+          "hash": "1792037603741036108"
+        },
+        {
+          "file": "src/components/Footer.tsx",
+          "hash": "3485536384059733846"
+        },
+        {
+          "file": "src/components/Header.tsx",
+          "hash": "17046233684334964362"
+        },
+        {
+          "file": "src/components/ScrollToTop.tsx",
+          "hash": "14279757506212853957"
+        },
+        {
+          "file": "src/components/WhatsappFloat.tsx",
+          "hash": "12075547320775561894"
+        },
+        {
+          "file": "src/components/chatbot/chatbot.tsx",
+          "hash": "12196418953358387101"
+        },
+        {
+          "file": "src/components/router-head/router-head.tsx",
+          "hash": "13869225469366272939"
+        },
+        {
+          "file": "src/entry.dev.tsx",
+          "hash": "15859778472158270085"
+        },
+        {
+          "file": "src/entry.preview.tsx",
+          "hash": "18241176629131630768"
+        },
+        {
+          "file": "src/entry.ssr.tsx",
+          "hash": "3490153311941707074"
+        },
+        {
+          "file": "src/global.css",
+          "hash": "11553612956316288272"
+        },
+        {
+          "file": "src/media/images/oso_panda_usando_notebook.png",
+          "hash": "15318841200368468282"
+        },
+        {
+          "file": "src/root.tsx",
+          "hash": "6468435487380231226"
+        },
+        {
+          "file": "src/routes/about/index.tsx",
+          "hash": "949802815999862943"
+        },
+        {
+          "file": "src/routes/blog/index.tsx",
+          "hash": "13590512926938584994"
+        },
+        {
+          "file": "src/routes/contact/index.tsx",
+          "hash": "2512557143989304286"
+        },
+        {
+          "file": "src/routes/index.tsx",
+          "hash": "6934628907319227404"
+        },
+        {
+          "file": "src/routes/layout.tsx",
+          "hash": "14776847729617542970"
+        },
+        {
+          "file": "src/routes/portfolio/index.tsx",
+          "hash": "18403789878438488622"
+        },
+        {
+          "file": "src/routes/services/ai-automations/index.tsx",
+          "hash": "3312210193231616849"
+        },
+        {
+          "file": "src/routes/services/digital-marketing/index.tsx",
+          "hash": "5592420056844281678"
+        },
+        {
+          "file": "src/routes/services/web-design/index.tsx",
+          "hash": "17808644173374435005"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "15420943237368033226"
+        },
+        {
+          "file": "vite.config.ts",
+          "hash": "16056048994970422423"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  },
+  "externalNodesHash": "17899694131527860728"
+}

@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
+import Button from "~/components/ui/button/button";
 
 export default component$(() => {
   return (
@@ -35,9 +36,9 @@ export default component$(() => {
               </a>
             </div>
 
-            <button class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+            <Button variant="neumorphic-green" size="sm">
               Empezar
-            </button>
+            </Button>
           </nav>
         </div>
       </header>
@@ -74,9 +75,9 @@ export default component$(() => {
 
               {/* CTA Button */}
               <div>
-                <button class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300">
+                <Button variant="neumorphic-green" size="lg">
                   Saber más
-                </button>
+                </Button>
               </div>
             </div>
 
