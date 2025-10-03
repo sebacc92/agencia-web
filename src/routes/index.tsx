@@ -7,45 +7,8 @@ import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 export default component$(() => {
   return (
     <>
-      {/* Clean Navigation Header */}
-      <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
-        <div class="container">
-          <nav class="flex items-center justify-between h-16">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                <span class="text-white font-bold text-lg">A</span>
-              </div>
-              <span class="text-2xl font-bold text-gray-900">AgenciaTech</span>
-            </div>
-
-            <div class="hidden md:flex items-center space-x-8">
-              <a href="#services" class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-3 py-2 font-medium">
-                Servicios
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="/about" class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-3 py-2 font-medium">
-                Nosotros
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="/portfolio" class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-3 py-2 font-medium">
-                Portafolio
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="/contact" class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-3 py-2 font-medium">
-                Contacto
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </div>
-
-            <Button variant="neumorphic-green" size="sm">
-              Empezar
-            </Button>
-          </nav>
-        </div>
-      </header>
-
       {/* Hero Section */}
-      <main class="pt-16 min-h-screen flex items-center bg-gray-50">
+      <main class="pt-32 min-h-screen flex items-center bg-gray-50">
         {/* Subtle Background Elements */}
         <div class="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-cyan-50"></div>
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
@@ -77,7 +40,7 @@ export default component$(() => {
               {/* CTA Button */}
               <div>
                 <Button variant="neumorphic-green" size="lg">
-                  Saber más
+                  Reservar llamada gratis
                 </Button>
               </div>
             </div>

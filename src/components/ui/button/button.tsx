@@ -32,8 +32,8 @@ export default component$<ButtonProps>((props) => {
 
   const sizeClasses = {
     sm: "px-4 py-2 text-sm rounded-lg",
-    md: "px-6 py-3 text-base rounded-xl",
-    lg: "px-8 py-4 text-lg rounded-xl"
+    md: "px-8 py-3 text-base rounded-xl",
+    lg: "px-10 py-4 text-lg rounded-xl"
   };
 
   const classes = [
