@@ -398,6 +398,25 @@ section:nth-child(even) {
   }
 }
 
+@keyframes pandaFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0deg) scale(1.01);
+  }
+  75% {
+    transform: translateY(-12px) rotate(-1deg) scale(1.02);
+  }
+}
+
+.panda-float-animation {
+  animation: pandaFloat 6s ease-in-out infinite;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

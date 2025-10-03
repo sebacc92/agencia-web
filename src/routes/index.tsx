@@ -82,9 +82,26 @@ export default component$(() => {
 
             {/* Right Column - Image (50%) */}
             <div class="flex justify-center lg:justify-end">
-              <ImageHero
-                alt="Hero Image"
-              />
+              <div class="relative animate-float">
+                {/* Nube voladora con movimiento sutil */}
+                <div>
+                  <ImageHero
+                    alt="Panda trabajando en laptop sobre nube voladora"
+                    class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation"
+                  />
+                </div>
+
+                {/* Elementos flotantes alrededor que crean movimiento dinámico */}
+                <div class="absolute -top-8 -left-8 text-2xl animate-bounce" style="animation-duration: 3s; animation-delay: 0.5s;">
+                  ✨
+                </div>
+                <div class="absolute -bottom-6 -right-6 text-3xl animate-pulse" style="animation-duration: 2s; animation-delay: 1s;">
+                  🚀
+                </div>
+                <div class="absolute top-1/2 -left-10 text-xl animate-float" style="animation-duration: 3.5s; animation-delay: 1.5s;">
+                  ⭐
+                </div>
+              </div>
             </div>
           </div>
         </div>
