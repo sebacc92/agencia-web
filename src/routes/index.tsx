@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
 
 export default component$(() => {
   return (
@@ -49,13 +50,13 @@ export default component$(() => {
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
         
         <div class="container relative z-10 py-20">
-          <div class="grid lg:grid-cols-5 gap-12 items-center">
-            {/* Left Column - Text Content (60% - 3/5) */}
-            <div class="lg:col-span-3 space-y-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content (50%) */}
+            <div class="space-y-8">
               {/* Badge */}
-              <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
+              {/* <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
                 <span class="text-purple-700 text-sm font-medium">🚀 Diseño + desarrollo + automatizaciones + marketing + IA</span>
-              </div>
+              </div> */}
 
               {/* Main Headline */}
               <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
@@ -79,9 +80,11 @@ export default component$(() => {
               </div>
             </div>
 
-            {/* Right Column - Simple Image (40% - 2/5) */}
-            <div class="lg:col-span-2 flex justify-center lg:justify-end">
-              <img src="/images/oso_panda_usando_notebook.png" alt="Hero Image" class="w-full" />
+            {/* Right Column - Image (50%) */}
+            <div class="flex justify-center lg:justify-end">
+              <ImageHero
+                alt="Hero Image"
+              />
             </div>
           </div>
         </div>
