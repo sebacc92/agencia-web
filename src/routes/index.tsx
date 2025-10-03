@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
 import Button from "~/components/ui/button/button";
+import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 
 export default component$(() => {
   return (
@@ -108,9 +109,23 @@ export default component$(() => {
         </div>
         
         {/* Scroll Indicator */}
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <span class="text-gray-500 text-sm font-medium mb-2">SCROLL</span>
-          <div class="w-px h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <button
+            class="group cursor-pointer animate-bounce hover:scale-110 transition-all duration-300 p-2 rounded-full hover:bg-white/10"
+            onClick$={() => {
+              const servicesSection = document.getElementById('services');
+              if (servicesSection) {
+                servicesSection.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+          >
+            <LuChevronDownCircle
+              class="w-8 h-8 text-gray-500 group-hover:text-green-500 transition-colors duration-300"
+            />
+          </button>
         </div>
       </main>
 
