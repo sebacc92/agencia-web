@@ -1,5 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import Header from "~/components/Header/Header";
+import Footer from "~/components/Footer/Footer";
 
 export default component$(() => {
   return (
@@ -8,6 +9,7 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
+      <Footer />
     </>
   );
 });
