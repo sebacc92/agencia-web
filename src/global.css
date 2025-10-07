@@ -703,6 +703,49 @@ img {
   contain: layout style paint;
 }
 
+/* ===== ENHANCED CARD STYLES FOR SERVICES ===== */
+.services-card-enhanced {
+  background: rgba(30, 41, 59, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.services-card-enhanced:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(99, 102, 241, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* ===== ENHANCED BUTTON STYLES FOR SERVICES ===== */
+.services-btn-enhanced {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.8) 0%, rgba(79, 70, 229, 0.8) 100%);
+  color: white;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow:
+    0 4px 15px rgba(99, 102, 241, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.services-btn-enhanced:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 1) 0%, rgba(79, 70, 229, 1) 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 8px 25px rgba(99, 102, 241, 0.4),
+    0 0 20px rgba(99, 102, 241, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -712,7 +755,7 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .loading-skeleton,
   .loading-spinner {
     animation: none !important;
