@@ -3,6 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import Hero from "~/components/Hero/Hero";
 import Services from "~/components/Services/Services";
 import About from "~/components/About/About";
+import Portfolio from "~/components/Portfolio/Portfolio";
 
 export default component$(() => {
   return (
@@ -12,6 +13,8 @@ export default component$(() => {
       <Services />
 
       <About />
+
+      <Portfolio />
 
     </>
   );
