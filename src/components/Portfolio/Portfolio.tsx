@@ -51,25 +51,6 @@ export default component$(() => {
                     <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
                       Estamos desarrollando proyectos innovadores que mostrarán todo nuestro potencial. Desde sitios web de alto rendimiento hasta automatizaciones con IA que transforman negocios, cada proyecto será una muestra de nuestra dedicación y expertise.
                     </p>
-
-                    {/* Features Preview */}
-                    <div class="grid md:grid-cols-3 gap-6 mt-8">
-                      <div class="text-center">
-                        <div class="text-3xl mb-3">🎨</div>
-                        <h5 class="font-semibold text-gray-900 mb-2">Diseño Web Moderno</h5>
-                        <p class="text-sm text-gray-600">Sitios web que convierten visitantes en clientes</p>
-                      </div>
-                      <div class="text-center">
-                        <div class="text-3xl mb-3">🤖</div>
-                        <h5 class="font-semibold text-gray-900 mb-2">Automatizaciones IA</h5>
-                        <p class="text-sm text-gray-600">Procesos inteligentes que ahorran tiempo y dinero</p>
-                      </div>
-                      <div class="text-center">
-                        <div class="text-3xl mb-3">📈</div>
-                        <h5 class="font-semibold text-gray-900 mb-2">Marketing Digital</h5>
-                        <p class="text-sm text-gray-600">Estrategias que generan resultados reales</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

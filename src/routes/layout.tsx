@@ -1,14 +1,14 @@
 import { component$, Slot } from "@builder.io/qwik";
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
+import { ScrollToTop } from "~/components/scroll-to-top";
 
 export default component$(() => {
   return (
     <>
       <Header />
-      <main>
-        <Slot />
-      </main>
+      <Slot />
+      <ScrollToTop />
       <Footer />
     </>
   );
