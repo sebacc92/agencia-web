@@ -12,7 +12,7 @@ export interface NavigationItem {
 export default component$(() => {
   const navigationItems: NavigationItem[] = [
     { label: "Servicios", href: "#services" },
-    { label: "Nosotros", href: "/about" },
+    { label: "Nosotros", href: "#about" },
     { label: "Portafolio", href: "/portfolio" },
     { label: "Contacto", href: "/contact" }
   ];

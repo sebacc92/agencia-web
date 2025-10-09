@@ -11,11 +11,10 @@ export default component$(() => {
               <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-lg flex items-center justify-center">
                 <span class="text-white font-bold text-sm">A</span>
               </div>
-              <span class="text-xl font-bold text-gray-900">AgenciaTech</span>
+              <span class="text-xl font-bold text-gray-900">Auratica</span>
             </div>
             <p class="text-gray-600 mb-6 max-w-md">
-              Especialistas en diseño web moderno, automatizaciones con IA y marketing digital estratégico
-              para startups y empresas tecnológicas.
+              Soluciones completas de diseño web, automatizaciones con inteligencia artificial y marketing digital estratégico para impulsar tu negocio al siguiente nivel.
             </p>
             <div class="flex space-x-4">
               <a href="#" class="w-10 h-10 bg-neutral-700 rounded-lg flex items-center justify-center text-neutral-400 hover:text-white hover:bg-indigo-500 transition-all duration-300">
@@ -58,38 +57,6 @@ export default component$(() => {
 
         {/* Contact Info */}
         <div class="border-t border-gray-200 pt-8">
-          <div class="grid md:grid-cols-3 gap-8 mb-8">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <span class="text-purple-600">📍</span>
-              </div>
-              <div>
-                <p class="text-gray-900 font-medium">Ubicación</p>
-                <p class="text-gray-600 text-sm">Buenos Aires, Argentina</p>
-              </div>
-            </div>
-
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <span class="text-purple-600">📞</span>
-              </div>
-              <div>
-                <p class="text-gray-900 font-medium">Teléfono</p>
-                <p class="text-gray-600 text-sm">+54 11 1234-5678</p>
-              </div>
-            </div>
-
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <span class="text-purple-600">✉️</span>
-              </div>
-              <div>
-                <p class="text-gray-900 font-medium">Email</p>
-                <p class="text-gray-600 text-sm">hola@agenciatech.com</p>
-              </div>
-            </div>
-          </div>
-
           {/* Bottom Bar */}
           <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
             <p class="text-gray-600 text-sm mb-4 md:mb-0">

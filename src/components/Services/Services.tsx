@@ -26,7 +26,7 @@ export default component$(() => {
         </div>
 
         {/* Services Grid */}
-        <div class="grid lg:grid-cols-3 gap-6 md:gap-8 mb-24">
+        <div class="grid lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 xl:gap-16 mb-24">
           {/* Web Design Service */}
           <div class="group relative animate-fade-up" style="animation-delay: 0.1s">
             {/* Glow effect on hover */}
