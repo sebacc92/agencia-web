@@ -4,6 +4,7 @@ import Hero from "~/components/Hero/Hero";
 import Services from "~/components/Services/Services";
 import About from "~/components/About/About";
 import Portfolio from "~/components/Portfolio/Portfolio";
+import Contacto from "~/components/Contacto/Contacto";
 
 export default component$(() => {
   return (
@@ -15,6 +16,8 @@ export default component$(() => {
       <About />
 
       <Portfolio />
+
+      <Contacto />
 
     </>
   );

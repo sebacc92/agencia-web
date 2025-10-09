@@ -16,7 +16,7 @@ export default component$(() => {
 
       <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
-        <div class="text-center mb-20">
+        <div class="text-center mb-8">
           <div class="inline-block mb-4 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full">
             <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Nuestros servicios</span>
           </div>

@@ -14,7 +14,7 @@ export default component$(() => {
     { label: "Servicios", href: "#services" },
     { label: "Nosotros", href: "#about" },
     { label: "Portafolio", href: "#portfolio" },
-    { label: "Contacto", href: "/contact" }
+    { label: "Contacto", href: "#contacto" }
   ];
 
   const isMenuOpen = useSignal(false);
