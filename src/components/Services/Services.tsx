@@ -33,21 +33,26 @@ export default component$(() => {
             <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
             
             <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
-              {/* Service Icon */}
+              {/* Service Icon and Title Row */}
               <div class="mb-8">
-                <div class="relative inline-block">
-                  <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-purple-300">
-                    🌐
+                <div class="flex items-start gap-6 mb-4">
+                  <div class="relative flex-shrink-0">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-purple-300">
+                      🌐
+                    </div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full"></div>
                   </div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full"></div>
-                </div>
-              </div>
 
-              <div class="mb-6">
-                <h3 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-indigo-600 transition-all duration-300">
-                  Diseño Web
-                </h3>
+                  <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-indigo-600 transition-all duration-300 leading-tight">
+                      {"Diseño Web".split(" ").map((word, index) => (
+                        <div key={index}>{word}</div>
+                      ))}
+                    </h3>
+                  </div>
+                </div>
+
                 <p class="text-purple-700 font-medium text-base">Sitios web únicos y responsivos</p>
               </div>
 
@@ -103,21 +108,26 @@ export default component$(() => {
             <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-400 to-orange-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
             
             <div class="relative bg-white border-2 border-pink-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-pink-400">
-              {/* Service Icon */}
+              {/* Service Icon and Title Row */}
               <div class="mb-8">
-                <div class="relative inline-block">
-                  <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-pink-300">
-                    🤖
+                <div class="flex items-start gap-6 mb-4">
+                  <div class="relative flex-shrink-0">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-pink-300">
+                      🤖
+                    </div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-orange-400 rounded-full animate-ping opacity-75"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-orange-400 rounded-full"></div>
                   </div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-orange-400 rounded-full animate-ping opacity-75"></div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-orange-400 rounded-full"></div>
-                </div>
-              </div>
 
-              <div class="mb-6">
-                <h3 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-orange-600 transition-all duration-300">
-                  Inteligencia Artificial
-                </h3>
+                  <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-orange-600 transition-all duration-300 leading-tight">
+                      {"Inteligencia Artificial".split(" ").map((word, index) => (
+                        <div key={index}>{word}</div>
+                      ))}
+                    </h3>
+                  </div>
+                </div>
+
                 <p class="text-pink-700 font-medium text-base">Soluciones de IA que transforman procesos</p>
               </div>
 
@@ -161,21 +171,26 @@ export default component$(() => {
             <div class="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
             
             <div class="relative bg-white border-2 border-emerald-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-emerald-400">
-              {/* Service Icon */}
+              {/* Service Icon and Title Row */}
               <div class="mb-8">
-                <div class="relative inline-block">
-                  <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-emerald-300">
-                    📈
+                <div class="flex items-start gap-6 mb-4">
+                  <div class="relative flex-shrink-0">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-emerald-300">
+                      📈
+                    </div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full"></div>
                   </div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
-                  <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-400 rounded-full"></div>
-                </div>
-              </div>
 
-              <div class="mb-6">
-                <h3 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-cyan-600 transition-all duration-300">
-                  Marketing Digital
-                </h3>
+                  <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-cyan-600 transition-all duration-300 leading-tight">
+                      {"Marketing Digital".split(" ").map((word, index) => (
+                        <div key={index}>{word}</div>
+                      ))}
+                    </h3>
+                  </div>
+                </div>
+
                 <p class="text-emerald-700 font-medium text-base">Estrategias personalizadas que convierten</p>
               </div>
 
