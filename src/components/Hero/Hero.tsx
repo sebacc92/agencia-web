@@ -5,13 +5,13 @@ import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 
 export default component$(() => {
   return (
-    <main class="pt-32 min-h-screen flex items-center bg-gray-50">
+    <main class="pt-32 min-h-screen flex items-center bg-gray-50 border-2 border-red-200">
       {/* Subtle Background Elements */}
       <div class="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-cyan-50"></div>
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
 
-      <div class="container relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+      <div class="container relative z-10 mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content (50%) */}
           <div class="space-y-8">
@@ -31,7 +31,7 @@ export default component$(() => {
 
             {/* Subheadline */}
             <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Somos tu socio estratégico para el crecimiento digital. Usamos diseño web moderno, marketing digital con estrategia e IA para automatizar procesos.
+              Somos tu socio estratégico para el crecimiento digital. Usamos diseño web moderno y optimizado, marketing digital con estrategia basado en datos y automatizaciones con IA.
             </p>
 
             {/* CTA Button */}

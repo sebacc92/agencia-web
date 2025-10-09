@@ -3,7 +3,7 @@ import { component$ } from "@builder.io/qwik";
 export default component$(() => {
   return (
     <footer class="bg-gray-50 border-t border-gray-200">
-      <div class="container py-16">
+      <div class="container mx-auto py-16">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div class="lg:col-span-2">

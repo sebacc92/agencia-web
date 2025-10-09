@@ -1,4 +1,5 @@
 import { component$, useSignal } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { LuMenu, LuX } from "@qwikest/icons/lucide";
 import Button from "~/components/ui/button/button";
 
@@ -20,27 +21,27 @@ export default component$(() => {
 
   return (
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
-      <div class="container px-12">
-        <nav class="flex items-center justify-between h-32">
+      <div class="container px-12 mx-auto">
+        <nav class="flex items-center justify-between h-20">
           {/* Logo */}
           <div class="flex items-center space-x-12">
-            <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
               <span class="text-white font-bold text-3xl">A</span>
             </div>
-            <span class="text-5xl font-bold text-gray-900">AgenciaTech</span>
+            <span class="text-3xl font-bold text-gray-900">Auratica</span>
           </div>
 
           {/* Desktop Navigation Menu */}
-          <div class="hidden lg:flex items-center gap-6">
+          <div class="hidden lg:flex items-center gap-4">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-10 py-5 font-medium text-2xl"
+                class="text-gray-600 hover:text-purple-600 transition-all duration-300 relative group px-4 py-5 font-medium text-xl"
               >
                 {item.label}
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
+              </Link>
             ))}
           </div>
 
