@@ -55,7 +55,8 @@ export default component$(() => {
                     <img
                       src="/images/seba.jpg"
                       alt="Sebastián - CEO & Founder"
-                      class="w-full h-56 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      class="w-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      style="height: 224px;"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
@@ -74,7 +75,8 @@ export default component$(() => {
                     <img
                       src="/images/dai.jpeg"
                       alt="María - Lead Designer"
-                      class="w-full h-56 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      class="w-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      style="height: 224px;"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>

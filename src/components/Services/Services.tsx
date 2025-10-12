@@ -325,8 +325,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.9s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Entrega y Capacitación</h4>
-                    <p class="text-gray-600 text-sm">Lanzamiento formal, traspaso del control al cliente y entrenamiento para el uso de la plataforma.</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Entrega</h4>
+                    <p class="text-gray-600 text-sm">Lanzamiento formal, traspaso del control al cliente y capacitación para el uso de la plataforma.</p>
                   </div>
                 </div>
               </div>
