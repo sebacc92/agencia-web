@@ -48,7 +48,7 @@ export default component$(() => {
           {/* Desktop CTA Button */}
           <div class="hidden lg:block">
             <Button variant="neumorphic-green" size="lg">
-              Empezar
+              Empezar mi proyecto
             </Button>
           </div>
 
@@ -77,7 +77,7 @@ export default component$(() => {
               ))}
               <div class="pt-8">
                 <Button variant="neumorphic-green" size="lg" class="w-full">
-                  Empezar
+                  Empezar mi proyecto
                 </Button>
               </div>
             </div>

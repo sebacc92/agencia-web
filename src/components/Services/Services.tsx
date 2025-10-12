@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <section id="services" class="relative bg-gradient-to-br from-white via-purple-50/40 to-blue-50/30 overflow-hidden py-22">
+    <section id="services" class="relative bg-gradient-to-br from-white via-purple-50/40 to-blue-50/30 overflow-hidden pt-22">
       {/* Animated Background Elements */}
       <div class="absolute inset-0">
         {/* Grid pattern - Light version */}
@@ -83,7 +83,7 @@ export default component$(() => {
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-purple-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-purple-600/50 transition-all"></span>
-                  <span class="text-sm md:text-base">Mail corporativo (hola@mimarca.com)</span>
+                  <span class="text-sm md:text-base">Mail corporativo (minombre@dominio.com)</span>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-purple-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-purple-600/50 transition-all"></span>
@@ -133,16 +133,16 @@ export default component$(() => {
 
               <ul class="space-y-4 mb-8">
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
+                  <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.4s"></span>
+                  <span class="text-sm md:text-base">Whatsapp automático</span>
+                </li>
+                <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all"></span>
                   <span class="text-sm md:text-base">Asistentes virtuales con IA avanzada</span>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.2s"></span>
-                  <span class="text-sm md:text-base">Procesos empresariales automatizados</span>
-                </li>
-                <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                  <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.4s"></span>
-                  <span class="text-sm md:text-base">Análisis predictivo de datos empresariales</span>
+                  <span class="text-sm md:text-base">Automatización de procesos</span>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.6s"></span>
@@ -236,19 +236,19 @@ export default component$(() => {
 
           <div class="relative z-10 text-center pb-12">
             <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
-              <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Proceso de trabajo</span>
+              <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Proceso de trabajo (5 fases)</span>
             </div>
             <p class="text-lg md:text-xl text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-up" style="animation-delay: 0.3s">
-              Metodología probada que garantiza resultados excepcionales con un enfoque ágil y centrado en el cliente
+              Metodología de 5 fases que garantiza resultados excepcionales con un enfoque ágil y centrado en el cliente
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-6 relative">
               {/* Step 1 */}
               <div class="relative group animate-fade-up" style="animation-delay: 0.4s">
                 <div class="relative">
                   {/* Glow effect */}
                   <div class="absolute -inset-2 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
-                  
+
                   <div class="relative bg-white border-2 border-purple-200 rounded-2xl p-6 hover:border-purple-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="relative mb-6 inline-block">
                       <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-2 border-purple-300">
@@ -257,7 +257,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-amber-400 rounded-full animate-pulse shadow-lg"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition-colors">Descubrimiento</h4>
-                    <p class="text-gray-600 text-sm">Analizamos tu negocio y objetivos</p>
+                    <p class="text-gray-600 text-sm">Análisis de visión y objetivos del cliente.</p>
                   </div>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default component$(() => {
                 <div class="relative">
                   {/* Glow effect */}
                   <div class="absolute -inset-2 bg-gradient-to-r from-pink-400 to-orange-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
-                  
+
                   <div class="relative bg-white border-2 border-pink-200 rounded-2xl p-6 hover:border-pink-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="relative mb-6 inline-block">
                       <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-2 border-pink-300">
@@ -276,7 +276,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.3s"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Estrategia</h4>
-                    <p class="text-gray-600 text-sm">Diseñamos soluciones personalizadas</p>
+                    <p class="text-gray-600 text-sm">Diseño de soluciones personalizadas y definición del plan de acción.</p>
                   </div>
                 </div>
               </div>
@@ -286,7 +286,7 @@ export default component$(() => {
                 <div class="relative">
                   {/* Glow effect */}
                   <div class="absolute -inset-2 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
-                  
+
                   <div class="relative bg-white border-2 border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="relative mb-6 inline-block">
                       <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-2 border-emerald-300">
@@ -295,7 +295,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-cyan-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.6s"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-emerald-700 transition-colors">Implementación</h4>
-                    <p class="text-gray-600 text-sm">Desarrollamos con tecnología de vanguardia</p>
+                    <p class="text-gray-600 text-sm">Desarrollo de la solución con tecnología.</p>
                   </div>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default component$(() => {
                 <div class="relative">
                   {/* Glow effect */}
                   <div class="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
-                  
+
                   <div class="relative bg-white border-2 border-cyan-200 rounded-2xl p-6 hover:border-cyan-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="relative mb-6 inline-block">
                       <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-2 border-cyan-300">
@@ -313,8 +313,29 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.9s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Optimización</h4>
-                    <p class="text-gray-600 text-sm">Medimos y mejoramos continuamente</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Entrega y Capacitación</h4>
+                    <p class="text-gray-600 text-sm">Lanzamiento formal, traspaso del control al cliente y entrenamiento para el uso de la plataforma.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 5 */}
+              <div class="relative group animate-fade-up" style="animation-delay: 0.8s">
+                <div class="relative">
+                  {/* Glow effect */}
+                  <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
+
+                  <div class="relative bg-white border-2 border-indigo-200 rounded-2xl p-6 hover:border-indigo-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
+                    <div class="relative mb-6 inline-block">
+                      <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-2 border-indigo-300">
+                        5
+                      </div>
+                      <div class="absolute -top-2 -right-2 w-3 h-3 bg-indigo-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 1.2s"></div>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-indigo-700 transition-colors">Optimización</h4>
+                    <p class="text-gray-600 text-sm">
+                      Medición de datos, análisis de interacciones y aplicación de mejoras continuas.
+                    </p>
                   </div>
                 </div>
               </div>

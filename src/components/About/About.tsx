@@ -21,42 +21,69 @@ export default component$(() => {
         </div>
 
         {/* Main Content Section - Image Left, Content Right */}
-        <div class="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-20">
+        <div class="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start mb-20">
           {/* Text Content */}
-          <div class="animate-fade-up" style={{animationDelay: "0.2s"}}>
-            <div class="space-y-8">
+          <div class="animate-fade-up pt-8" style={{animationDelay: "0.2s"}}>
+            <div class="space-y-6">
               <div>
                 <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                  Construyo sitios web que
+                  Construimos sitios web que
                   <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> venden</span>
                 </h3>
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-                  Si tu web es lenta, pierdes clientes. Me especializo en diseño web de alto rendimiento, automatización con IA y estrategias digitales que generan resultados reales para tu negocio.
+                  Somos especialistas en diseño web de alto rendimiento, automatización con IA y estrategias digitales que generan resultados reales para tu negocio. Transformamos tu visión en soluciones tecnológicas que impulsan el crecimiento y optimizan tus operaciones.
                 </p>
               </div>
 
               <div>
                 <h4 class="text-2xl font-bold mb-4 text-gray-900">Nuestra Misión</h4>
                 <p class="text-lg text-gray-700 leading-relaxed">
-                  Ayudar a empresas, negocios, emprendedores y profesionales a incrementar su presencia digital para vender más y ahorrar tiempo automatizando procesos repetitivos. Transformamos tu visión en soluciones tecnológicas que impulsan el crecimiento y optimizan tus operaciones.
+                  Ayudar a empresas, negocios, emprendedores y profesionales a incrementar su presencia digital para vender más, ahorrar tiempo automatizando procesos repetitivos y analizar el comportamiento de los usuarios para mejorar la estrategia de ventas.
                 </p>
               </div>
 
             </div>
           </div>
-          {/* Image Section */}
-          <div class="relative group animate-fade-up" style={{animationDelay: "0.1s"}}>
-            {/* Glow effect on hover */}
-            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
+          {/* Team Images Section */}
+          <div class="animate-fade-up" style={{animationDelay: "0.1s"}}>
+            <div class="grid grid-cols-2 gap-8 max-w-lg">
+              {/* Team Members */}
+              <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
+                <div class="relative bg-white border-2 border-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-blue-400">
+                  <div class="relative overflow-hidden rounded-2xl mb-4">
+                    <img
+                      src="/images/seba.jpg"
+                      alt="Sebastián - CEO & Founder"
+                      class="w-full h-56 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                  <div class="text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-1">Sebastián</h4>
+                    <p class="text-sm text-blue-600 font-medium">Designer & Developer</p>
+                    <p class="text-xs text-gray-600 mt-1">Estrategia y Dirección</p>
+                  </div>
+                </div>
+              </div>
 
-            <div class="relative bg-white border-2 border-blue-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-blue-400">
-              <div class="relative overflow-hidden rounded-2xl">
-                <img
-                  src="/images/seba.jpg"
-                  alt="Equipo de AgenciaTech trabajando"
-                  class="w-full h-auto object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
+                <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
+                  <div class="relative overflow-hidden rounded-2xl mb-4">
+                    <img
+                      src="/images/dai.png"
+                      alt="María - Lead Designer"
+                      class="w-full h-56 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                  <div class="text-center">
+                    <h4 class="font-bold text-lg text-gray-900 mb-1">Daiana</h4>
+                    <p class="text-sm text-purple-600 font-medium">Marketing</p>
+                    <p class="text-xs text-gray-600 mt-1">UI/UX & Branding</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
