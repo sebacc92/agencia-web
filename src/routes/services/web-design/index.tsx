@@ -1,6 +1,7 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuUtensils, LuWind, LuZap } from "@qwikest/icons/lucide";
+import WorkProcess from "~/components/WorkProcess/WorkProcess";
 
 export default component$(() => {
   const activeTab = useSignal('business');
@@ -345,40 +346,7 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section class="py-20">
-        <div class="container">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-6">Proceso de desarrollo</h2>
-            <p class="text-xl text-neutral-300 max-w-3xl mx-auto">
-              Metodología probada para garantizar resultados excepcionales en cada proyecto.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-4 gap-8">
-            <div class="text-center">
-              <div class="w-16 h-16 bg-indigo-500 rounded-xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">1</div>
-              <h3 class="text-xl font-semibold mb-2">Descubrimiento</h3>
-              <p class="text-neutral-400">Analizamos tu negocio, objetivos y audiencia objetivo</p>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-pink-500 rounded-xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">2</div>
-              <h3 class="text-xl font-semibold mb-2">Diseño</h3>
-              <p class="text-neutral-400">Creamos wireframes y diseños visuales personalizados</p>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-emerald-500 rounded-xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">3</div>
-              <h3 class="text-xl font-semibold mb-2">Desarrollo</h3>
-              <p class="text-neutral-400">Construimos tu sitio con código limpio y optimizado</p>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-purple-500 rounded-xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">4</div>
-              <h3 class="text-xl font-semibold mb-2">Lanzamiento</h3>
-              <p class="text-neutral-400">Desplegamos y optimizamos para el rendimiento máximo</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WorkProcess />
 
       {/* CTA Section */}
       <section class="py-20 bg-neutral-800/50">
