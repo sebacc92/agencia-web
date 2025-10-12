@@ -85,7 +85,7 @@ export default component$(() => {
           </div>
           {activeTab.value === 'business' && (
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuSparkles class="text-3xl text-slate-700" />
                 </div>
@@ -93,7 +93,7 @@ export default component$(() => {
                   Emprendedores
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuBuilding class="text-3xl text-slate-700" />
                 </div>
@@ -101,7 +101,7 @@ export default component$(() => {
                   Empresas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuSliders class="text-3xl text-slate-700" />
                 </div>
@@ -109,7 +109,7 @@ export default component$(() => {
                   Autogestionables
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuShoppingBag class="text-3xl text-slate-700" />
                 </div>
@@ -117,7 +117,7 @@ export default component$(() => {
                   Tiendas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuHome class="text-3xl text-slate-700" />
                 </div>
@@ -125,7 +125,7 @@ export default component$(() => {
                   Inmobiliarias
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuBed class="text-3xl text-slate-700" />
                 </div>
@@ -133,7 +133,7 @@ export default component$(() => {
                   Hoteles
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuHeart class="text-3xl text-slate-700" />
                 </div>
@@ -141,7 +141,7 @@ export default component$(() => {
                   Prepagas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuBuilding2 class="text-3xl text-slate-700" />
                 </div>
@@ -149,7 +149,7 @@ export default component$(() => {
                   Pymes
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuMapPin class="text-3xl text-slate-700" />
                 </div>
@@ -157,7 +157,7 @@ export default component$(() => {
                   Barrios cerrados
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuGraduationCap class="text-3xl text-slate-700" />
                 </div>
@@ -165,7 +165,7 @@ export default component$(() => {
                   Escuelas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuUtensils class="text-3xl text-slate-700" />
                 </div>
@@ -173,7 +173,7 @@ export default component$(() => {
                   Restaurantes
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuBookOpen class="text-3xl text-slate-700" />
                 </div>
@@ -185,7 +185,7 @@ export default component$(() => {
           )}
           {activeTab.value === 'professionals' && (
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuCalculator class="text-3xl text-slate-700" />
                 </div>
@@ -193,7 +193,7 @@ export default component$(() => {
                   Contadores
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuScale class="text-3xl text-slate-700" />
                 </div>
@@ -201,7 +201,7 @@ export default component$(() => {
                   Abogados
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuHeadphones class="text-3xl text-slate-700" />
                 </div>
@@ -209,7 +209,7 @@ export default component$(() => {
                   Psicologos
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuCamera class="text-3xl text-slate-700" />
                 </div>
@@ -217,7 +217,7 @@ export default component$(() => {
                   Fotografos
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuApple class="text-3xl text-slate-700" />
                 </div>
@@ -225,7 +225,7 @@ export default component$(() => {
                   Nutricionistas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuDumbbell class="text-3xl text-slate-700" />
                 </div>
@@ -233,7 +233,7 @@ export default component$(() => {
                   Entrenadores
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuStethoscope class="text-3xl text-slate-700" />
                 </div>
@@ -241,7 +241,7 @@ export default component$(() => {
                   Medicos
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuEye class="text-3xl text-slate-700" />
                 </div>
@@ -249,7 +249,7 @@ export default component$(() => {
                   Oftamologicos
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuHeart class="text-3xl text-slate-700" />
                 </div>
@@ -257,7 +257,7 @@ export default component$(() => {
                   Odontologos
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuGlobe class="text-3xl text-slate-700" />
                 </div>
@@ -265,7 +265,7 @@ export default component$(() => {
                   Traductores
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuZap class="text-3xl text-slate-700" />
                 </div>
@@ -273,7 +273,7 @@ export default component$(() => {
                   Electricistas
                 </h3>
               </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                 <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <LuWind class="text-3xl text-slate-700" />
                 </div>
