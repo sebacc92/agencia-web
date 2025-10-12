@@ -12,9 +12,33 @@ export default component$(() => {
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
 
       <div class="container relative z-10 mx-auto py-20 px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content (50%) */}
-          <div class="space-y-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image Column - Shows first on mobile */}
+          <div class="flex justify-center lg:justify-end order-first lg:order-last">
+            <div class="relative animate-float">
+              {/* Nube voladora con movimiento sutil */}
+              <div>
+                <ImageHero
+                  alt="Panda trabajando en laptop sobre nube voladora"
+                  class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation"
+                />
+              </div>
+
+              {/* Elementos flotantes alrededor que crean movimiento dinámico */}
+              <div class="absolute -top-8 -left-8 text-2xl animate-bounce" style="animation-duration: 3s; animation-delay: 0.5s;">
+                ✨
+              </div>
+              <div class="absolute -bottom-6 -right-6 text-3xl animate-pulse" style="animation-duration: 2s; animation-delay: 1s;">
+                🚀
+              </div>
+              <div class="absolute top-1/2 -left-10 text-xl animate-float" style="animation-duration: 3.5s; animation-delay: 1.5s;">
+                ⭐
+              </div>
+            </div>
+          </div>
+
+          {/* Text Column - Shows second on mobile */}
+          <div class="space-y-8 order-last lg:order-first">
             {/* Badge */}
             {/* <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
               <span class="text-purple-700 text-sm font-medium">🚀 Diseño + desarrollo + automatizaciones + marketing + IA</span>
@@ -39,30 +63,6 @@ export default component$(() => {
               <Button variant="neumorphic-green" size="lg">
                 Reservar llamada gratis
               </Button>
-            </div>
-          </div>
-
-          {/* Right Column - Image (50%) */}
-          <div class="flex justify-center lg:justify-end">
-            <div class="relative animate-float">
-              {/* Nube voladora con movimiento sutil */}
-              <div>
-                <ImageHero
-                  alt="Panda trabajando en laptop sobre nube voladora"
-                  class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation"
-                />
-              </div>
-
-              {/* Elementos flotantes alrededor que crean movimiento dinámico */}
-              <div class="absolute -top-8 -left-8 text-2xl animate-bounce" style="animation-duration: 3s; animation-delay: 0.5s;">
-                ✨
-              </div>
-              <div class="absolute -bottom-6 -right-6 text-3xl animate-pulse" style="animation-duration: 2s; animation-delay: 1s;">
-                🚀
-              </div>
-              <div class="absolute top-1/2 -left-10 text-xl animate-float" style="animation-duration: 3.5s; animation-delay: 1.5s;">
-                ⭐
-              </div>
             </div>
           </div>
         </div>
