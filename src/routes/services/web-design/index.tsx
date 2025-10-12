@@ -1,6 +1,7 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuUtensils, LuWind, LuZap } from "@qwikest/icons/lucide";
+import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuChevronDownCircle, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuUtensils, LuWind, LuZap } from "@qwikest/icons/lucide";
+import Button from "~/components/ui/button/button";
 import WorkProcess from "~/components/WorkProcess/WorkProcess";
 
 export default component$(() => {
@@ -8,8 +9,10 @@ export default component$(() => {
   return (
     <>
       {/* Service Hero Section */}
-      <section class="pt-16 min-h-screen flex justify-center items-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-neutral-900 to-indigo-900/20"></div>
+      <main class="pt-16 min-h-screen flex justify-center items-center relative overflow-hidden">
+        {/* Subtle Background Elements */}
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-200 via-white to-cyan-50"></div>
+        <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
         
         <div class="container relative z-10">
           <div class="max-w-4xl mx-auto text-center">
@@ -17,27 +20,46 @@ export default component$(() => {
               <span class="text-indigo-400 text-sm font-medium">🌐 Servicio especializado</span>
             </div>
             
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
               Diseño Web{' '}
-              <span class="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+              <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
                 Profesional
               </span>
             </h1>
             
-            <p class="text-xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+            <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
               Creamos sitios web modernos y optimizados que no solo se ven increíbles, 
               sino que convierten visitantes en clientes leales.
             </p>
             
-            <button class="btn btn-primary px-8 py-4 text-lg">
+            <Button class="mt-8" variant="neumorphic-green" size="lg">
               Consulta Gratuita
-            </button>
+            </Button>
           </div>
         </div>
-      </section>
+        {/* Scroll Indicator */}
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <button
+            class="group cursor-pointer animate-bounce hover:scale-110 transition-all duration-300 p-2 rounded-full hover:bg-white/10"
+            onClick$={() => {
+              const servicesSection = document.getElementById('designs');
+              if (servicesSection) {
+                servicesSection.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+          >
+            <LuChevronDownCircle
+              class="w-8 h-8 text-gray-500 group-hover:text-green-500 transition-colors duration-300"
+            />
+          </button>
+        </div>
+      </main>
 
       {/* Designs Section */}
-      <section id="designs" class="py-16 bg-white">
+      <section id="designs" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-slate-700 mb-4">
@@ -50,13 +72,13 @@ export default component$(() => {
           <div class="flex justify-center mb-8 space-x-4">
             <button
               onClick$={() => activeTab.value = 'business'}
-              class={activeTab.value === 'business' ? 'bg-orange-600 text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-orange-600' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
+              class={activeTab.value === 'business' ? 'bg-[#7c3aed] text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-[#7c3aed]' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
             >
               Para Negocios
             </button>
             <button
               onClick$={() => activeTab.value = 'professionals'}
-              class={activeTab.value === 'professionals' ? 'bg-orange-600 text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-orange-600' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
+              class={activeTab.value === 'professionals' ? 'bg-[#7c3aed] text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-[#7c3aed]' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
             >
               Para Profesionales
             </button>
@@ -264,7 +286,7 @@ export default component$(() => {
           <div class="text-center">
             <Link
               href="#contact"
-              class="bg-orange-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition"
+              class="bg-[#7c3aed] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6d3aed] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition"
             >
               Consultar por otros tipos de diseños
             </Link>

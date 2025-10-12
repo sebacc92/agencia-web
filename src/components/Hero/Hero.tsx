@@ -58,11 +58,9 @@ export default component$(() => {
             </p>
 
             {/* CTA Button */}
-            <div>
-              <Button variant="neumorphic-green" size="lg">
-                Reservar llamada gratis
-              </Button>
-            </div>
+            <Button variant="neumorphic-green" size="lg">
+              Reservar llamada gratis
+            </Button>
           </div>
         </div>
       </div>
