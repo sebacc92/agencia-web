@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <section id="about" class="relative bg-gradient-to-br from-white via-blue-50/40 to-purple-50/30 overflow-hidden py-22">
+    <section id="about" class="relative bg-gradient-to-br from-white via-blue-50/40 to-purple-50/30 overflow-hidden pt-22">
       {/* Animated Background Elements */}
       <div class="absolute inset-0">
         {/* Grid pattern - Light version */}

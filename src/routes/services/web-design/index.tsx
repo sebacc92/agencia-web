@@ -294,88 +294,14 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section class="py-20 bg-neutral-800/50">
-        <div class="container mx-auto ">
-          <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 class="text-4xl font-bold mb-6">Características incluidas</h2>
-              <div class="space-y-6">
-                <div class="flex items-start space-x-4">
-                  <div class="w-8 h-8 bg-indigo-500/10 rounded-lg flex items-center justify-center mt-1">
-                    <span class="text-indigo-400">📱</span>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold mb-2">Diseño Responsivo</h3>
-                    <p class="text-neutral-400">Tu sitio se ve perfecto en todos los dispositivos, desde móviles hasta desktop.</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start space-x-4">
-                  <div class="w-8 h-8 bg-pink-500/10 rounded-lg flex items-center justify-center mt-1">
-                    <span class="text-pink-400">⚡</span>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold mb-2">Optimización de Rendimiento</h3>
-                    <p class="text-neutral-400">Sitios web ultrarrápidos que cargan en menos de 2 segundos.</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start space-x-4">
-                  <div class="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center mt-1">
-                    <span class="text-emerald-400">🔍</span>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold mb-2">SEO Optimizado</h3>
-                    <p class="text-neutral-400">Estructura y contenido optimizados para motores de búsqueda.</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start space-x-4">
-                  <div class="w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center mt-1">
-                    <span class="text-purple-400">🛡️</span>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold mb-2">Seguridad Avanzada</h3>
-                    <p class="text-neutral-400">Certificados SSL, protección contra ataques y backups automáticos.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card p-8">
-              <h3 class="text-2xl font-bold mb-6 text-center">Tecnologías utilizadas</h3>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
-                  <div class="text-2xl mb-2">⚛️</div>
-                  <div class="font-semibold">React/Next.js</div>
-                </div>
-                <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
-                  <div class="text-2xl mb-2">🎨</div>
-                  <div class="font-semibold">Tailwind CSS</div>
-                </div>
-                <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
-                  <div class="text-2xl mb-2">🚀</div>
-                  <div class="font-semibold">Vercel/Netlify</div>
-                </div>
-                <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
-                  <div class="text-2xl mb-2">📊</div>
-                  <div class="font-semibold">Google Analytics</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <WorkProcess />
 
       {/* CTA Section */}
       <section class="py-20 bg-neutral-800/50">
-        <div class="container">
+        <div class="container mx-auto ">
           <div class="card text-center p-12 max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-6">¿Listo para crear algo increíble?</h2>
-            <p class="text-xl text-neutral-300 mb-8">
+            <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
               Hablemos de tu proyecto web y cómo podemos ayudarte a alcanzar tus objetivos.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
