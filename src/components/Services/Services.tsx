@@ -92,16 +92,16 @@ export default component$(() => {
                 </li>
               </ul>
 
-              <button class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl">
-                <Link href="/services/web-design" class="text-white">
+              <Link href="/services/web-design" class="text-white">
+                <button class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl">
                   <span class="flex items-center justify-center gap-2">
                     Ver proyectos de diseño
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                   </span>
-                </Link>
-              </button>
+                </button>
+              </Link>
             </div>
           </div>
 
