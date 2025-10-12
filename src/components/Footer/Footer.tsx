@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { LuFacebook, LuTwitter, LuLinkedin, LuYoutube } from "@qwikest/icons/lucide";
 
 export default component$(() => {
@@ -37,10 +38,10 @@ export default component$(() => {
           <div>
             <h4 class="font-semibold text-gray-900 mb-4">Servicios</h4>
             <ul class="space-y-2">
-              <li><a href="/services/web-design" class="text-gray-600 hover:text-purple-600 transition-colors">Diseño Web</a></li>
-              <li><a href="/services/ai-automations" class="text-gray-600 hover:text-purple-600 transition-colors">IA & Automatización</a></li>
-              <li><a href="/services/digital-marketing" class="text-gray-600 hover:text-purple-600 transition-colors">Marketing Digital</a></li>
-              <li><a href="#services" class="text-gray-600 hover:text-purple-600 transition-colors">Consultoría</a></li>
+              <li><Link href="/services/web-design" class="text-gray-600 hover:text-purple-600 transition-colors">Diseño Web</Link></li>
+              <li><Link href="/services/ai-automations" class="text-gray-600 hover:text-purple-600 transition-colors">IA & Automatización</Link></li>
+              <li><Link href="/services/digital-marketing" class="text-gray-600 hover:text-purple-600 transition-colors">Marketing Digital</Link></li>
+              <li><Link href="#services" class="text-gray-600 hover:text-purple-600 transition-colors">Consultoría</Link></li>
             </ul>
           </div>
 
