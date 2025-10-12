@@ -5,11 +5,10 @@ import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 
 export default component$(() => {
   return (
-    <main class="pt-32 min-h-screen flex items-center bg-gray-50 border-2 border-red-200">
+    <main class="min-h-screen flex items-center bg-gray-50 border-2 border-red-200">
       {/* Subtle Background Elements */}
-      <div class="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-cyan-50"></div>
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-200 via-white to-cyan-50"></div>
+      <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
 
       <div class="container relative z-10 mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -25,13 +24,13 @@ export default component$(() => {
               </div>
 
               {/* Elementos flotantes alrededor que crean movimiento dinámico */}
-              <div class="absolute -top-8 -left-8 text-2xl animate-bounce" style="animation-duration: 3s; animation-delay: 0.5s;">
+              <div class="absolute top-8 left-30 text-2xl animate-bounce hidden md:block" style="animation-duration: 3s; animation-delay: 0.5s;">
                 ✨
               </div>
-              <div class="absolute -bottom-6 -right-6 text-3xl animate-pulse" style="animation-duration: 2s; animation-delay: 1s;">
+              <div class="absolute bottom-10 right-20 text-3xl animate-pulse hidden md:block" style="animation-duration: 2s; animation-delay: 1s;">
                 🚀
               </div>
-              <div class="absolute top-1/2 -left-10 text-xl animate-float" style="animation-duration: 3.5s; animation-delay: 1.5s;">
+              <div class="absolute top-1/2 left-10 text-xl animate-float hidden md:block" style="animation-duration: 3.5s; animation-delay: 1.5s;">
                 ⭐
               </div>
             </div>
