@@ -1,11 +1,13 @@
-import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { component$, useSignal } from "@builder.io/qwik";
+import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuUtensils, LuWind, LuZap } from "@qwikest/icons/lucide";
 
 export default component$(() => {
+  const activeTab = useSignal('business');
   return (
     <>
       {/* Service Hero Section */}
-      <section class="pt-16 min-h-screen flex items-center relative overflow-hidden">
+      <section class="pt-16 min-h-screen flex justify-center items-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-neutral-900 to-indigo-900/20"></div>
         
         <div class="container relative z-10">
@@ -33,140 +35,245 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* Service Types Section */}
-      <section class="py-20">
-        <div class="container">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-6">Tipos de proyectos web</h2>
-            <p class="text-xl text-neutral-300 max-w-3xl mx-auto">
-              Especializados en diferentes tipos de sitios web según las necesidades de tu negocio.
+      {/* Designs Section */}
+      <section id="designs" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-700 mb-4">
+              Tipos de Diseño Web
+            </h2>
+            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
+              Elige el tipo de sitio web según las necesidades de tu negocio o marca personal.
             </p>
           </div>
-
-          <div class="grid lg:grid-cols-3 gap-8">
-            {/* Portfolio Sites */}
-            <div class="card group">
-              <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl">
-                  🎨
+          <div class="flex justify-center mb-8 space-x-4">
+            <button
+              onClick$={() => activeTab.value = 'business'}
+              class={activeTab.value === 'business' ? 'bg-orange-600 text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-orange-600' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
+            >
+              Para Negocios
+            </button>
+            <button
+              onClick$={() => activeTab.value = 'professionals'}
+              class={activeTab.value === 'professionals' ? 'bg-orange-600 text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-orange-600' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
+            >
+              Para Profesionales
+            </button>
+          </div>
+          {activeTab.value === 'business' && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuSparkles class="text-3xl text-slate-700" />
                 </div>
-                <h3 class="text-2xl font-bold mb-2">Portafolios Profesionales</h3>
-                <p class="text-neutral-400">Para creativos y freelancers</p>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Emprendedores
+                </h3>
               </div>
-              
-              <ul class="space-y-3 mb-8 text-neutral-300">
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>
-                  Diseño personalizado único
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>
-                  Galería de proyectos optimizada
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>
-                  Integración con redes sociales
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>
-                  SEO para mayor visibilidad
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>
-                  Blog integrado opcional
-                </li>
-              </ul>
-              
-              <div class="text-center">
-                <p class="text-2xl font-bold text-indigo-400 mb-2">Desde $800</p>
-                <p class="text-neutral-400 text-sm">Tiempo de entrega: 2-3 semanas</p>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuBuilding class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Empresas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuSliders class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Autogestionables
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuShoppingBag class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Tiendas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuHome class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Inmobiliarias
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuBed class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Hoteles
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuHeart class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Prepagas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuBuilding2 class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Pymes
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuMapPin class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Barrios cerrados
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuGraduationCap class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Escuelas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuUtensils class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Restaurantes
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuBookOpen class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Cursos
+                </h3>
               </div>
             </div>
-
-            {/* Business Websites */}
-            <div class="card group">
-              <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl">
-                  🏢
+          )}
+          {activeTab.value === 'professionals' && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuCalculator class="text-3xl text-slate-700" />
                 </div>
-                <h3 class="text-2xl font-bold mb-2">Sitios Web Corporativos</h3>
-                <p class="text-neutral-400">Para empresas y negocios</p>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Contadores
+                </h3>
               </div>
-              
-              <ul class="space-y-3 mb-8 text-neutral-300">
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                  Diseño profesional corporativo
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                  Páginas de servicios detalladas
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                  Formularios de contacto avanzados
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                  Integración con CRM
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-3"></span>
-                  Analytics y seguimiento
-                </li>
-              </ul>
-              
-              <div class="text-center">
-                <p class="text-2xl font-bold text-pink-400 mb-2">Desde $1,200</p>
-                <p class="text-neutral-400 text-sm">Tiempo de entrega: 3-4 semanas</p>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuScale class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Abogados
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuHeadphones class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Psicologos
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuCamera class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Fotografos
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuApple class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Nutricionistas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuDumbbell class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Entrenadores
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuStethoscope class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Medicos
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuEye class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Oftamologicos
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuHeart class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Odontologos
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuGlobe class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Traductores
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuZap class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Electricistas
+                </h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-shadow duration-200 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)]">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <LuWind class="text-3xl text-slate-700" />
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                  Tecnicos
+                </h3>
               </div>
             </div>
-
-            {/* Web Portals */}
-            <div class="card group">
-              <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl">
-                  🚪
-                </div>
-                <h3 class="text-2xl font-bold mb-2">Portales Web</h3>
-                <p class="text-neutral-400">Plataformas complejas personalizadas</p>
-              </div>
-              
-              <ul class="space-y-3 mb-8 text-neutral-300">
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-                  Arquitectura escalable
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-                  Sistemas de gestión de usuarios
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-                  Bases de datos complejas
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-                  APIs personalizadas
-                </li>
-                <li class="flex items-center">
-                  <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-                  Panel de administración
-                </li>
-              </ul>
-              
-              <div class="text-center">
-                <p class="text-2xl font-bold text-emerald-400 mb-2">Desde $2,500</p>
-                <p class="text-neutral-400 text-sm">Tiempo de entrega: 6-8 semanas</p>
-              </div>
-            </div>
+          )}
+          <div class="text-center">
+            <Link
+              href="#contact"
+              class="bg-orange-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition"
+            >
+              Consultar por otros tipos de diseños
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
       <section class="py-20 bg-neutral-800/50">
-        <div class="container">
+        <div class="container mx-auto ">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 class="text-4xl font-bold mb-6">Características incluidas</h2>
