@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import Button from "~/components/ui/button/button";
 
 export default component$(() => {
     return (
@@ -31,9 +32,31 @@ export default component$(() => {
                     </p>
                 </div>
 
-                {/* Contact Form Section */}
-                <div class="max-w-2xl mx-auto">
-                    <div class="animate-fade-up" style={{ animationDelay: "0.2s" }}>
+                {/* Contact Section - Two Column Layout on Desktop */}
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    {/* Left Column - Contact Info Blocks (Desktop) */}
+                    <div class="animate-fade-up order-2 lg:order-1" style={{ animationDelay: "0.2s" }}>
+                        <div class="space-y-6">
+                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-3xl mb-3">📧</div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
+                                <p class="text-gray-600 text-sm">hola@auratica.com</p>
+                            </div>
+                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-3xl mb-3">📱</div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Teléfono</h4>
+                                <p class="text-gray-600 text-sm">+54 11 1234-5678</p>
+                            </div>
+                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-3xl mb-3">⏰</div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Respuesta</h4>
+                                <p class="text-gray-600 text-sm">En 24 horas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column - Contact Form */}
+                    <div class="animate-fade-up order-1 lg:order-2 lg:max-w-none lg:mx-0" style={{ animationDelay: "0.3s" }}>
                         <div class="relative">
                             {/* Background decorative element */}
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
@@ -98,37 +121,16 @@ export default component$(() => {
 
                                     {/* Submit Button */}
                                     <div class="text-center pt-4">
-                                        <button
+                                        <Button
                                             type="submit"
                                             class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                                         >
                                             <span class="mr-2">🚀</span>
                                             Enviar Mensaje
-                                        </button>
+                                        </Button>
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Additional Contact Info */}
-                <div class="mt-16 text-center animate-fade-up" style={{ animationDelay: "0.4s" }}>
-                    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                            <div class="text-3xl mb-3">📧</div>
-                            <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
-                            <p class="text-gray-600 text-sm">hola@auratica.com</p>
-                        </div>
-                        <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                            <div class="text-3xl mb-3">📱</div>
-                            <h4 class="font-semibold text-gray-900 mb-2">Teléfono</h4>
-                            <p class="text-gray-600 text-sm">+54 11 1234-5678</p>
-                        </div>
-                        <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                            <div class="text-3xl mb-3">⏰</div>
-                            <h4 class="font-semibold text-gray-900 mb-2">Respuesta</h4>
-                            <p class="text-gray-600 text-sm">En 24 horas</p>
                         </div>
                     </div>
                 </div>

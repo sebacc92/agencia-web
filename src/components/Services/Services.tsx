@@ -269,7 +269,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-amber-400 rounded-full animate-pulse shadow-lg"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition-colors">Descubrimiento</h4>
-                    <p class="text-gray-600 text-sm">Análisis de visión y objetivos del cliente.</p>
+                    <p class="text-gray-600 text-sm">Analizamos tu negocio o marca personal. Conectamos visión y objetivos.</p>
                   </div>
                 </div>
               </div>
@@ -287,8 +287,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.3s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Estrategia</h4>
-                    <p class="text-gray-600 text-sm">Diseño de soluciones personalizadas y definición del plan de acción.</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Diseño</h4>
+                    <p class="text-gray-600 text-sm">Diseñamos soluciones personalizadas.</p>
                   </div>
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.9s"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Entrega</h4>
-                    <p class="text-gray-600 text-sm">Lanzamiento formal, traspaso del control al cliente y capacitación para el uso de la plataforma.</p>
+                    <p class="text-gray-600 text-sm">Desplegamos y optimizamos para el rendimiento máximo</p>
                   </div>
                 </div>
               </div>

@@ -4,32 +4,6 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <>
-      {/* Navigation Header */}
-      <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-900/80 backdrop-blur-lg border-b border-white/10">
-        <div class="container">
-          <nav class="flex items-center justify-between h-16">
-            <div class="flex items-center space-x-2">
-              <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <span class="text-white font-bold text-sm">A</span>
-              </div>
-              <span class="text-xl font-bold text-white">AgenciaTech</span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-              <a href="/" class="text-neutral-300 hover:text-white transition-colors">Inicio</a>
-              <a href="/#services" class="text-indigo-400">Servicios</a>
-              <a href="/about" class="text-neutral-300 hover:text-white transition-colors">Nosotros</a>
-              <a href="/portfolio" class="text-neutral-300 hover:text-white transition-colors">Portafolio</a>
-              <a href="/contact" class="text-neutral-300 hover:text-white transition-colors">Contacto</a>
-            </div>
-            
-            <button class="btn btn-primary text-sm px-4 py-2">
-              Empezar
-            </button>
-          </nav>
-        </div>
-      </header>
-
       {/* Service Hero Section */}
       <section class="pt-16 min-h-screen flex items-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-neutral-900 to-indigo-900/20"></div>
@@ -48,7 +22,7 @@ export default component$(() => {
             </h1>
             
             <p class="text-xl text-neutral-300 mb-8 max-w-3xl mx-auto">
-              Creamos sitios web modernos, responsivos y optimizados que no solo se ven increíbles, 
+              Creamos sitios web modernos y optimizados que no solo se ven increíbles, 
               sino que convierten visitantes en clientes leales.
             </p>
             
@@ -318,49 +292,6 @@ export default component$(() => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer class="bg-neutral-800 border-t border-white/10">
-        <div class="container py-16">
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            <div class="lg:col-span-2">
-              <div class="flex items-center space-x-2 mb-4">
-                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white font-bold text-sm">A</span>
-                </div>
-                <span class="text-xl font-bold text-white">AgenciaTech</span>
-              </div>
-              <p class="text-neutral-300 mb-6 max-w-md">
-                Especialistas en diseño web moderno, automatizaciones con IA y marketing digital estratégico.
-              </p>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-white mb-4">Servicios</h4>
-              <ul class="space-y-2">
-                <li><a href="/services/web-design" class="text-indigo-400">Diseño Web</a></li>
-                <li><a href="/services/ai-automations" class="text-neutral-400 hover:text-white transition-colors">IA & Automatización</a></li>
-                <li><a href="/services/digital-marketing" class="text-neutral-400 hover:text-white transition-colors">Marketing Digital</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-white mb-4">Empresa</h4>
-              <ul class="space-y-2">
-                <li><a href="/about" class="text-neutral-400 hover:text-white transition-colors">Sobre Nosotros</a></li>
-                <li><a href="/portfolio" class="text-neutral-400 hover:text-white transition-colors">Portafolio</a></li>
-                <li><a href="/contact" class="text-neutral-400 hover:text-white transition-colors">Contacto</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-            <p class="text-neutral-400 text-sm mb-4 md:mb-0">
-              © 2024 AgenciaTech. Todos los derechos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 });
