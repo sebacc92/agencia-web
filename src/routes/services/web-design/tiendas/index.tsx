@@ -17,18 +17,18 @@ export default component$(() => {
           <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
               <LuSparkles class="w-4 h-4 text-purple-600 mr-2" />
-              <span class="text-purple-600 text-sm font-medium">🚀 Para Emprendedores</span>
+              <span class="text-purple-600 text-sm font-medium">🚀 Para Tiendas</span>
             </div>
 
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
               Sitios Web para{' '}
               <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Emprendedores
+                Tiendas Online Profesionales
               </span>
             </h1>
 
             <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Lleva tu emprendimiento al siguiente nivel con un sitio web profesional que convierta visitantes en clientes y refleje la esencia de tu marca.
+              Vende online las 24 horas. Plataforma de e-commerce segura, rápida y optimizada para maximizar tus conversiones.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">

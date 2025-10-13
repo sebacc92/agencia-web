@@ -24,12 +24,14 @@ export default component$(() => {
       <div class="container px-12 mx-auto">
         <nav class="flex items-center justify-between h-20">
           {/* Logo */}
-          <div class="flex items-center space-x-12">
-            <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-              <span class="text-white font-bold text-3xl">A</span>
+          <Link href="/" class="no-underline">
+            <div class="flex items-center space-x-12">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-3xl">A</span>
+              </div>
+              <span class="text-3xl font-bold text-gray-900">Auratica</span>
             </div>
-            <span class="text-3xl font-bold text-gray-900">Auratica</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation Menu */}
           <div class="hidden lg:flex items-center gap-4">

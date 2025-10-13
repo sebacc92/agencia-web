@@ -51,7 +51,7 @@ export default component$(() => {
             <div class="space-y-6">
               <div>
                 <h2 class="text-3xl font-bold text-slate-700 mb-4">
-                  ¿Cómo se desarrolla un Sitio Web para Emprendedores?
+                  ¿Cómo se desarrolla un Sitio Web para empresas?
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">
                   Un sitio web para emprendedores es una solución completa que combina diseño atractivo con funcionalidades esenciales para hacer crecer tu negocio de manera sostenible.
@@ -303,15 +303,15 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Sitios Web para Emprendedores - AgenciaTech | Diseño Web Profesional",
+  title: "Sitios Web para Empresas - AgenciaTech | Diseño Web Profesional",
   meta: [
     {
       name: "description",
-      content: "Sitios web profesionales diseñados especialmente para emprendedores. Landing pages, sitios corporativos y tiendas online con precios especiales y asesoría personalizada.",
+      content: "Sitios web profesionales diseñados especialmente para empresas. Landing pages, sitios corporativos y tiendas online con precios especiales y asesoría personalizada.",
     },
     {
       name: "keywords",
-      content: "sitios web emprendedores, diseño web startups, landing pages, sitios corporativos emprendedores, tiendas online pequeñas",
+      content: "sitios web empresas, diseño web startups, landing pages, sitios corporativos empresas, tiendas online pequeñas",
     },
   ],
 };

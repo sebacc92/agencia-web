@@ -28,7 +28,7 @@ export default component$(() => {
             </h1>
 
             <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Lleva tu emprendimiento al siguiente nivel con un sitio web profesional que convierta visitantes en clientes y refleje la esencia de tu marca.
+              Fortalece tu presencia digital con una plataforma profesional que refleje la solidez y confiabilidad de tu organización.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
