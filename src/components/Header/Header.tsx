@@ -20,7 +20,7 @@ export default component$(() => {
   const isMenuOpen = useSignal(false);
 
   return (
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.12)]">
       <div class="container px-12 mx-auto">
         <nav class="flex items-center justify-between h-20">
           {/* Logo */}
