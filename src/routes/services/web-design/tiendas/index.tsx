@@ -23,7 +23,7 @@ export default component$(() => {
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
               Sitios Web para{' '}
               <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Tiendas Online Profesionales
+                Inmobiliarias
               </span>
             </h1>
 

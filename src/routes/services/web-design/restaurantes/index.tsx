@@ -17,13 +17,13 @@ export default component$(() => {
           <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
               <LuSparkles class="w-4 h-4 text-purple-600 mr-2" />
-              <span class="text-purple-600 text-sm font-medium">🚀 Para Emprendedores</span>
+              <span class="text-purple-600 text-sm font-medium">🚀 Para Restaurantes</span>
             </div>
 
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
               Sitios Web para{' '}
               <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Emprendedores
+                Restaurantes
               </span>
             </h1>
 
