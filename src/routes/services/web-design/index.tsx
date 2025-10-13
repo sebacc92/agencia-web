@@ -95,94 +95,116 @@ export default component$(() => {
                   </h3>
                 </div>
               </Link>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuBuilding class="text-3xl text-slate-700" />
+              <Link href="/services/web-design/empresas">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuBuilding class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Empresas
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Empresas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuSliders class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/autogestionables">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuSliders class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Autogestionables
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Autogestionables
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuShoppingBag class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/tiendas">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuShoppingBag class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Tiendas
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Tiendas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuHome class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/inmobiliarias">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuHome class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Inmobiliarias
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Inmobiliarias
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuBed class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/hoteles">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuBed class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Hoteles
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Hoteles
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuHeart class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/prepagas">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuHeart class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Prepagas
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Prepagas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuBuilding2 class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/pymes">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuBuilding2 class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Pymes
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Pymes
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuMapPin class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/barrios-cerrados">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuMapPin class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Barrios cerrados
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Barrios cerrados
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuGraduationCap class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/escuelas">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuGraduationCap class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Escuelas
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Escuelas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuUtensils class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/restaurantes">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuUtensils class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Restaurantes
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Restaurantes
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuBookOpen class="text-3xl text-slate-700" />
+              </Link>
+              <Link href="/services/web-design/cursos">
+                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
+                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LuBookOpen class="text-3xl text-slate-700" />
+                  </div>
+                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
+                    Cursos
+                  </h3>
                 </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Cursos
-                </h3>
-              </div>
+              </Link>
             </div>
           )}
           {activeTab.value === 'professionals' && (
