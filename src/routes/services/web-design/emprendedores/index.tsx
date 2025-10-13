@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { LuSparkles, LuTrendingUp, LuUsers, LuTarget, LuRocket, LuCheckCircle, LuArrowRight, LuStar, LuZap, LuHeart, LuLightbulb, LuBarChart3 } from "@qwikest/icons/lucide";
+import { LuSparkles, LuRocket, LuCheckCircle, LuArrowRight, LuStar, LuZap, LuHeart, LuLightbulb, LuBarChart3, LuTrendingUp, LuUsers, LuTarget, LuAward, LuClock, LuHeadphones, LuShield, LuCreditCard } from "@qwikest/icons/lucide";
 import Button from "~/components/ui/button/button";
 import WorkProcess from "~/components/WorkProcess/WorkProcess";
 
@@ -43,135 +43,174 @@ export default component$(() => {
         </div>
       </main>
 
-      {/* Features Section */}
+      {/* Development Process Section */}
       <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-700 mb-4">
-              ¿Por qué necesitas un sitio web profesional?
-            </h2>
-            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
-              En el mundo digital actual, tu sitio web es tu tarjeta de presentación y tu mejor vendedor 24/7.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuTrendingUp class="w-8 h-8 text-white" />
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Pricing and Features */}
+            <div class="space-y-6">
+              <div>
+                <h2 class="text-3xl font-bold text-slate-700 mb-4">
+                  ¿Cómo se desarrolla un Sitio Web para Emprendedores?
+                </h2>
+                <p class="text-lg text-slate-600 mb-8">
+                  Un sitio web para emprendedores es una solución completa que combina diseño atractivo con funcionalidades esenciales para hacer crecer tu negocio de manera sostenible.
+                </p>
               </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Aumenta tu Credibilidad</h3>
-              <p class="text-slate-600">
-                Un sitio web profesional genera confianza y muestra que tu emprendimiento es serio y establecido.
-              </p>
+
+              {/* Pricing Card */}
+              <div class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+                <div class="text-center mb-6">
+                  <div class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-sm font-medium mb-4">
+                    Precios especiales hasta el 31 de octubre
+                  </div>
+                  <div class="mb-4">
+                    <span class="text-2xl font-bold">Desde</span>
+                  </div>
+                  <div class="mb-6">
+                    <span class="text-5xl font-bold">$150.000</span>
+                  </div>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Dominio web GRATIS por 1 año</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Hosting incluido</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Diseño 100% personalizado</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Contenido estratégico</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Botón de WhatsApp</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Conexión con redes sociales</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Optimización para móviles</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Email corporativo personalizado</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Certificado de seguridad SSL</span>
+                  </div>
+                  <div class="flex items-center">
+                    <LuCheckCircle class="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span class="text-sm">Soporte técnico prioritario</span>
+                  </div>
+                </div>
+
+                {/* Payment Methods */}
+                <div class="text-center">
+                  <p class="text-sm mb-4 text-white/80">Medios de pago aceptados</p>
+                  <div class="flex justify-center items-center space-x-4">
+                    <div class="w-8 h-6 bg-white/20 rounded flex items-center justify-center">
+                      <LuCreditCard class="w-4 h-4" />
+                    </div>
+                    <div class="text-xs text-white/60">Transferencia</div>
+                    <div class="text-xs text-white/60">/ Depósito</div>
+                  </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                  <Button variant="secondary" class="w-full bg-white text-purple-600 hover:bg-white/90">
+                    Consultar Ahora
+                  </Button>
+                </div>
+              </div>
             </div>
 
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuUsers class="w-8 h-8 text-white" />
-              </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Llega a Más Clientes</h3>
-              <p class="text-slate-600">
-                Expande tu alcance más allá de las redes sociales y crea una presencia online sólida.
-              </p>
-            </div>
+            {/* Right Column - Features Grid */}
+            <div class="space-y-6">
+              <h3 class="text-2xl font-semibold text-slate-700 mb-6">¿Por qué elegir nuestros sitios web?</h3>
 
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuTarget class="w-8 h-8 text-white" />
-              </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Convierte Más Ventas</h3>
-              <p class="text-slate-600">
-                Un sitio optimizado convierte visitantes en clientes reales con llamadas a la acción efectivas.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuTrendingUp class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Crecimiento</h4>
+                  <p class="text-sm text-slate-600">
+                    Diseñado para escalar junto a tu emprendimiento
+                  </p>
+                </div>
 
-      {/* Services Section */}
-      <section class="py-20 bg-gradient-to-r from-purple-50 to-pink-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-700 mb-4">
-              Servicios Especializados para Emprendedores
-            </h2>
-            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
-              Diseños web pensados específicamente para las necesidades y presupuesto de emprendedores.
-            </p>
-          </div>
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuUsers class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Audiencia</h4>
+                  <p class="text-sm text-slate-600">
+                    Conecta con tus clientes ideales las 24 horas
+                  </p>
+                </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl p-8 shadow-lg border border-purple-100">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                <LuRocket class="w-6 h-6 text-white" />
-              </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-3">Landing Pages</h3>
-              <p class="text-slate-600 mb-4">
-                Páginas de aterrizaje optimizadas para captar leads y convertir visitantes en clientes potenciales.
-              </p>
-              <ul class="text-sm text-slate-500 space-y-2">
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Diseño responsivo
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Formularios de contacto
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Integración con redes sociales
-                </li>
-              </ul>
-            </div>
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuTarget class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Conversión</h4>
+                  <p class="text-sm text-slate-600">
+                    Convierte visitantes en clientes reales
+                  </p>
+                </div>
 
-            <div class="bg-white rounded-xl p-8 shadow-lg border border-purple-100">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                <LuStar class="w-6 h-6 text-white" />
-              </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-3">Sitios Corporativos</h3>
-              <p class="text-slate-600 mb-4">
-                Presencia web profesional que refleja la identidad y valores de tu emprendimiento.
-              </p>
-              <ul class="text-sm text-slate-500 space-y-2">
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Múltiples páginas
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Portfolio de productos/servicios
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Blog integrado
-                </li>
-              </ul>
-            </div>
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuAward class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Profesionalismo</h4>
+                  <p class="text-sm text-slate-600">
+                    Proyecta una imagen seria y confiable
+                  </p>
+                </div>
 
-            <div class="bg-white rounded-xl p-8 shadow-lg border border-purple-100">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                <LuZap class="w-6 h-6 text-white" />
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuClock class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Rapidez</h4>
+                  <p class="text-sm text-slate-600">
+                    Sitio web listo en 7-10 días hábiles
+                  </p>
+                </div>
+
+                <div class="text-center p-4 rounded-xl bg-purple-50 border border-purple-100">
+                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <LuHeadphones class="w-6 h-6 text-white" />
+                  </div>
+                  <h4 class="font-semibold text-slate-700 mb-2">Soporte</h4>
+                  <p class="text-sm text-slate-600">
+                    Asistencia técnica durante 3 meses
+                  </p>
+                </div>
               </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-3">Tiendas Online</h3>
-              <p class="text-slate-600 mb-4">
-                Plataformas de e-commerce completas para vender tus productos las 24 horas del día.
-              </p>
-              <ul class="text-sm text-slate-500 space-y-2">
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Catálogo de productos
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Carrito de compras
-                </li>
-                <li class="flex items-center">
-                  <LuCheckCircle class="w-4 h-4 text-green-500 mr-2" />
-                  Procesamiento de pagos
-                </li>
-              </ul>
+
+              {/* Guarantee Section */}
+              <div class="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+                <div class="flex items-center mb-3">
+                  <LuShield class="w-6 h-6 text-green-600 mr-2" />
+                  <h4 class="font-semibold text-slate-700">Garantía de Satisfacción</h4>
+                </div>
+                <p class="text-sm text-slate-600">
+                  AgenciaTech es una empresa consolidada con más de 5 años de experiencia. Te brindamos respaldo profesional y garantía de calidad en cada proyecto, asegurando que tu inversión genere resultados concretos para tu emprendimiento.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -191,8 +230,8 @@ export default component$(() => {
                     <LuHeart class="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h3 class="text-lg font-semibold text-slate-700 mb-1">Precios Especiales</h3>
-                    <p class="text-slate-600">Paquetes diseñados específicamente para emprendedores con presupuestos ajustados.</p>
+                    <h3 class="text-lg font-semibold text-slate-700 mb-1">Mantenimiento</h3>
+                    <p class="text-slate-600">Actualizamos la página para mantener un rendimiento óptimo.</p>
                   </div>
                 </div>
 
