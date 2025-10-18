@@ -11,7 +11,7 @@ export default component$(() => {
       <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
 
       <div class="container relative z-10 mx-auto py-20 px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 items-center">
           {/* Image Column - Shows first on mobile */}
           <div class="flex justify-center lg:justify-end order-first lg:order-last">
             <div class="relative animate-float">
