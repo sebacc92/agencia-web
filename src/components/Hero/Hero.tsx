@@ -48,8 +48,8 @@ export default component$(() => {
               Agencia de {' '}
               <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
                 Diseño Web
-              </span>{', '}
-              Marketing Digital e IA.
+              </span>{' '}
+              y automatización con IA.
             </h1>
 
             {/* Subheadline */}

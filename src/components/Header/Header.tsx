@@ -29,7 +29,6 @@ export default component$(() => {
               <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
                 <span class="text-white font-bold text-3xl">A</span>
               </div>
-              <span class="text-3xl font-bold text-gray-900">Auratica</span>
             </div>
           </Link>
 
