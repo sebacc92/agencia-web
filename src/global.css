@@ -654,3 +654,35 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary-light);
 }
+
+
+.button-menu {
+  display: flex;
+  flex-direction: column;
+  width: 1.78rem;
+  height: 1.78rem;
+  border: 0;
+  background: transparent;
+  gap: .5rem;
+}
+
+.button-menu > div {
+  background-color: black;
+  height: 2px;
+  width: 100%;
+  border-radius: 5px;
+  transition: all .5s;
+  transform-origin: left;
+}
+
+.button-menu[aria-expanded="true"] div:first-child {
+  transform: rotate(45deg);
+}
+
+.button-menu[aria-expanded="true"] div:nth-child(2) {
+  opacity: 0;
+}
+
+.button-menu[aria-expanded="true"] div:last-child {
+  transform: rotate(-45deg);
+}

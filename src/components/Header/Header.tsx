@@ -1,6 +1,5 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { LuMenu, LuX } from "@qwikest/icons/lucide";
 import Button from "~/components/ui/button/button";
 
 export interface NavigationItem {
@@ -53,13 +52,20 @@ export default component$(() => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            class="lg:hidden p-5 text-gray-600 hover:text-purple-600 transition-colors duration-300"
-            onClick$={() => isMenuOpen.value = !isMenuOpen.value}
-          >
-            {isMenuOpen.value ? <LuX class="w-12 h-12" /> : <LuMenu class="w-12 h-12" />}
-          </button>
+          {/* <!-- Menú desplegable (mobile) --> */}
+          <div class="block lg:hidden mr-4">
+            <button
+              class="flex justify-center items-center button-menu"
+              type="button"
+              aria-expanded={isMenuOpen.value}
+              aria-label="Toggle navigation"
+              onClick$={() => isMenuOpen.value = !isMenuOpen.value}
+            >
+              <div />
+              <div />
+              <div />
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}
