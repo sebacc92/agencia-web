@@ -25,7 +25,7 @@ export default component$(() => {
               <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Proceso de trabajo</span>
             </div>
             <p class="text-lg md:text-xl text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-up" style="animation-delay: 0.3s">
-              Metodología de 5 fases que garantiza resultados excepcionales con un enfoque ágil y centrado en el cliente
+              De la idea al éxito en 5 pasos
             </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-6 relative">
@@ -42,8 +42,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-amber-400 rounded-full animate-pulse shadow-lg"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition-colors">Descubrimiento</h4>
-                    <p class="text-gray-600 text-sm">Analizamos tu negocio o marca personal. Conectamos visión y objetivos.</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition-colors">Consulta Inicial</h4>
+                    <p class="text-gray-600 text-sm">Conversamos sobre tu negocio, objetivos y necesidades específicas.</p>
                   </div>
                 </div>
               </div>
@@ -61,8 +61,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.3s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Diseño</h4>
-                    <p class="text-gray-600 text-sm">Diseñamos soluciones personalizadas.</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Estrategia</h4>
+                    <p class="text-gray-600 text-sm">Diseñamos un plan personalizado con soluciones a medida para ti.</p>
                   </div>
                 </div>
               </div>
@@ -80,8 +80,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-cyan-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.6s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-emerald-700 transition-colors">Implementación</h4>
-                    <p class="text-gray-600 text-sm">Desarrollo de la solución con tecnología.</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-emerald-700 transition-colors">Desarrollo</h4>
+                    <p class="text-gray-600 text-sm">Creamos tu presencia digital con las mejores prácticas y tecnología.</p>
                   </div>
                 </div>
               </div>
@@ -99,8 +99,8 @@ export default component$(() => {
                       </div>
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.9s"></div>
                     </div>
-                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Entrega</h4>
-                    <p class="text-gray-600 text-sm">Desplegamos y optimizamos para el rendimiento máximo</p>
+                    <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">Lanzamiento</h4>
+                    <p class="text-gray-600 text-sm">Publicamos tu proyecto y te damos soporte continuo para crecer.</p>
                   </div>
                 </div>
               </div>

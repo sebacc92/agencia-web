@@ -22,7 +22,7 @@ export default component$(() => {
             <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Nuestros servicios</span>
           </div>
           <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Desarrollamos soluciones digitales innovadoras que transforman tu presencia online y aceleran el crecimiento de tu negocio.
+            Todo lo que necesitas para hacer crecer tu negocio online.
           </p>
         </div>
 

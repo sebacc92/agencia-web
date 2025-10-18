@@ -38,7 +38,7 @@ export default component$(() => {
               <div>
                 <h4 class="text-2xl font-bold mb-4 text-gray-900">Nuestra Misión</h4>
                 <p class="text-lg text-gray-700 leading-relaxed">
-                  Ayudar a empresas, negocios, emprendedores y profesionales a incrementar su presencia digital para vender más, ahorrar tiempo automatizando procesos repetitivos y analizar el comportamiento de sus usuarios para mejorar la estrategia de ventas.
+                  Ayudar a empresas, negocios, emprendedores y profesionales a incrementar su presencia digital para vender más, ahorrar tiempo automatizando procesos repetitivos y analizar el comportamiento de sus usuarios para mejorar su estrategia de ventas.
                 </p>
               </div>
 

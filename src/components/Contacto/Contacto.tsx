@@ -40,12 +40,12 @@ export default component$(() => {
                             <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
                                 <div class="text-3xl mb-3">📧</div>
                                 <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
-                                <p class="text-gray-600 text-sm">hola@auratica.com</p>
+                                <p class="text-gray-600 text-sm">sebastiancardoso92@gmail.com</p>
                             </div>
                             <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
                                 <div class="text-3xl mb-3">📱</div>
                                 <h4 class="font-semibold text-gray-900 mb-2">Teléfono</h4>
-                                <p class="text-gray-600 text-sm">+54 11 1234-5678</p>
+                                <p class="text-gray-600 text-sm">+54 11 2389-5482</p>
                             </div>
                             <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
                                 <div class="text-3xl mb-3">⏰</div>
