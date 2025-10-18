@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 
@@ -9,6 +9,19 @@ export interface NavigationItem {
 }
 
 export default component$(() => {
+  useStylesScoped$(`
+    @keyframes slideInItem {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  `);
+
   const navigationItems: NavigationItem[] = [
     { label: "Servicios", href: "#services" },
     { label: "Nosotros", href: "#about" },
@@ -52,7 +65,7 @@ export default component$(() => {
             </Button>
           </div>
 
-          {/* <!-- Menú desplegable (mobile) --> */}
+          {/* Menú desplegable (mobile) */}
           <div class="block lg:hidden mr-4">
             <button
               class="flex justify-center items-center button-menu"
@@ -68,28 +81,44 @@ export default component$(() => {
           </div>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Overlay oscuro para cerrar el menú */}
         {isMenuOpen.value && (
-          <div class="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-lg">
-            <div class="px-12 py-12 space-y-10">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  class="block text-gray-600 hover:text-purple-600 transition-colors duration-300 text-2xl font-medium py-5 border-b border-gray-100"
-                  onClick$={() => isMenuOpen.value = false}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <div class="pt-8">
-                <Button variant="neumorphic-green" size="lg" class="w-full">
-                  Empezar mi proyecto
-                </Button>
-              </div>
+          <div
+            class="fixed top-20 left-0 right-0 bg-black/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 z-40"
+            style={{ height: 'calc(100vh - 80px)' }}
+            onClick$={() => isMenuOpen.value = false}
+          />
+        )}
+
+        {/* Mobile Menu - Desliza desde la derecha */}
+        <div
+          class={`fixed top-20 right-0 w-80 bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-in-out z-50 ${
+            isMenuOpen.value ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          style={{ height: 'calc(100vh - 80px)' }}
+        >
+          <div class="px-8 py-8 space-y-6 h-full overflow-y-auto">
+            {navigationItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                class="block text-gray-700 hover:text-purple-600 transition-all duration-300 text-xl font-medium py-4 border-b border-gray-100 hover:pl-2"
+                style={{ 
+                  animation: isMenuOpen.value ? `slideInItem 0.3s ease-out ${index * 0.1}s forwards` : 'none',
+                  opacity: isMenuOpen.value ? '1' : '0'
+                }}
+                onClick$={() => isMenuOpen.value = false}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div class="pt-6">
+              <Button variant="neumorphic-green" size="lg" class="w-full">
+                Empezar mi proyecto
+              </Button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
