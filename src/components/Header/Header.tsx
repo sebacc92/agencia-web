@@ -33,7 +33,7 @@ export default component$(() => {
 
   return (
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.12)]">
-      <div class="container px-12 mx-auto">
+      <div class="container px-4 mx-auto">
         <nav class="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" class="no-underline">
@@ -98,19 +98,15 @@ export default component$(() => {
           style={{ height: 'calc(100vh - 80px)' }}
         >
           <div class="px-8 py-8 space-y-6 h-full overflow-y-auto">
-            {navigationItems.map((item, index) => (
-              <a
+            {navigationItems.map(item => (
+              <Link
                 key={item.href}
                 href={item.href}
                 class="block text-gray-700 hover:text-purple-600 transition-all duration-300 text-xl font-medium py-4 border-b border-gray-100 hover:pl-2"
-                style={{ 
-                  animation: isMenuOpen.value ? `slideInItem 0.3s ease-out ${index * 0.1}s forwards` : 'none',
-                  opacity: isMenuOpen.value ? '1' : '0'
-                }}
                 onClick$={() => isMenuOpen.value = false}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div class="pt-6">
               <Button variant="neumorphic-green" size="lg" class="w-full">
