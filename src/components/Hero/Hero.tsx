@@ -37,7 +37,7 @@ export default component$(() => {
           </div>
 
           {/* Text Column - Shows second on mobile */}
-          <div class="space-y-8 order-last lg:order-first">
+          <div class="space-y-8 order-last lg:order-first text-center lg:text-left">
             {/* Badge */}
             {/* <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
               <span class="text-purple-700 text-sm font-medium">🚀 Diseño + desarrollo + automatizaciones + marketing + IA</span>
@@ -53,14 +53,16 @@ export default component$(() => {
             </h1>
 
             {/* Subheadline */}
-            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
+            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Somos tu socio estratégico para el crecimiento digital. Usamos diseño web moderno y optimizado, marketing digital con estrategia basado en datos y automatizaciones con IA.
             </p>
 
             {/* CTA Button */}
-            <Button variant="neumorphic-green" size="lg">
-              Reservar llamada gratis
-            </Button>
+            <div class="flex justify-center lg:justify-start">
+              <Button variant="neumorphic-green" size="lg">
+                Reservar llamada gratis
+              </Button>
+            </div>
           </div>
         </div>
       </div>
