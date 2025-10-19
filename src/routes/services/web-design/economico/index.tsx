@@ -21,14 +21,14 @@ export default component$(() => {
             </div>
 
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-              Sitios Web para{' '}
+              Sitio Web {' '}
               <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Emprendedores
+                Económico
               </span>
             </h1>
 
             <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Fortalece tu presencia digital con una plataforma profesional que refleje la solidez y confiabilidad de tu organización.
+              <strong>¿Necesitás presencia web pero no querés gastar una fortuna?</strong> Nuestro Diseño Web Económico es perfecto para vos. Es una página web de una sola hoja donde tus clientes encuentran todo lo que necesitan con solo deslizar hacia abajo: quién sos, qué ofrecés, cómo contactarte. Simple, efectivo y profesional.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">

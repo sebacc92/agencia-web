@@ -47,14 +47,12 @@ export default component$(() => {
 
                   <div class="flex-1">
                     <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-indigo-600 transition-all duration-300 leading-tight">
-                      {"Diseño Web".split(" ").map((word, index) => (
-                        <div key={index}>{word}</div>
-                      ))}
+                      Desarrollo Web
                     </h3>
                   </div>
                 </div>
 
-                <p class="text-purple-700 font-medium text-base">Sitios web únicos y responsivos</p>
+                <p class="text-purple-700 font-medium text-base">Creamos sitios web únicos, atractivos y optimizados</p>
               </div>
 
               <ul class="space-y-4 mb-8">
@@ -95,7 +93,7 @@ export default component$(() => {
               <Link href="/services/web-design" class="text-white">
                 <button class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl">
                   <span class="flex items-center justify-center gap-2">
-                    Ver proyectos de diseño
+                    Ver planes y precios
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>

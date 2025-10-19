@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { LuFacebook, LuInstagram, LuLinkedin, LuYoutube } from "@qwikest/icons/lucide";
+import { LuInstagram, LuLinkedin, LuYoutube } from "@qwikest/icons/lucide";
+import { BsTiktok } from "@qwikest/icons/bootstrap";
 
 export default component$(() => {
   return (
@@ -26,7 +27,7 @@ export default component$(() => {
                  <LuYoutube class="w-5 h-5" />
                </a>
                <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
-                 <LuFacebook class="w-5 h-5" />
+                 <BsTiktok class="w-5 h-5"/>                 
                </a>
                <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
                  <LuInstagram class="w-5 h-5" />

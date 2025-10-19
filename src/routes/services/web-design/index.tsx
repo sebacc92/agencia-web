@@ -85,13 +85,13 @@ export default component$(() => {
           </div>
           {activeTab.value === 'business' && (
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-              <Link href="/services/web-design/emprendedores">
+              <Link href="/services/web-design/economico">
                 <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
                   <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <LuSparkles class="text-3xl text-slate-700" />
                   </div>
                   <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Emprendedores
+                    Económico
                   </h3>
                 </div>
               </Link>

@@ -15,7 +15,7 @@ export default component$(() => {
         <div class="container mx-auto py-20 px-4 sm:px-6 lg:px-8 w-full">
           <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 items-center">
             {/* Image Column - Shows first on mobile */}
-            <div class="flex justify-center lg:justify-end order-first lg:order-last lg:mb-0">
+            <div class="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mb-0">
               <div class="relative animate-float max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                 {/* Nube voladora con movimiento sutil */}
                 <div>
@@ -49,14 +49,14 @@ export default component$(() => {
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
                 Agencia de {' '}
                 <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  Diseño Web
-                </span>{' '}
-                y automatización con IA.
+                  Desarrollo Web
+                </span>{', '}
+                IA y Marketing Digital.
               </h1>
 
               {/* Subheadline */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Somos tu socio estratégico para el crecimiento digital. Usamos diseño web moderno y optimizado, marketing digital con estrategia basado en datos y automatizaciones con IA.
+                Somos tu socio estratégico para el crecimiento digital. Trabajamos con desarrollo web moderno y optimizado, automatizaciones con IA y marketing digital con estrategia basado en datos.
               </p>
 
               {/* CTA Button */}
