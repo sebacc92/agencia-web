@@ -46,7 +46,7 @@ export default component$(() => {
           </div>
           {/* Team Images Section */}
           <div class="animate-fade-up" style={{animationDelay: "0.1s"}}>
-            <div class="grid grid-cols-2 gap-2 lg:gap-8 max-w-lg">
+            <div class="grid md:grid-cols-2 gap-2 lg:gap-8 max-w-lg">
               {/* Team Members */}
               <div class="relative group rounded-3xl">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
@@ -56,7 +56,7 @@ export default component$(() => {
                       src="/images/seba.jpg"
                       alt="Sebastián - CEO & Founder"
                       class="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
-                      style="height: 224px;"
+                      style={{height: "350px"}}
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
@@ -75,8 +75,8 @@ export default component$(() => {
                     <img
                       src="/images/dai.jpeg"
                       alt="María - Lead Designer"
-                      class="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
-                      style="height: 224px;"
+                      class="w-full object-cover object-top rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
+                      style={{height: "350px"}}
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>

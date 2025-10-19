@@ -1,7 +1,70 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStore, useSignal, $ } from "@builder.io/qwik";
 import Button from "~/components/ui/button/button";
+import emailjs from '@emailjs/browser';
 
 export default component$(() => {
+    const formData = useStore({
+        nombre: "",
+        email: "",
+        telefono: "",
+        tipoNegocio: "",
+        servicio: "",
+        proyecto: ""
+    });
+    const isSubmitted = useSignal(false);
+    const loading = useSignal(false);
+    const error = useSignal<string | null>(null);
+
+    const handleSubmit$ = $(async () => {
+        loading.value = true;
+        error.value = null;
+
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+            error.value = 'Faltan credenciales de EmailJS';
+            loading.value = false;
+            return;
+        }
+
+        try {
+            await emailjs.send(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                {
+                    from_name: formData.nombre,
+                    from_email: formData.email,
+                    telefono: formData.telefono,
+                    tipo_negocio: formData.tipoNegocio,
+                    servicio: formData.servicio,
+                    proyecto: formData.proyecto,
+                },
+                PUBLIC_KEY
+            );
+
+            isSubmitted.value = true;
+            // Reset form
+            formData.nombre = "";
+            formData.email = "";
+            formData.telefono = "";
+            formData.tipoNegocio = "";
+            formData.servicio = "";
+            formData.proyecto = "";
+
+            // Reset success message after 5 seconds
+            setTimeout(() => {
+                isSubmitted.value = false;
+            }, 5000);
+
+        } catch (err: any) {
+            error.value = 'Error al enviar: ' + (err?.message || 'Desconocido');
+        } finally {
+            loading.value = false;
+        }
+    });
+
     return (
         <section id="contacto" class="relative bg-gradient-to-br from-white via-emerald-50/40 to-cyan-50/30 overflow-hidden py-22">
             {/* Animated Background Elements */}
@@ -41,7 +104,7 @@ export default component$(() => {
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
 
                             <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
-                                <form class="space-y-6">
+                                <form preventdefault:submit onSubmit$={handleSubmit$} class="space-y-6">
                                     {/* Nombre y Email en dos columnas */}
                                     <div class="grid md:grid-cols-2 gap-6">
                                         {/* Nombre */}
@@ -53,8 +116,12 @@ export default component$(() => {
                                                 type="text"
                                                 id="nombre"
                                                 name="nombre"
-                                                placeholder="Tu nombre"
+                                                placeholder="mejorar la estrategia de"
+                                                value={formData.nombre}
+                                                onInput$={(e) => (formData.nombre = (e.target as HTMLInputElement).value)}
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                                required
+                                                disabled={loading.value}
                                             />
                                         </div>
 
@@ -68,7 +135,11 @@ export default component$(() => {
                                                 id="email"
                                                 name="email"
                                                 placeholder="tu@email.com"
+                                                value={formData.email}
+                                                onInput$={(e) => (formData.email = (e.target as HTMLInputElement).value)}
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                                required
+                                                disabled={loading.value}
                                             />
                                         </div>
                                     </div>
@@ -84,8 +155,11 @@ export default component$(() => {
                                                 type="tel"
                                                 id="telefono"
                                                 name="telefono"
-                                                placeholder="+54 11 1234 5678"
+                                                placeholder="+34 600 000 000"
+                                                value={formData.telefono}
+                                                onInput$={(e) => (formData.telefono = (e.target as HTMLInputElement).value)}
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                                disabled={loading.value}
                                             />
                                         </div>
 
@@ -97,14 +171,17 @@ export default component$(() => {
                                             <select
                                                 id="tipo-negocio"
                                                 name="tipo-negocio"
+                                                value={formData.tipoNegocio}
+                                                onChange$={(e) => (formData.tipoNegocio = (e.target as HTMLSelectElement).value)}
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                                required
+                                                disabled={loading.value}
                                             >
                                                 <option value="">Selecciona una opción</option>
-                                                <option value="small">Pequeño negocio</option>
-                                                <option value="emprendedor">Emprendedor</option>
-                                                <option value="profesional">Profesional independiente</option>
                                                 <option value="startup">Startup</option>
+                                                <option value="pyme">PyME</option>
                                                 <option value="empresa">Empresa</option>
+                                                <option value="emprendedor">Emprendedor</option>
                                                 <option value="otro">Otro</option>
                                             </select>
                                         </div>
@@ -118,13 +195,16 @@ export default component$(() => {
                                         <select
                                             id="servicio"
                                             name="servicio"
+                                            value={formData.servicio}
+                                            onChange$={(e) => (formData.servicio = (e.target as HTMLSelectElement).value)}
                                             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                            required
+                                            disabled={loading.value}
                                         >
                                             <option value="">Selecciona un servicio</option>
                                             <option value="web-design">Diseño Web</option>
                                             <option value="marketing">Marketing Digital</option>
                                             <option value="automatizaciones">Automatizaciones con IA</option>
-                                            <option value="all">Todos los servicios</option>
                                             <option value="otro">Otro</option>
                                         </select>
                                     </div>
@@ -139,7 +219,10 @@ export default component$(() => {
                                             name="proyecto"
                                             rows={5}
                                             placeholder="¿Qué necesitas? ¿Cuáles son tus objetivos?"
+                                            value={formData.proyecto}
+                                            onInput$={(e) => (formData.proyecto = (e.target as HTMLTextAreaElement).value)}
                                             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm resize-none"
+                                            disabled={loading.value}
                                         ></textarea>
                                     </div>
 
@@ -147,12 +230,40 @@ export default component$(() => {
                                     <div class="text-center pt-4">
                                         <Button
                                             type="submit"
-                                            class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                                            class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            disabled={loading.value}
                                         >
-                                            <span class="mr-2">🚀</span>
-                                            Solicitar Consulta Gratis
+                                            {loading.value ? (
+                                                <>
+                                                    <span class="mr-2">⏳</span>
+                                                    Enviando...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <span class="mr-2">🚀</span>
+                                                    Solicitar Consulta Gratis
+                                                </>
+                                            )}
                                         </Button>
                                     </div>
+
+                                    {/* Success Message */}
+                                    {isSubmitted.value && (
+                                        <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                            <p class="text-green-700 text-center font-medium">
+                                                ¡Mensaje enviado correctamente! Te responderé pronto.
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Error Message */}
+                                    {error.value && (
+                                        <div class="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                            <p class="text-red-700 text-center font-medium">
+                                                {error.value}
+                                            </p>
+                                        </div>
+                                    )}
 
                                     {/* Security message */}
                                     <div class="text-center text-sm text-gray-600 mt-4">

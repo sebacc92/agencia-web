@@ -25,10 +25,10 @@ export default component$(() => {
               <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Proceso de trabajo</span>
             </div>
             <p class="text-lg md:text-xl text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-up" style="animation-delay: 0.3s">
-              De la idea al éxito en 5 pasos
+              De la idea al éxito en 4 pasos
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-6 relative">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative">
               {/* Step 1 */}
               <div class="relative group animate-fade-up" style="animation-delay: 0.4s">
                 <div class="relative">
@@ -62,7 +62,7 @@ export default component$(() => {
                       <div class="absolute -top-2 -right-2 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.3s"></div>
                     </div>
                     <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition-colors">Estrategia</h4>
-                    <p class="text-gray-600 text-sm">Diseñamos un plan personalizado con soluciones a medida para ti.</p>
+                    <p class="text-gray-600 text-sm">Diseñamos un plan personalizado con soluciones a medida para vos.</p>
                   </div>
                 </div>
               </div>
@@ -106,9 +106,8 @@ export default component$(() => {
               </div>
 
               {/* Step 5 */}
-              <div class="relative group animate-fade-up" style="animation-delay: 0.8s">
+              {/* <div class="relative group animate-fade-up" style="animation-delay: 0.8s">
                 <div class="relative">
-                  {/* Glow effect */}
                   <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"></div>
 
                   <div class="relative bg-white border-2 border-indigo-200 rounded-2xl p-6 hover:border-indigo-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
@@ -124,7 +123,7 @@ export default component$(() => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -25,6 +25,7 @@
   "devDependencies": {
     "@builder.io/qwik": "^1.16.1",
     "@builder.io/qwik-city": "^1.16.1",
+    "@emailjs/browser": "^4.4.1",
     "@eslint/js": "latest",
     "@qwikest/icons": "^0.0.13",
     "@tailwindcss/vite": "^4.1.4",

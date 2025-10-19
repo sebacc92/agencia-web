@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { LuFacebook, LuTwitter, LuLinkedin, LuYoutube } from "@qwikest/icons/lucide";
+import { LuFacebook, LuInstagram, LuLinkedin, LuYoutube } from "@qwikest/icons/lucide";
 
 export default component$(() => {
   return (
@@ -20,16 +20,16 @@ export default component$(() => {
             </p>
             <div class="flex space-x-4">
                <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
-                 <LuFacebook class="w-5 h-5" />
-               </a>
-               <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
-                 <LuTwitter class="w-5 h-5" />
-               </a>
-               <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
                  <LuLinkedin class="w-5 h-5" />
                </a>
                <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
                  <LuYoutube class="w-5 h-5" />
+               </a>
+               <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
+                 <LuFacebook class="w-5 h-5" />
+               </a>
+               <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
+                 <LuInstagram class="w-5 h-5" />
                </a>
              </div>
           </div>
@@ -39,8 +39,8 @@ export default component$(() => {
             <h4 class="font-semibold text-gray-900 mb-4">Servicios</h4>
             <ul class="space-y-2">
               <li><Link href="/services/web-design" class="text-gray-600 hover:text-purple-600 transition-colors">Diseño Web</Link></li>
-              <li><Link href="/services/ai-automations" class="text-gray-600 hover:text-purple-600 transition-colors">IA & Automatización</Link></li>
-              <li><Link href="/services/digital-marketing" class="text-gray-600 hover:text-purple-600 transition-colors">Marketing Digital</Link></li>
+              <li><Link href="#" class="text-gray-600 hover:text-purple-600 transition-colors">IA & Automatización</Link></li>
+              <li><Link href="#" class="text-gray-600 hover:text-purple-600 transition-colors">Marketing Digital</Link></li>
               <li><Link href="#services" class="text-gray-600 hover:text-purple-600 transition-colors">Consultoría</Link></li>
             </ul>
           </div>
@@ -49,10 +49,10 @@ export default component$(() => {
           <div>
             <h4 class="font-semibold text-gray-900 mb-4">Empresa</h4>
             <ul class="space-y-2">
-              <li><a href="/about" class="text-gray-600 hover:text-purple-600 transition-colors">Sobre Nosotros</a></li>
-              <li><a href="/portfolio" class="text-gray-600 hover:text-purple-600 transition-colors">Portafolio</a></li>
-              <li><a href="/blog" class="text-gray-600 hover:text-purple-600 transition-colors">Blog</a></li>
-              <li><a href="/contact" class="text-gray-600 hover:text-purple-600 transition-colors">Contacto</a></li>
+              <li><a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">Sobre Nosotros</a></li>
+              <li><a href="#portfolio" class="text-gray-600 hover:text-purple-600 transition-colors">Portafolio</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">Blog</a></li>
+              <li><a href="#contacto" class="text-gray-600 hover:text-purple-600 transition-colors">Contacto</a></li>
             </ul>
           </div>
         </div>
@@ -61,10 +61,10 @@ export default component$(() => {
         <div class="pt-8">
           {/* Bottom Bar */}
           <div class="pt-8 border-t border-gray-200 text-center">
-            <p class="text-gray-600 text-sm mb-4 md:mb-0">
+            <p class="text-gray-600 text-sm mb-4">
               Hecho con ❤️ para ayudar a tu negocio a crecer
             </p>
-            <p class="text-gray-600 text-sm mb-4 md:mb-0">
+            <p class="text-gray-600 text-sm">
               © 2025 AgenciaTech. Todos los derechos reservados.
             </p>
           </div>
