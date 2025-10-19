@@ -5,7 +5,7 @@ import { LuFacebook, LuTwitter, LuLinkedin, LuYoutube } from "@qwikest/icons/luc
 export default component$(() => {
   return (
     <footer class="bg-gray-50 border-t border-gray-200">
-      <div class="container mx-auto py-16">
+      <div class="container mx-auto px-4 py-16">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div class="lg:col-span-2">
@@ -13,7 +13,7 @@ export default component$(() => {
               <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-lg flex items-center justify-center">
                 <span class="text-white font-bold text-sm">A</span>
               </div>
-              <span class="text-xl font-bold text-gray-900">Auratica</span>
+              <an class="text-xl font-bold text-gray-900">Auratica</an>
             </div>
             <p class="text-gray-600 mb-6 max-w-md">
               Soluciones completas de diseño web, automatizaciones con inteligencia artificial y marketing digital estratégico para impulsar tu negocio al siguiente nivel.
@@ -58,16 +58,15 @@ export default component$(() => {
         </div>
 
         {/* Contact Info */}
-        <div class="border-t border-gray-200 pt-8">
+        <div class="pt-8">
           {/* Bottom Bar */}
-          <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
+          <div class="pt-8 border-t border-gray-200 text-center">
             <p class="text-gray-600 text-sm mb-4 md:mb-0">
-              © 2024 AgenciaTech. Todos los derechos reservados.
+              Hecho con ❤️ para ayudar a tu negocio a crecer
             </p>
-            <div class="flex space-x-6">
-              <a href="#" class="text-gray-600 hover:text-purple-600 text-sm transition-colors">Política de Privacidad</a>
-              <a href="#" class="text-gray-600 hover:text-purple-600 text-sm transition-colors">Términos de Servicio</a>
-            </div>
+            <p class="text-gray-600 text-sm mb-4 md:mb-0">
+              © 2025 AgenciaTech. Todos los derechos reservados.
+            </p>
           </div>
         </div>
       </div>

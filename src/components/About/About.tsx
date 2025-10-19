@@ -46,16 +46,16 @@ export default component$(() => {
           </div>
           {/* Team Images Section */}
           <div class="animate-fade-up" style={{animationDelay: "0.1s"}}>
-            <div class="grid grid-cols-2 gap-8 max-w-lg">
+            <div class="grid grid-cols-2 gap-2 lg:gap-8 max-w-lg">
               {/* Team Members */}
-              <div class="relative group">
+              <div class="relative group rounded-3xl">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
-                <div class="relative bg-white border-2 border-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-blue-400">
-                  <div class="relative overflow-hidden rounded-2xl mb-4">
+                <div class="relative bg-white border-2 border-blue-200 rounded-3xl pb-4 lg:p-4 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-blue-400">
+                  <div class="relative overflow-hidden rounded-t-2xl mb-4">
                     <img
                       src="/images/seba.jpg"
                       alt="Sebastián - CEO & Founder"
-                      class="w-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      class="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                       style="height: 224px;"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -68,14 +68,14 @@ export default component$(() => {
                 </div>
               </div>
 
-              <div class="relative group">
+              <div class="relative group rounded-3xl">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl"></div>
-                <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
-                  <div class="relative overflow-hidden rounded-2xl mb-4">
+                <div class="relative bg-white border-2 border-purple-200 rounded-3xl pb-4 lg:p-4 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
+                  <div class="relative overflow-hidden rounded-t-2xl mb-4">
                     <img
                       src="/images/dai.jpeg"
                       alt="María - Lead Designer"
-                      class="w-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                      class="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                       style="height: 224px;"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

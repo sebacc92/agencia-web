@@ -24,97 +24,121 @@ export default component$(() => {
 
                     <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                         ¿Listo para
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> empezar</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> Crecer</span>
                         ?
                     </h3>
                     <p class="text-lg md:text-xl text-gray-700 mt-4 max-w-2xl mx-auto">
-                        Cuéntanos sobre tu proyecto y trabajemos juntos para llevar tu visión al siguiente nivel
+                        Contanos sobre tu proyecto y descubre cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
                     </p>
                 </div>
 
-                {/* Contact Section - Two Column Layout on Desktop */}
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Left Column - Contact Info Blocks (Desktop) */}
-                    <div class="animate-fade-up order-2 lg:order-1" style={{ animationDelay: "0.2s" }}>
-                        <div class="space-y-6">
-                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                                <div class="text-3xl mb-3">📧</div>
-                                <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
-                                <p class="text-gray-600 text-sm">sebastiancardoso92@gmail.com</p>
-                            </div>
-                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                                <div class="text-3xl mb-3">📱</div>
-                                <h4 class="font-semibold text-gray-900 mb-2">Teléfono</h4>
-                                <p class="text-gray-600 text-sm">+54 11 2389-5482</p>
-                            </div>
-                            <div class="bg-white/60 backdrop-blur-sm border border-emerald-200 rounded-2xl p-6 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-                                <div class="text-3xl mb-3">⏰</div>
-                                <h4 class="font-semibold text-gray-900 mb-2">Respuesta</h4>
-                                <p class="text-gray-600 text-sm">En 24 horas</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column - Contact Form */}
-                    <div class="animate-fade-up order-1 lg:order-2 lg:max-w-none lg:mx-0" style={{ animationDelay: "0.3s" }}>
+                {/* Contact Section - Single Column Layout */}
+                <div class="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center max-w-3xl mx-auto">
+                    {/* Contact Form */}
+                    <div class="animate-fade-up lg:max-w-none lg:mx-0" style={{ animationDelay: "0.3s" }}>
                         <div class="relative">
                             {/* Background decorative element */}
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
 
                             <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
                                 <form class="space-y-6">
-                                    {/* Nombre */}
-                                    <div>
-                                        <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">
-                                            Nombre completo
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="nombre"
-                                            name="nombre"
-                                            placeholder="Tu nombre completo"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
-                                        />
+                                    {/* Nombre y Email en dos columnas */}
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        {/* Nombre */}
+                                        <div>
+                                            <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">
+                                                Nombre completo *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="nombre"
+                                                name="nombre"
+                                                placeholder="Tu nombre"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                            />
+                                        </div>
+
+                                        {/* Email */}
+                                        <div>
+                                            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">
+                                                Correo electrónico *
+                                            </label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                placeholder="tu@email.com"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                            />
+                                        </div>
                                     </div>
 
-                                    {/* Email */}
-                                    <div>
-                                        <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">
-                                            Correo electrónico
-                                        </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            placeholder="tu@email.com"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
-                                        />
+                                    {/* Teléfono y Tipo de negocio en dos columnas */}
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        {/* Teléfono (opcional) */}
+                                        <div>
+                                            <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">
+                                                Teléfono (opcional)
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                id="telefono"
+                                                name="telefono"
+                                                placeholder="+54 11 1234 5678"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                            />
+                                        </div>
+
+                                        {/* Tipo de negocio */}
+                                        <div>
+                                            <label for="tipo-negocio" class="block text-sm font-semibold text-gray-900 mb-2">
+                                                Tipo de negocio *
+                                            </label>
+                                            <select
+                                                id="tipo-negocio"
+                                                name="tipo-negocio"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                                            >
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="small">Pequeño negocio</option>
+                                                <option value="emprendedor">Emprendedor</option>
+                                                <option value="profesional">Profesional independiente</option>
+                                                <option value="startup">Startup</option>
+                                                <option value="empresa">Empresa</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    {/* Teléfono */}
+                                    {/* ¿Qué servicio te interesa más? */}
                                     <div>
-                                        <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">
-                                            Teléfono
+                                        <label for="servicio" class="block text-sm font-semibold text-gray-900 mb-2">
+                                            ¿Qué servicio te interesa más? *
                                         </label>
-                                        <input
-                                            type="tel"
-                                            id="telefono"
-                                            name="telefono"
-                                            placeholder="+54 11 1234-5678"
+                                        <select
+                                            id="servicio"
+                                            name="servicio"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm"
-                                        />
+                                        >
+                                            <option value="">Selecciona un servicio</option>
+                                            <option value="web-design">Diseño Web</option>
+                                            <option value="marketing">Marketing Digital</option>
+                                            <option value="automatizaciones">Automatizaciones con IA</option>
+                                            <option value="all">Todos los servicios</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
                                     </div>
 
-                                    {/* Mensaje */}
+                                    {/* Cuéntanos sobre tu proyecto */}
                                     <div>
-                                        <label for="mensaje" class="block text-sm font-semibold text-gray-900 mb-2">
-                                            Mensaje
+                                        <label for="proyecto" class="block text-sm font-semibold text-gray-900 mb-2">
+                                            Cuéntanos sobre tu proyecto (opcional)
                                         </label>
                                         <textarea
-                                            id="mensaje"
-                                            name="mensaje"
+                                            id="proyecto"
+                                            name="proyecto"
                                             rows={5}
-                                            placeholder="Cuéntanos sobre tu proyecto..."
+                                            placeholder="¿Qué necesitas? ¿Cuáles son tus objetivos?"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 bg-white/50 backdrop-blur-sm resize-none"
                                         ></textarea>
                                     </div>
@@ -126,8 +150,13 @@ export default component$(() => {
                                             class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                                         >
                                             <span class="mr-2">🚀</span>
-                                            Enviar Mensaje
+                                            Solicitar Consulta Gratis
                                         </Button>
+                                    </div>
+
+                                    {/* Security message */}
+                                    <div class="text-center text-sm text-gray-600 mt-4">
+                                        <span>🔒 Tu información está segura y nunca será compartida</span>
                                     </div>
                                 </form>
                             </div>
