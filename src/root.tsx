@@ -1,7 +1,6 @@
 import { component$, isDev } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
-// import Chatbot from "./components/chatbot/chatbot";
 
 import "./global.css";
 
@@ -23,10 +22,9 @@ export default component$(() => {
             href={`${import.meta.env.BASE_URL}manifest.json`}
           />
         )}
-        {/* {!isDev && (
+        {!isDev && (
           <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        )} */}
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        )}
         <RouterHead />
       </head>
       <body lang="en">
