@@ -1,8 +1,35 @@
-import { component$, useStore, useSignal, $ } from "@builder.io/qwik";
+import { component$, useStore, useSignal, $, useStylesScoped$ } from "@builder.io/qwik";
 import Button from "~/components/ui/button/button";
 import emailjs from '@emailjs/browser';
 
 export default component$(() => {
+    useStylesScoped$(`
+      @keyframes gradient {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .animate-gradient {
+        background-size: 200% auto;
+        animation: gradient 3s ease infinite;
+      }
+
+      .card {
+        padding: 2rem;
+        border-radius: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          padding: 1.5rem;
+        }
+      }
+    `);
+
     const formData = useStore({
         nombre: "",
         email: "",

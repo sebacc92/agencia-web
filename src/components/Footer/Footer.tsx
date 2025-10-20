@@ -14,7 +14,7 @@ export default component$(() => {
               <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-lg flex items-center justify-center">
                 <span class="text-white font-bold text-sm">A</span>
               </div>
-              <an class="text-xl font-bold text-gray-900">Auratica</an>
+              <an class="text-xl font-bold text-gray-900">Cleverisma</an>
             </div>
             <p class="text-gray-600 mb-6 max-w-md">
               Soluciones completas de diseño web, automatizaciones con inteligencia artificial y marketing digital estratégico para impulsar tu negocio al siguiente nivel.
