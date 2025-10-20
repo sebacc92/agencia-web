@@ -1,6 +1,8 @@
-import { component$, useStore, useSignal, $, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStore, useSignal, $, useStylesScoped$, useVisibleTask$, isDev } from "@builder.io/qwik";
 import Button from "~/components/ui/button/button";
 import emailjs from '@emailjs/browser';
+
+declare const grecaptcha: any;
 
 export default component$(() => {
     useStylesScoped$(`
@@ -42,6 +44,40 @@ export default component$(() => {
     const loading = useSignal(false);
     const error = useSignal<string | null>(null);
 
+    // Signals para reCAPTCHA v2
+    const recaptchaRef = useSignal<Element>();
+    const recaptchaToken = useSignal<string | null>(null);
+
+    // Hook para renderizar reCAPTCHA cuando el componente es visible
+    useVisibleTask$(({ track }) => {
+        if(isDev) return; // No cargar reCAPTCHA en desarrollo
+        // Asegúrate de que la referencia al div esté lista
+        track(() => recaptchaRef.value);
+
+        const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY_V2; // Asegúrate que esta sea tu clave v2
+        
+        if (!RECAPTCHA_SITE_KEY) {
+            console.error('Falta VITE_RECAPTCHA_SITE_KEY_V2 en .env');
+            return;
+        }
+
+        // Comprueba si grecaptcha está cargado y si el div existe
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.render && recaptchaRef.value) {
+            grecaptcha.render(recaptchaRef.value, {
+                'sitekey': RECAPTCHA_SITE_KEY,
+                'callback': (token: string) => {
+                    // Guarda el token cuando el usuario completa el desafío
+                    recaptchaToken.value = token;
+                    error.value = null; // Limpia el error si lo había
+                },
+                'expired-callback': () => {
+                    // Limpia el token si expira
+                    recaptchaToken.value = null;
+                }
+            });
+        }
+    });
+
     const handleSubmit$ = $(async () => {
         loading.value = true;
         error.value = null;
@@ -67,6 +103,7 @@ export default component$(() => {
                     tipo_negocio: formData.tipoNegocio,
                     servicio: formData.servicio,
                     proyecto: formData.proyecto,
+                    'g-recaptcha-response': recaptchaToken.value
                 },
                 PUBLIC_KEY
             );
@@ -79,6 +116,12 @@ export default component$(() => {
             formData.tipoNegocio = "";
             formData.servicio = "";
             formData.proyecto = "";
+
+            // Resetear reCAPTCHA después del envío
+            if (typeof grecaptcha !== 'undefined') {
+                grecaptcha.reset();
+            }
+            recaptchaToken.value = null;
 
             // Reset success message after 5 seconds
             setTimeout(() => {
@@ -252,6 +295,13 @@ export default component$(() => {
                                             disabled={loading.value}
                                         ></textarea>
                                     </div>
+
+                                    {/* ESTE ES EL DIV PARA reCAPTCHA v2 */}
+                                    {!isDev && (
+                                        <div class="flex justify-center pt-4">
+                                            <div ref={recaptchaRef}></div>
+                                        </div>
+                                    )}
 
                                     {/* Submit Button */}
                                     <div class="text-center pt-4">
