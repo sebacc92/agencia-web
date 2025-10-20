@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuChevronDownCircle, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuTarget, LuTrendingUp, LuUsers, LuUtensils, LuWind, LuZap } from "@qwikest/icons/lucide";
+import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuChevronDownCircle, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuTarget, LuTrendingUp, LuUsers, LuUtensils, LuWind, LuZap, LuAward, LuClock, LuShield } from "@qwikest/icons/lucide";
 import Button from "~/components/ui/button/button";
 import WorkProcess from "~/components/WorkProcess/WorkProcess";
 
@@ -29,7 +29,7 @@ export default component$(() => {
 
             <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
               Creamos sitios web modernos y optimizados que no solo se ven increíbles,
-              sino que convierten visitantes en clientes leales.
+              sino que convierten visitantes en clientes.
             </p>
 
             <Button class="mt-8" variant="neumorphic-green" size="lg">
@@ -362,6 +362,93 @@ export default component$(() => {
                 Un sitio optimizado convierte visitantes en clientes reales con llamadas a la acción efectivas.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Websites Section */}
+      <section class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-700 mb-4">
+              ¿Por qué elegir nuestros sitios web?
+            </h2>
+            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
+              Descubre los beneficios que hacen que nuestros sitios web sean la mejor opción para tu negocio.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuTrendingUp class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Crecimiento</h4>
+              <p class="text-sm text-slate-600">
+                Diseñado para escalar junto a tu emprendimiento
+              </p>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuUsers class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Audiencia</h4>
+              <p class="text-sm text-slate-600">
+                Conecta con tus clientes ideales las 24 horas
+              </p>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuTarget class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Conversión</h4>
+              <p class="text-sm text-slate-600">
+                Convierte visitantes en clientes reales
+              </p>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuAward class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Profesionalismo</h4>
+              <p class="text-sm text-slate-600">
+                Proyecta una imagen seria y confiable
+              </p>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuClock class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Rapidez</h4>
+              <p class="text-sm text-slate-600">
+                Sitio web listo en 7-10 días hábiles
+              </p>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <LuHeadphones class="w-6 h-6 text-white" />
+              </div>
+              <h4 class="font-semibold text-slate-700 mb-2">Soporte</h4>
+              <p class="text-sm text-slate-600">
+                Asistencia técnica durante 3 meses
+              </p>
+            </div>
+          </div>
+
+          {/* Guarantee Section */}
+          <div class="mt-12 p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 max-w-3xl mx-auto">
+            <div class="flex items-center mb-4">
+              <LuShield class="w-6 h-6 text-green-600 mr-3" />
+              <h4 class="font-semibold text-slate-700 text-lg">Garantía de Satisfacción</h4>
+            </div>
+            <p class="text-slate-600">
+              AgenciaTech es una empresa consolidada con más de 5 años de experiencia. Te brindamos respaldo profesional y garantía de calidad en cada proyecto, asegurando que tu inversión genere resultados concretos para tu emprendimiento.
+            </p>
           </div>
         </div>
       </section>
