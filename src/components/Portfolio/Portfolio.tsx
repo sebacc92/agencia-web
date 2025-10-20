@@ -109,35 +109,6 @@ export default component$(() => {
           </div>
         </div>
       </div>
-
-      {/* Custom animations */}
-      <style>{`
-
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-gradient {
-          background-size: 200% auto;
-          animation: gradient 3s ease infinite;
-        }
-
-        .card {
-          padding: 2rem;
-          border-radius: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-          .card {
-            padding: 1.5rem;
-          }
-        }
-      `}</style>
     </section>
   );
 });
