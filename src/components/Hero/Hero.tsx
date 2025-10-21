@@ -39,7 +39,7 @@ export default component$(() => {
             </div>
 
             {/* Text Column - Shows second on mobile */}
-            <div class="space-y-8 order-last lg:order-first text-center lg:text-left">
+            <div class="space-y-8 order-last lg:order-first text-center lg:text-left lg:mt-4">
               {/* Badge */}
               {/* <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
                 <span class="text-purple-700 text-sm font-medium">🚀 Diseño + desarrollo + automatizaciones + marketing + IA</span>
