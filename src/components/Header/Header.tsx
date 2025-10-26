@@ -61,7 +61,7 @@ export default component$(() => {
           {/* Desktop CTA Button */}
           <div class="hidden lg:block">
             <Button variant="neumorphic-green" size="lg">
-              Empezar mi proyecto
+              Hablanos
             </Button>
           </div>
 
