@@ -38,8 +38,8 @@ export default component$(() => {
           {/* Logo */}
           <Link href="/" class="no-underline">
             <div class="flex items-center space-x-12">
-              <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                <span class="text-white font-bold text-3xl">A</span>
+              <div class="h-12 px-4 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-3xl">Cleverisma</span>
               </div>
             </div>
           </Link>

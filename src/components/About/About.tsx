@@ -80,7 +80,7 @@ export default component$(() => {
                 <div class="relative bg-white border-2 border-blue-200 rounded-3xl pb-4 lg:p-4 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-blue-400">
                   <div class="relative overflow-hidden rounded-t-2xl mb-4">
                     <img
-                      src="/images/seba.jpg"
+                      src="/images/Sebastian-Cardoso-Castillo.webp"
                       alt="Sebastián - CEO & Founder"
                       class="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                       style={{height: "350px"}}

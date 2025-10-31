@@ -40,29 +40,32 @@ export default component$(() => {
 
             {/* Text Column - Shows second on mobile */}
             <div class="space-y-8 order-last lg:order-first text-center lg:text-left lg:mt-4">
-              {/* Badge */}
-              {/* <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
-                <span class="text-purple-700 text-sm font-medium">🚀 Diseño + desarrollo + automatizaciones + marketing + IA</span>
-              </div> */}
+              {/* Eyebrow */}
+              <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
+                <span class="text-purple-700 text-sm font-medium">🚀 Webs de Alto Rendimiento para tu Marca</span>
+              </div>
 
               {/* Main Headline */}
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-                Agencia de {' '}
+                Tu Presencia Online, {' '}
                 <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  Desarrollo Web
-                </span>{', '}
-                IA y Marketing Digital.
+                  Más Rápida {' '}
+                </span>
+                que tu Competencia
               </h1>
 
               {/* Subheadline */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Somos tu socio estratégico para el crecimiento digital. Trabajamos con desarrollo web moderno y optimizado, automatizaciones con IA y marketing digital con estrategia basado en datos.
+                Creamos sitios web tan veloces que tus clientes no se van y Google te pone primero. Más visitas, más ventas. Simple.
               </p>
 
               {/* CTA Button */}
               <div class="flex justify-center lg:justify-start">
                 <Button variant="neumorphic-green" size="lg">
-                  Reservar llamada gratis
+                  Impulsa tu Negocio Online
+                </Button>
+                <Button variant="secondary" size="lg" class="ml-4">
+                  Auditar mi Web Actual Gratis
                 </Button>
               </div>
             </div>
