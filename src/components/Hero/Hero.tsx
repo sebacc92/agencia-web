@@ -1,9 +1,33 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, $ } from "@builder.io/qwik";
 import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
 import Button from "~/components/ui/button/button";
+import Modal from "~/components/ui/modal/modal";
+import HeroAuditForm from "~/components/ui/HeroAuditForm";
 import { LuChevronDownCircle } from "@qwikest/icons/lucide";
+import type { AuditFormData } from "~/components/ui/HeroAuditForm";
 
 export default component$(() => {
+  const handleAuditSubmit$ = $(async (data: AuditFormData) => {
+    // Aquí iría la lógica para enviar los datos del formulario
+    console.log('Enviando solicitud de auditoría:', data);
+    
+    // Simular envío (puedes integrar con EmailJS, API, etc.)
+    try {
+      // Ejemplo de integración con EmailJS (si está configurado)
+      // await emailjs.send('service_id', 'template_id', {
+      //   website_url: data.websiteUrl,
+      //   user_email: data.email
+      // });
+      
+      // Mostrar mensaje de éxito (puedes usar una notificación)
+      alert('¡Solicitud enviada! Te contactaremos pronto con el reporte de auditoría.');
+      
+    } catch (error) {
+      console.error('Error enviando solicitud:', error);
+      alert('Hubo un error enviando tu solicitud. Por favor, intenta nuevamente.');
+    }
+  });
+
   return (
     <main class="min-h-screen flex flex-col bg-gray-50 relative">
       {/* Subtle Background Elements */}
@@ -41,13 +65,13 @@ export default component$(() => {
             {/* Text Column - Shows second on mobile */}
             <div class="space-y-8 order-last lg:order-first text-center lg:text-left lg:mt-4">
               {/* Eyebrow */}
-              <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
+              <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-50 border border-purple-200">
                 <span class="text-purple-700 text-sm font-medium">🚀 Webs de Alto Rendimiento para tu Marca</span>
               </div>
 
               {/* Main Headline */}
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-                Tu Presencia Online, {' '}
+                Tu Presencia Online,<br/>
                 <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
                   Más Rápida {' '}
                 </span>
@@ -59,14 +83,19 @@ export default component$(() => {
                 Creamos sitios web tan veloces que tus clientes no se van y Google te pone primero. Más visitas, más ventas. Simple.
               </p>
 
-              {/* CTA Button */}
-              <div class="flex justify-center lg:justify-start">
+              {/* CTA Buttons */}
+              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                 <Button variant="neumorphic-green" size="lg">
-                  Impulsa tu Negocio Online
+                  Quiero mi Sitio Web
                 </Button>
-                <Button variant="secondary" size="lg" class="ml-4">
-                  Auditar mi Web Actual Gratis
-                </Button>
+                <Modal
+                  triggerText="Auditar mi Web Actual Gratis"
+                  triggerClass="btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 border-2 border-purple-300 rounded-lg hover:from-purple-100 hover:to-pink-100 hover:border-purple-500 hover:shadow-xl hover:scale-105 active:translate-y-0"
+                  title="Solicitar Auditoría Gratuita"
+                  description="Analizaremos tu sitio web y te enviaremos un reporte detallado con mejoras específicas"
+                >
+                  <HeroAuditForm onSubmit$={handleAuditSubmit$} />
+                </Modal>
               </div>
             </div>
           </div>

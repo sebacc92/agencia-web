@@ -16,6 +16,52 @@
   src: url("./assets/fonts/SpaceGrotesk.woff2") format("woff2");
 }
 
+/* * 🎨 Definición del Tema en Tailwind v4 con @theme
+ * Tailwind usará estos tokens para generar utilidades (ej: bg-primary, text-primary, p-4)
+ */
+@theme {     
+  /* Colores */
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #a78bfa;
+  
+  --secondary: #f59e0b;
+  --accent: #06b6d4;
+
+  /* Colores Neutrales */
+  --neutral-900: #111827;
+  --neutral-100: #f3f4f6;
+  --white: #ffffff;
+
+  /* Background Colors (Custom) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+
+  /* Text Colors (Custom) */
+  --text-primary: var(--neutral-900);
+  --text-inverse: var(--white);
+
+  /* Typography */
+  --font-sans: 'SpaceGrotesk', 'PlusJakartaSans', 'Inter', sans-serif; /* Usamos --font-sans */
+  --font-heading: 'Inter', sans-serif; 
+  
+  /* Espaciado (Tailwind usa la nomenclatura --spacing-*) */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  /* ... y así con el resto de espaciado */
+  
+  /* Border Radius (Tailwind usa la nomenclatura --radius-*) */
+  --radius-base: 0.25rem;
+  --radius-lg: 0.5rem;
+  /* ... y así con el resto de radios */
+
+  /* Sombras (Tailwind usa la nomenclatura --shadow-*) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* ... y así con el resto de sombras */
+}
+
 /* ===== CSS CUSTOM PROPERTIES (DESIGN TOKENS) ===== */
 :root {
   /* Colors - Enhanced Dark Theme with Vibrant Accents */
@@ -129,6 +175,14 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-2xl: 1536px;
+
+  --foreground: var(--color-neutral-900); 
+  --background: var(--bg-primary);
+  --ring: var(--color-accent);
+  --border: var(--color-neutral-300);
+  --muted: var(--color-neutral-100);
+  --primary: var(--color-primary);
+  --border-radius: var(--radius-base);
 }
 
 /* ===== BASE STYLES ===== */
