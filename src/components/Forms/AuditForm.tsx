@@ -11,6 +11,7 @@ interface AuditFormProps {
 
 export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
   const action = useAuditWebsite();
+  
   const handled = useSignal<any>(null);
 
   useVisibleTask$(({ track }) => {
@@ -33,6 +34,8 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       onShowToast$?.({ type, message });
     }
   });
+
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY
 
   return (
     <Form action={action}>
@@ -58,6 +61,16 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           class="w-full rounded-md border px-3 py-2"
           required
         />
+
+        {/* Cloudflare Turnstile */}
+        <div
+            class="cf-turnstile"
+            data-sitekey={TURNSTILE_SITE_KEY}
+            data-theme="light"
+            data-size="normal"
+            data-action="contact"
+            data-cdata="contact-form"
+        ></div>
 
         <Button type="submit" class="mt-4 w-full" disabled={action.isRunning}>
           {action.isRunning ? 'Enviando solicitud...' : 'Solicitar Auditoría Gratuita'}

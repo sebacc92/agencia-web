@@ -9,40 +9,7 @@ import Portfolio from "~/components/Portfolio/Portfolio";
 import Contacto from "~/components/Contacto/Contacto";
 
 export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_AUDIT_REQUEST_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_AUDIT_REQUEST_ID;
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  const PRIVATE_KEY = requestEvent.env.get('EMAILJS_PRIVATE_KEY');
-
-  if (!SERVICE_ID || !TEMPLATE_AUDIT_REQUEST_ID || !PUBLIC_KEY) {
-    console.error('Faltan credenciales de EmailJS');
-    return;
-  }
-
-  await emailjs.send(
-    SERVICE_ID,
-    TEMPLATE_AUDIT_REQUEST_ID,
-    {
-      websiteUrl: data.websiteUrl,
-      email: data.email,
-    },
-    {
-      publicKey: PUBLIC_KEY,
-      privateKey: PRIVATE_KEY
-    }
-  ).then((response) => {
-    console.log('SUCCESS!', response.status, response.text);
-  }, (err) => {
-    console.error('FAILED...', err);
-  });
-  return {
-    success: true,
-    message: '¡Solicitud enviada! Te contactaremos pronto con el reporte de auditoría.'
-  }
-});
-
-export const useContact = routeAction$(async (data, requestEvent) => {
-  console.log('data: ', data);
+  console.log('useAuditWebsite data: ', data);
 
   // 1) Leer token de Turnstile agregado automáticamente al form
   const token = (data as any)['cf-turnstile-response'] as string | undefined;
@@ -103,11 +70,103 @@ export const useContact = routeAction$(async (data, requestEvent) => {
 
   // 4) Si el token es válido, seguí con tu flujo (EmailJS)
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT_ID;
+  const TEMPLATE_AUDIT_REQUEST_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_AUDIT_REQUEST_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const PRIVATE_KEY = requestEvent.env.get('EMAILJS_PRIVATE_KEY');
 
-  if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+  if (!SERVICE_ID || !TEMPLATE_AUDIT_REQUEST_ID || !PUBLIC_KEY) {
+    console.error('Faltan credenciales de EmailJS');
+    return;
+  }
+
+  const payload = {
+      publicKey: PUBLIC_KEY,
+      privateKey: PRIVATE_KEY
+    }
+
+  await emailjs.send(
+    SERVICE_ID,
+    TEMPLATE_AUDIT_REQUEST_ID,
+    payload,
+    { publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY }
+  ).then((response) => {
+    console.log('SUCCESS!', response.status, response.text);
+  }, (err) => {
+    console.error('FAILED...', err);
+  });
+  return {
+    success: true,
+    message: '¡Solicitud enviada! Te contactaremos pronto con el reporte de auditoría.'
+  }
+});
+
+export const useContact = routeAction$(async (data, requestEvent) => {
+  console.log('useContact data: ', data);
+
+  // 1) Leer token de Turnstile agregado automáticamente al form
+  const token = (data as any)['cf-turnstile-response'] as string | undefined;
+
+  if (!token) {
+    return { success: false, message: 'Falta la verificación anti-bots. Por favor, intenta nuevamente.' };
+  }
+
+  // 2) Validar el token en el servidor
+  const SECRET_KEY = requestEvent.env.get('CLOUDFLARE_TURNSTILE_SECRET_KEY');
+  if (!SECRET_KEY) {
+    console.error('Falta TURNSTILE_SECRET_KEY en el servidor');
+    return { success: false, message: 'Error de configuración del servidor (captcha).' };
+  }
+
+  // IP opcional (ayuda a la precisión)
+  const remoteip =
+    requestEvent.request.headers.get('cf-connecting-ip') ||
+    requestEvent.request.headers.get('x-forwarded-for')?.split(',')[0] ||
+    undefined;
+
+  let result: any;
+  try {
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        secret: SECRET_KEY,
+        response: token,
+        remoteip: remoteip
+      })
+    });
+
+    result = await response.json();
+    console.log('Turnstile verification result:', result);
+  } catch (error) {
+    console.error('Turnstile validation error:', error);
+    return { success: false, 'error-codes': ['internal-error'] };
+  }
+
+  // 3) Chequeos avanzados opcionales (recomendado)
+  // Si seteaste data-action="contact" en el widget:
+  if (result?.action && result.action !== 'contact') {
+    console.warn('Acción inesperada en Turnstile:', result.action);
+    return { success: false, message: 'Validación de seguridad no válida (action mismatch).' };
+  }
+
+  // Si querés verificar hostname:
+  // if (verifyJson?.hostname !== 'tudominio.com') { ... }
+
+  if (!result?.success) {
+    console.warn('Turnstile inválido:', result);
+    const code = result['error-codes']?.join(', ') ?? 'desconocido';
+    return { success: false, message: `La validación falló (${code}). Por favor, intenta nuevamente.` };
+  }
+
+  // 4) Si el token es válido, seguí con tu flujo (EmailJS)
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_CONTACT_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const PRIVATE_KEY = requestEvent.env.get('EMAILJS_PRIVATE_KEY');
+
+  if (!SERVICE_ID || !TEMPLATE_CONTACT_ID || !PUBLIC_KEY) {
     console.error('Faltan credenciales de EmailJS');
     return { success: false, message: 'Faltan credenciales de EmailJS' };
   }
@@ -122,7 +181,7 @@ export const useContact = routeAction$(async (data, requestEvent) => {
   try {
     await emailjs.send(
       SERVICE_ID,
-      TEMPLATE_ID,
+      TEMPLATE_CONTACT_ID,
       payload,
       { publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY }
     );
