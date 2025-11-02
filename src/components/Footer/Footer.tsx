@@ -17,7 +17,7 @@ export default component$(() => {
               <an class="text-xl font-bold text-gray-900">Cleverisma</an>
             </div>
             <p class="text-gray-600 mb-6 max-w-md">
-              Soluciones completas de diseño web, automatizaciones con inteligencia artificial y marketing digital estratégico para impulsar tu negocio al siguiente nivel.
+              Creamos sitios webs veloces que mejoran tus Core Web Vitals. Más velocidad, mas retención, mejor SEO, más clientes. Simple.
             </p>
             <div class="flex space-x-4">
                <a href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-purple-600 transition-all duration-300">
