@@ -37,7 +37,7 @@ export default component$(() => {
 
           {/* Services */}
           <div>
-            <h4 class="font-semibold text-gray-900 mb-4">Servicios</h4>
+            <p class="font-semibold text-gray-900 mb-4">Servicios</p>
             <ul class="space-y-2">
               <li><Link href="/services/web-design" class="text-gray-600 hover:text-purple-600 transition-colors">Diseño Web</Link></li>
               <li><Link href="#" class="text-gray-600 hover:text-purple-600 transition-colors">IA & Automatización</Link></li>
@@ -48,7 +48,7 @@ export default component$(() => {
 
           {/* Company */}
           <div>
-            <h4 class="font-semibold text-gray-900 mb-4">Empresa</h4>
+            <p class="font-semibold text-gray-900 mb-4">Empresa</p>
             <ul class="space-y-2">
               <li><a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">Sobre Nosotros</a></li>
               <li><a href="#portfolio" class="text-gray-600 hover:text-purple-600 transition-colors">Portafolio</a></li>

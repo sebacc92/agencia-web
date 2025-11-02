@@ -45,9 +45,9 @@ export default component$(() => {
                 <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-2xl p-8 md:p-12 shadow-lg">
                   <div class="space-y-6">
                     <div class="text-6xl md:text-7xl">⚡</div>
-                    <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    <p class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                       ¡Próximamente!
-                    </h4>
+                    </p>
                     <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
                       Estamos desarrollando proyectos innovadores que mostrarán todo nuestro potencial. Desde sitios web de alto rendimiento hasta automatizaciones con IA que transforman negocios, cada proyecto será una muestra de nuestra dedicación y expertise.
                     </p>
@@ -58,7 +58,7 @@ export default component$(() => {
               {/* Call to Action */}
               <div class="animate-fade-up" style={{animationDelay: "0.4s"}}>
                 <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
-                  <h4 class="text-2xl font-bold mb-4">¿Quieres ser parte de nuestros primeros proyectos?</h4>
+                  <h3 class="text-2xl font-bold mb-4">¿Quieres ser parte de nuestros primeros proyectos?</h3>
                   <p class="text-indigo-100 mb-6 text-lg">
                     Estamos buscando empresas valientes que quieran crecer con nosotros. ¡Seamos pioneros juntos!
                   </p>

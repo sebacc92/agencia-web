@@ -117,7 +117,7 @@ export default component$(() => {
                           </div>
                         </div>
 
-                        <h4 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">{step.title}</h4>
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition-colors">{step.title}</h3>
                         <p class="text-gray-600">{step.description}</p>
                       </div>
                     </div>

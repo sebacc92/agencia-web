@@ -39,6 +39,8 @@ export default component$(() => {
                     alt="Panda trabajando en laptop sobre nube voladora"
                     class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation w-full"
                     sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
 

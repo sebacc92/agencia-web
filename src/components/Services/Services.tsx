@@ -21,8 +21,11 @@ export default component$(() => {
           <div class="inline-block mb-4 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full">
             <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Nuestros servicios</span>
           </div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            Todo lo que necesitas para hacer crecer tu negocio online
+          </h2>
           <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Todo lo que necesitas para hacer crecer tu negocio online.
+            Soluciones de alta calidad para potenciar tu presencia digital
           </p>
         </div>
 
@@ -47,8 +50,9 @@ export default component$(() => {
 
                   <div class="flex-1">
                     <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-indigo-600 transition-all duration-300 leading-tight">
-                      Desarrollo Web de Alto Rendimiento
+                      Desarrollo Web
                     </h3>
+                    <p class="text-sm text-purple-600 font-semibold mt-1">De Alto Rendimiento</p>
                   </div>
                 </div>
 
