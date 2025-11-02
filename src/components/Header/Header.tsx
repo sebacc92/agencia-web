@@ -23,7 +23,7 @@ export default component$(() => {
       <div class="container px-4 mx-auto">
         <nav class="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" class="no-underline">
+          <Link href="/" class="no-underline" aria-label="Ir a la página de inicio de Cleverisma">
             <div class="flex items-center space-x-12">
               <div class="h-12 px-4 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
                 <span class="text-white font-bold text-3xl">Cleverisma</span>

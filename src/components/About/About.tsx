@@ -27,17 +27,17 @@ export default component$(() => {
           <div class="animate-fade-up pt-8" style={{ animationDelay: '0.2s' }}>
             <div class="space-y-6">
               <div>
-                <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
                   Construimos sitios web que
                   <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> venden</span>
-                </h3>
+                </h2>
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
                   Somos especialistas en desarrollo web de alto rendimiento. Nos enfocamos en velocidad real en mobile, accesibilidad y experiencia de usuario que convierte. Estamos ampliando nuestras capacidades en IA y marketing con formación y proyectos piloto.
                 </p>
               </div>
 
               <div>
-                <h4 class="text-2xl font-bold mb-4 text-gray-900">Nuestra Misión</h4>
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Nuestra Misión</h3>
                 <p class="text-lg text-gray-700 leading-relaxed">
                   Ayudar a empresas, negocios, emprendedores y profesionales a incrementar su presencia digital para vender más, ahorrar tiempo automatizando procesos repetitivos y analizar el comportamiento de sus usuarios para mejorar su estrategia de ventas.
                 </p>

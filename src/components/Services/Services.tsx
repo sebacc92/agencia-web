@@ -86,11 +86,15 @@ export default component$(() => {
                 </li>
               </ul>
 
-              <Link href="/services/web-design" class="text-white">
+              <Link 
+                href="/services/web-design" 
+                class="text-white no-underline"
+                aria-label="Ver planes y precios de Desarrollo Web de Alto Rendimiento"
+              >
                 <button class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl">
                   <span class="flex items-center justify-center gap-2">
                     Ver planes y precios
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                   </span>
@@ -131,7 +135,7 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <p class="text-pink-400 font-medium text-base">Estamos desarrollando soluciones con IA para automatizar atención, contenidos y procesos.</p>
+                <p class="text-pink-700 font-medium text-base">Estamos desarrollando soluciones con IA para automatizar atención, contenidos y procesos.</p>
               </div>
 
               <ul class="space-y-4 mb-8">
@@ -200,7 +204,7 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <p class="text-emerald-400 font-medium text-base">En formación y alianzas para ofrecer performance marketing, SEO avanzado y social.</p>
+                <p class="text-emerald-700 font-medium text-base">En formación y alianzas para ofrecer performance marketing, SEO avanzado y social.</p>
               </div>
 
               <ul class="space-y-4 mb-8">

@@ -48,11 +48,11 @@ export default component$(() => {
                     <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
                         <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Contacto</span>
                     </div>
-                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                         ¿Listo para
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> Crecer</span>
                         ?
-                    </h3>
+                    </h2>
                     <p class="text-lg md:text-xl text-gray-700 mt-4 max-w-2xl mx-auto">
                         Contanos sobre tu proyecto y descubrí cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
                     </p>

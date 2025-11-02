@@ -28,10 +28,10 @@ export default component$(() => {
             <div class="space-y-8">
               {/* Main Heading */}
               <div>
-                <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
                   🚀 Estamos construyendo algo
                   <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> increíble</span>
-                </h3>
+                </h2>
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
                   Como agencia nueva, estamos trabajando en nuestros primeros proyectos emocionantes. Cada proyecto es una oportunidad para demostrar nuestra pasión por el diseño web moderno, las automatizaciones inteligentes y el marketing digital estratégico.
                 </p>
