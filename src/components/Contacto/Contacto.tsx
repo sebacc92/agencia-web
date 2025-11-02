@@ -1,4 +1,4 @@
-import { component$, useSignal, useStylesScoped$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 import { useContact } from "~/routes/index";
@@ -6,13 +6,6 @@ import Toast from "~/components/ui/toast/toast";
 import { usePopover } from "@qwik-ui/headless";
 
 export default component$(() => {
-    useStylesScoped$(`
-        @keyframes gradient { 0%, 100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
-        .animate-gradient { background-size: 200% auto; animation: gradient 3s ease infinite; }
-        .card { padding: 2rem; border-radius: 1.5rem; }
-        @media (max-width: 768px) { .card { padding: 1.5rem; } }
-  `);
-
     const action = useContact();
 
     // Toast

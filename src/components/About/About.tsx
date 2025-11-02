@@ -1,33 +1,6 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
-  useStylesScoped$(`
-    @keyframes gradient {
-      0%, 100% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .animate-gradient {
-      background-size: 200% auto;
-      animation: gradient 3s ease infinite;
-    }
-
-    .card {
-      padding: 2rem;
-      border-radius: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .card {
-        padding: 1.5rem;
-      }
-    }
-  `);
-
   return (
     <section id="about" class="relative bg-gradient-to-br from-white via-blue-50/40 to-purple-50/30 overflow-hidden pt-22">
       {/* Animated Background Elements */}

@@ -1,4 +1,4 @@
-import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 
@@ -9,19 +9,6 @@ export interface NavigationItem {
 }
 
 export default component$(() => {
-  useStylesScoped$(`
-    @keyframes slideInItem {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  `);
-
   const navigationItems: NavigationItem[] = [
     { label: "Servicios", href: "#services" },
     { label: "Nosotros", href: "#about" },
