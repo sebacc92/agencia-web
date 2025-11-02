@@ -106,7 +106,7 @@ export default component$(() => {
 
                       <div class={`relative bg-white border-2 border-cyan-200 rounded-2xl p-6 hover:border-cyan-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg`}>
                         {/* Step Number Badge */}
-                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-cyan-700 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                           {step.number}
                         </div>
 

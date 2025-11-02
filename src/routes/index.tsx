@@ -222,8 +222,7 @@ export const head: DocumentHead = {
     {
       rel: "preload",
       as: "image",
-      href: "/media/images/oso_panda_usando_notebook.png",
-      fetchPriority: "high",
+      href: "/images/oso_panda_usando_notebook.png"
     },
   ],
 };
