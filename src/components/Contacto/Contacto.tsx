@@ -1,11 +1,9 @@
-import { component$, useSignal, useStylesScoped$, useVisibleTask$, $ } from "@builder.io/qwik";
+import { component$, useSignal, useStylesScoped$, useVisibleTask$ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 import { useContact } from "~/routes/index";
 import Toast from "~/components/ui/toast/toast";
 import { usePopover } from "@qwik-ui/headless";
-
-declare const grecaptcha: any;
 
 export default component$(() => {
     useStylesScoped$(`
@@ -16,10 +14,6 @@ export default component$(() => {
   `);
 
     const action = useContact();
-
-    // reCAPTCHA v3
-    const recaptchaToken = useSignal<string>('');
-    const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY_V3;
 
     // Toast
     const toastType = useSignal<'success' | 'error'>('success');
@@ -40,64 +34,10 @@ export default component$(() => {
 
         if (success) {
             formRef.value?.reset();
-            recaptchaToken.value = '';
         }
     });
 
-    const handleSubmitWithCaptcha$ = $(async () => {
-        // En dev, no exigimos token (server también puede saltear verificación)
-        // if (isDev) {
-        //     formRef.value?.requestSubmit();
-        //     return;
-        // }
-
-        if (!RECAPTCHA_SITE_KEY) {
-            toastType.value = 'error';
-            toastMsg.value = 'Falta VITE_RECAPTCHA_SITE_KEY_V3';
-            showPopover();
-            return;
-        }
-
-        try {
-            // Asegura que la librería esté lista
-            await new Promise<void>((resolve) => {
-                if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-                    grecaptcha.ready(() => resolve());
-                } else {
-                    // reintento simple
-                    const start = Date.now();
-                    const timer = setInterval(() => {
-                        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-                            clearInterval(timer);
-                            grecaptcha.ready(() => resolve());
-                        }
-                        if (Date.now() - start > 5000) {
-                            clearInterval(timer);
-                            resolve(); // seguimos igual para no bloquear
-                        }
-                    }, 100);
-                }
-            });
-
-            if (typeof grecaptcha === 'undefined' || !grecaptcha.execute) {
-                // si no está disponible, seguimos (el server fallará con mensaje claro)
-                recaptchaToken.value = '';
-                formRef.value?.requestSubmit();
-                return;
-            }
-
-            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
-            console.log('token', token)
-            recaptchaToken.value = token;
-            console.log('token', token)
-            // Enviar el Form con el token en el hidden input
-            formRef.value?.requestSubmit();
-        } catch (e) {
-            console.error('Error al ejecutar reCAPTCHA:', e);
-            recaptchaToken.value = '';
-            formRef.value?.requestSubmit();
-        }
-    });
+    const TURNSTILE_SITE_KEY = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY
 
     return (
         <section id="contacto" class="relative bg-gradient-to-br from-white via-emerald-50/40 to-cyan-50/30 overflow-hidden py-22">
@@ -131,7 +71,7 @@ export default component$(() => {
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
 
                             <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
-                                <Form action={action} ref={formRef} class="space-y-6">
+                                <Form action={action} class="space-y-6">
                                     {/* Nombre y Email */}
                                     <div class="grid md:grid-cols-2 gap-6">
                                         <div>
@@ -172,15 +112,20 @@ export default component$(() => {
                                         ></textarea>
                                     </div>
 
-                                    {/* Hidden inputs para reCAPTCHA v3 */}
-                                    <input type="hidden" name="g-recaptcha-response" value={recaptchaToken.value} />
-                                    <input type="hidden" name="recaptcha_action" value="contact" />
+                                    {/* Cloudflare Turnstile */}
+                                    <div
+                                        class="cf-turnstile"
+                                        data-sitekey={TURNSTILE_SITE_KEY}
+                                        data-theme="light"
+                                        data-size="normal"
+                                        data-action="contact"
+                                        data-cdata="contact-form"
+                                    ></div>
 
-                                    {/* Submit (pedimos token y luego enviamos) */}
+                                    {/* Submit */}
                                     <div class="text-center pt-4">
                                         <Button
-                                            type="button"
-                                            onClick$={handleSubmitWithCaptcha$}
+                                            type="submit"
                                             class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                             disabled={action.isRunning}
                                         >

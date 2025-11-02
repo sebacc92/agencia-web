@@ -22,10 +22,11 @@ export default component$(() => {
             href={`${import.meta.env.BASE_URL}manifest.json`}
           />
         )}
-        {/* {!isDev && (
-          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        )} */}
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        ></script>
         <RouterHead />
       </head>
       <body lang="en">
