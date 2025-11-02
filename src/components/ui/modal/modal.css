@@ -37,22 +37,18 @@
 }
 
 .modal-panel input {
+  width: 100%;
+  padding: 0.5rem;
   margin-bottom: 1rem;
   border-radius: calc(var(--border-radius));
   background: oklch(from var(--foreground) l c h / 0.05);
+  border: 2px dotted oklch(from var(--ring) l c h);
 }
 
 .modal-panel h2 {
   font-size: 1.5rem;
   font-weight: 800;
   padding: 0;
-}
-
-.modal-panel input {
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: calc(var(--border-radius));
-  border: 2px dotted oklch(from var(--ring) l c h);
 }
 
 .modal-panel footer {
@@ -76,10 +72,7 @@
 }
 
 .modal-backdrop::backdrop {
-  /* changing background */
   background: rgba(0, 0, 0, 0.4);
-
-  /* providing multiple filters */
   backdrop-filter: grayscale(90%) blur(10px);
 }
 
@@ -92,7 +85,6 @@
   outline: none;
 }
 
-/* some css fun here lol */
 .modal-panel .modal-alert-close:focus-visible::after {
   content: '';
   position: absolute;
@@ -104,7 +96,6 @@
   transform: rotate(-45deg);
   pointer-events: none;
 }
-
 
 :root {
   --modal-animation: forwards cubic-bezier(0.6, 0.6, 0, 1);
