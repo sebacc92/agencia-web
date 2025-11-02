@@ -80,9 +80,9 @@ export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
   }
 
   const payload = {
-      publicKey: PUBLIC_KEY,
-      privateKey: PRIVATE_KEY
-    }
+    websiteUrl: data.websiteUrl,
+    email: data.email,
+  }
 
   await emailjs.send(
     SERVICE_ID,
@@ -245,7 +245,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://cleverisma.com/og-image.jpg",
+      content: "/images/oso_panda_usando_notebook.png",
     },
     // Twitter
     {
@@ -266,7 +266,7 @@ export const head: DocumentHead = {
     },
     {
       property: "twitter:image",
-      content: "https://cleverisma.com/twitter-image.jpg",
+      content: "/images/oso_panda_usando_notebook.png",
     },
     // Additional SEO
     {
@@ -295,3 +295,4 @@ export const head: DocumentHead = {
     },
   ],
 };
+
