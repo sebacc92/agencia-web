@@ -58,7 +58,7 @@ export default component$(() => {
                   <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> venden</span>
                 </h3>
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-                  Somos especialistas en diseño web de alto rendimiento, automatización con IA y estrategias digitales que generan resultados reales para tu negocio. Transformamos tu visión en soluciones tecnológicas que impulsan el crecimiento y optimizan tus operaciones.
+                  Somos especialistas en desarrollo web de alto rendimiento. Nos enfocamos en velocidad real en mobile, accesibilidad y experiencia de usuario que convierte. Estamos ampliando nuestras capacidades en IA y marketing con formación y proyectos piloto.
                 </p>
               </div>
 
@@ -89,8 +89,7 @@ export default component$(() => {
                   </div>
                   <div class="text-center">
                     <h4 class="font-bold text-lg text-gray-900 mb-1">Sebastián</h4>
-                    <p class="text-sm text-blue-600 font-medium">Designer & Developer</p>
-                    <p class="text-xs text-gray-600 mt-1">Estrategia y Dirección</p>
+                    <p class="text-sm text-blue-600 font-medium"> Founder y Dev Front/Perf</p>
                   </div>
                 </div>
               </div>
@@ -109,8 +108,7 @@ export default component$(() => {
                   </div>
                   <div class="text-center">
                     <h4 class="font-bold text-lg text-gray-900 mb-1">Daiana</h4>
-                    <p class="text-sm text-purple-600 font-medium">Marketing</p>
-                    <p class="text-xs text-gray-600 mt-1">UI/UX & Branding</p>
+                    <p class="text-sm text-purple-600 font-medium">Marketing en formación y Operaciones</p>
                   </div>
                 </div>
               </div>

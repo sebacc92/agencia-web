@@ -66,7 +66,7 @@ export default component$(() => {
               Hecho con ❤️ para ayudar a tu negocio a crecer
             </p>
             <p class="text-gray-600 text-sm">
-              © 2025 AgenciaTech. Todos los derechos reservados.
+              © 2025 Cleverisma. Todos los derechos reservados.
             </p>
           </div>
         </div>

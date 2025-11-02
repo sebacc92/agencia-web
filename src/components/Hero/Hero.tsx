@@ -1,33 +1,25 @@
-import { component$, $ } from "@builder.io/qwik";
+import { $, component$, useSignal } from "@builder.io/qwik";
+import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
-import HeroAuditForm from "~/components/ui/HeroAuditForm";
-import { LuChevronDownCircle } from "@qwikest/icons/lucide";
-import type { AuditFormData } from "~/components/ui/HeroAuditForm";
+import AuditForm from "~/components/Forms/AuditForm";
+import Toast from "~/components/ui/toast/toast";
+import { usePopover } from '@qwik-ui/headless';
 
 export default component$(() => {
-  const handleAuditSubmit$ = $(async (data: AuditFormData) => {
-    // Aquí iría la lógica para enviar los datos del formulario
-    console.log('Enviando solicitud de auditoría:', data);
-    
-    // Simular envío (puedes integrar con EmailJS, API, etc.)
-    try {
-      // Ejemplo de integración con EmailJS (si está configurado)
-      // await emailjs.send('service_id', 'template_id', {
-      //   website_url: data.websiteUrl,
-      //   user_email: data.email
-      // });
-      
-      // Mostrar mensaje de éxito (puedes usar una notificación)
-      alert('¡Solicitud enviada! Te contactaremos pronto con el reporte de auditoría.');
-      
-    } catch (error) {
-      console.error('Error enviando solicitud:', error);
-      alert('Hubo un error enviando tu solicitud. Por favor, intenta nuevamente.');
-    }
+  const showAuditModal = useSignal(false);
+  const toastType = useSignal<'success' | 'error'>('success');
+  const toastMsg = useSignal('');
+  const { showPopover } = usePopover('audit-toast');
+  const onCloseModal$ = $(() => {
+    showAuditModal.value = false;
   });
-
+  const onShowToast$ = $((payload: { type: 'success' | 'error'; message: string }) => {
+    toastType.value = payload.type;
+    toastMsg.value = payload.message;
+    showPopover();
+  });
   return (
     <main class="min-h-screen flex flex-col bg-gray-50 relative">
       {/* Subtle Background Elements */}
@@ -37,7 +29,7 @@ export default component$(() => {
       {/* Main Content Container */}
       <div class="flex-1 flex items-center relative z-10">
         <div class="container mx-auto py-20 px-4 sm:px-6 lg:px-8 w-full">
-          <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] lg:gap-12 items-center">
             {/* Image Column - Shows first on mobile */}
             <div class="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mb-0">
               <div class="relative animate-float max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
@@ -71,16 +63,16 @@ export default component$(() => {
 
               {/* Main Headline */}
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-                Tu Presencia Online,<br/>
+                Webs{' '}
                 <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  Más Rápida {' '}
+                  ultra-rápidas {' '}
                 </span>
-                que tu Competencia
+                que convierten
               </h1>
 
               {/* Subheadline */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Creamos sitios web tan veloces que tus clientes no se van y Google te pone primero. Más visitas, más ventas. Simple.
+                Creamos sitios webs veloces que mejoran tus Core Web Vitals. Más velocidad, mas retención, mejor SEO, más clientes. Simple.
               </p>
 
               {/* CTA Buttons */}
@@ -89,12 +81,18 @@ export default component$(() => {
                   Quiero mi Sitio Web
                 </Button>
                 <Modal
-                  triggerText="Auditar mi Web Actual Gratis"
-                  triggerClass="btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 border-2 border-purple-300 rounded-lg hover:from-purple-100 hover:to-pink-100 hover:border-purple-500 hover:shadow-xl hover:scale-105 active:translate-y-0"
                   title="Solicitar Auditoría Gratuita"
                   description="Analizaremos tu sitio web y te enviaremos un reporte detallado con mejoras específicas"
+                  showFooter={false}
+                  triggerClass="btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 border-2 border-purple-300 rounded-lg hover:from-purple-100 hover:to-pink-100 hover:border-purple-500 hover:shadow-xl hover:scale-105 active:translate-y-0"
+                  triggerText="Auditar mi Web Actual Gratis"
+                  // bind:show
+                  showSig={showAuditModal}
                 >
-                  <HeroAuditForm onSubmit$={handleAuditSubmit$} />
+                  <AuditForm
+                    onCloseModal$={onCloseModal$}
+                    onShowToast$={onShowToast$}
+                  />
                 </Modal>
               </div>
             </div>
@@ -121,6 +119,13 @@ export default component$(() => {
           />
         </button>
       </div>
+      <Toast
+        id="audit-toast"
+        type={toastType.value}
+        title={toastType.value === 'success' ? '¡Listo!' : 'Ups...'}
+        message={toastMsg.value}
+        duration={4000}
+      />
     </main>
   );
 });

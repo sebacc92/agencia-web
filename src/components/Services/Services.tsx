@@ -74,19 +74,15 @@ export default component$(() => {
 
                   <div class="flex-1">
                     <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-indigo-600 transition-all duration-300 leading-tight">
-                      Desarrollo Web
+                      Desarrollo Web de Alto Rendimiento
                     </h3>
                   </div>
                 </div>
 
-                <p class="text-purple-700 font-medium text-base">Creamos sitios web únicos, atractivos y optimizados</p>
+                <p class="text-purple-700 font-medium text-base">Diseñamos y desarrollamos sitios web rápidos, accesibles y fáciles de usar, con foco en negocio y conversión.</p>
               </div>
 
               <ul class="space-y-4 mb-8">
-                <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                  <span class="inline-block w-1.5 h-1.5 bg-purple-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-purple-600/50 transition-all"></span>
-                  <span class="text-sm md:text-base">Landing Page</span>
-                </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-purple-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-purple-600/50 transition-all"></span>
                   <span class="text-sm md:text-base">Dominio web GRATIS</span>
@@ -162,25 +158,25 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <p class="text-pink-400 font-medium text-base">Soluciones de IA que transforman procesos</p>
+                <p class="text-pink-400 font-medium text-base">Estamos desarrollando soluciones con IA para automatizar atención, contenidos y procesos.</p>
               </div>
 
               <ul class="space-y-4 mb-8">
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.4s"></span>
-                  <span class="text-sm md:text-base">Whatsapp automático</span>
+                  <span class="text-sm md:text-base">WhatsApp automático</span>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all"></span>
-                  <span class="text-sm md:text-base">Asistentes virtuales con IA avanzada</span>
-                </li>
-                <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                  <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.2s"></span>
-                  <span class="text-sm md:text-base">Automatización de procesos</span>
+                  <span class="text-sm md:text-base">Asistentes virtuales con IA avanzada en tu web</span>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.6s"></span>
                   <span class="text-sm md:text-base">Creación automática de contenido inteligente</span>
+                <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
+                  <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.2s"></span>
+                  <span class="text-sm md:text-base">Automatización de procesos</span>
+                </li>
                 </li>
                 <li class="flex items-start text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
                   <span class="inline-block w-1.5 h-1.5 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full mr-3 mt-2 group-hover:shadow-lg group-hover:shadow-pink-600/50 transition-all" style="animation-delay: 0.8s"></span>
@@ -231,7 +227,7 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <p class="text-emerald-400 font-medium text-base">Estrategias personalizadas que convierten</p>
+                <p class="text-emerald-400 font-medium text-base">En formación y alianzas para ofrecer performance marketing, SEO avanzado y social.</p>
               </div>
 
               <ul class="space-y-4 mb-8">
