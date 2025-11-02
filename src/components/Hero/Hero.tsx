@@ -103,23 +103,20 @@ export default component$(() => {
 
       {/* Scroll Indicator - Fixed at bottom */}
       <div class="relative z-10 flex justify-center pb-6 sm:pb-8">
-        <button
-          class="group cursor-pointer animate-bounce hover:scale-110 transition-all duration-300 p-2 rounded-full hover:bg-white/10"
-          onClick$={() => {
-            const servicesSection = document.getElementById('services');
-            if (servicesSection) {
-              servicesSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          }}
+        <a
+          href="#services"
+          class="group cursor-pointer motion-safe:animate-bounce hover:scale-110 transition-transform duration-300 p-2 rounded-full hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
+          aria-label="Ir a la sección Servicios"
+          title="Ir a la sección Servicios"
         >
           <LuChevronDownCircle
             class="w-8 h-8 text-gray-500 group-hover:text-green-500 transition-colors duration-300"
+            aria-hidden="true"
+            focusable="false"
           />
-        </button>
+        </a>
       </div>
+      
       <Toast
         id="audit-toast"
         type={toastType.value}
