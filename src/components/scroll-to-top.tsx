@@ -5,11 +5,33 @@ export const ScrollToTop = component$(() => {
   const show = useSignal(false);
 
   useVisibleTask$(() => {
+    let rafId: number | null = null;
+
     const onScroll = () => {
-      show.value = window.scrollY > 120;
+      // Usar requestAnimationFrame para evitar reflow forzado
+      // Solo actualizar cuando el frame esté listo
+      if (rafId === null) {
+        rafId = requestAnimationFrame(() => {
+          // Leer scrollY solo en el frame de animación, no durante el evento
+          // Esto evita el reflow forzado porque el navegador ya calculó el layout
+          show.value = window.scrollY > 120;
+          rafId = null;
+        });
+      }
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Inicializar el estado en el próximo frame para evitar reflow inicial
+    requestAnimationFrame(() => {
+      show.value = window.scrollY > 120;
+    });
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   });
 
   return (

@@ -18,7 +18,11 @@ export default component$(() => {
   const onShowToast$ = $((payload: { type: 'success' | 'error'; message: string }) => {
     toastType.value = payload.type;
     toastMsg.value = payload.message;
-    showPopover();
+    // Usar requestAnimationFrame para evitar reflow forzado
+    // cuando se muestre el popover y se modifique el DOM
+    requestAnimationFrame(() => {
+      showPopover();
+    });
   });
   return (
     <main class="min-h-screen flex flex-col bg-gray-50 relative">

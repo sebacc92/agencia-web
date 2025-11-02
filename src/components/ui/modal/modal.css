@@ -132,6 +132,7 @@
 .modal-panel.sheet::backdrop,
 .modal-panel.bottom-sheet::backdrop {
   animation: modalFadeIn 0.75s var(--modal-animation);
+  will-change: background-color;
 }
 
 .modal-animation[data-closing]::backdrop,
@@ -168,6 +169,7 @@
 
 .modal-animation {
   animation: modalOpen 0.75s var(--modal-animation);
+  will-change: opacity, transform;
 }
 
 .modal-animation[data-closing] {

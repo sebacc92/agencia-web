@@ -14,8 +14,15 @@ interface ToastProps {
 
 export default component$<ToastProps>(({ id, type = 'info', title, message, duration = 4000 }) => {
   useStylesScoped$(`
-    @keyframes toast-progress { from { transform: scaleX(1) } to { transform: scaleX(0) } }
-    .progress { transform-origin: left; animation: toast-progress var(--d, 4000ms) linear forwards; }
+    @keyframes toast-progress { 
+      from { transform: scaleX(1) } 
+      to { transform: scaleX(0) } 
+    }
+    .progress { 
+      transform-origin: left; 
+      will-change: transform;
+      animation: toast-progress var(--d, 4000ms) linear forwards; 
+    }
   `);
 
   const { hidePopover } = usePopover(id);
@@ -26,7 +33,10 @@ export default component$<ToastProps>(({ id, type = 'info', title, message, dura
     const prev = (el as any)._t as number | undefined;
     if (prev) window.clearTimeout(prev);
     if (isOpen) {
-      (el as any)._t = window.setTimeout(() => hidePopover(), duration);
+      // Usar requestAnimationFrame para evitar reflow forzado
+      requestAnimationFrame(() => {
+        (el as any)._t = window.setTimeout(() => hidePopover(), duration);
+      });
     }
   });
 
@@ -52,9 +62,10 @@ export default component$<ToastProps>(({ id, type = 'info', title, message, dura
           fixed bottom-6 left-1/2 -translate-x-1/2 z-[100]
           max-w-sm w-[92vw] sm:w-[420px]
           rounded-lg border shadow-xl pointer-events-auto
-          transition-all duration-200
+          transition-opacity duration-200
           data-[open]:opacity-100 data-[open]:translate-y-0
           data-[closed]:opacity-0 data-[closed]:translate-y-2
+          will-change-[opacity,transform]
           ${palette[type]}
         `}
         role="status"

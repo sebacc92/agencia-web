@@ -71,7 +71,7 @@ export default component$(() => {
         {/* Overlay oscuro para cerrar el menú */}
         {isMenuOpen.value && (
           <div
-            class="fixed top-20 left-0 right-0 bg-black/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 z-40"
+            class="fixed top-20 left-0 right-0 bg-black/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 z-40 will-change-opacity"
             style={{ height: 'calc(100vh - 80px)' }}
             onClick$={() => isMenuOpen.value = false}
           />
@@ -79,7 +79,7 @@ export default component$(() => {
 
         {/* Mobile Menu - Desliza desde la derecha */}
         <div
-          class={`fixed top-20 right-0 w-80 bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-in-out z-50 ${
+          class={`fixed top-20 right-0 w-80 bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-in-out z-50 will-change-transform ${
             isMenuOpen.value ? 'translate-x-0' : 'translate-x-full'
           }`}
           style={{ height: 'calc(100vh - 80px)' }}

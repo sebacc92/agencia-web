@@ -23,11 +23,19 @@ export default component$(() => {
         const { success, message } = action.value;
         toastType.value = success ? 'success' : 'error';
         toastMsg.value = message ?? (success ? '¡Mensaje enviado!' : 'Ocurrió un error');
-        showPopover();
-
-        if (success) {
-            formRef.value?.reset();
-        }
+        
+        // Usar requestAnimationFrame para evitar reflow forzado
+        // cuando se muestre el popover y se modifique el DOM
+        requestAnimationFrame(() => {
+            showPopover();
+            
+            if (success) {
+                // Resetear el formulario en el siguiente frame para evitar reflow
+                requestAnimationFrame(() => {
+                    formRef.value?.reset();
+                });
+            }
+        });
     });
 
     const TURNSTILE_SITE_KEY = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY

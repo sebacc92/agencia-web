@@ -235,9 +235,10 @@ h6 { font-size: var(--font-size-lg); }
   box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.08),
     0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .card::before {
@@ -323,22 +324,27 @@ h6 { font-size: var(--font-size-lg); }
 
 .animate-fade-in-down {
   animation: fadeInDown 0.6s ease-out;
+  will-change: opacity, transform;
 }
 
 .animate-fade-in-left {
   animation: fadeInLeft 0.6s ease-out;
+  will-change: opacity, transform;
 }
 
 .animate-fade-in-right {
   animation: fadeInRight 0.6s ease-out;
+  will-change: opacity, transform;
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 .panda-float-animation {
   animation: pandaFloat 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Animation Delays */
@@ -373,8 +379,9 @@ h6 { font-size: var(--font-size-lg); }
   color: white;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
   z-index: 999;
+  will-change: transform;
 }
 
 .whatsapp-button:hover {
@@ -413,6 +420,7 @@ h6 { font-size: var(--font-size-lg); }
   border-radius: 5px;
   transition: all .5s;
   transform-origin: left;
+  will-change: transform, opacity;
 }
 
 .button-menu[aria-expanded="true"] div:first-child {
