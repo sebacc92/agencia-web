@@ -28,7 +28,6 @@
     "@builder.io/qwik": "^1.16.1",
     "@builder.io/qwik-city": "^1.16.1",
     "@emailjs/browser": "^4.4.1",
-    "@emailjs/nodejs": "^5.0.2",
     "@eslint/js": "latest",
     "@netlify/edge-functions": "^2.0.0",
     "@qwik-ui/headless": "^0.7.4",

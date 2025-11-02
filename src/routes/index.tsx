@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { routeAction$, type DocumentHead } from "@builder.io/qwik-city";
-import emailjs from '@emailjs/nodejs';
 import Hero from "~/components/Hero/Hero";
 import Services from "~/components/Services/Services";
 import WorkProcess from "~/components/WorkProcess/WorkProcess";
@@ -9,8 +8,6 @@ import Portfolio from "~/components/Portfolio/Portfolio";
 import Contacto from "~/components/Contacto/Contacto";
 
 export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
-  console.log('useAuditWebsite data: ', data);
-
   const token = (data as any)['cf-turnstile-response'] as string | undefined;
   if (!token) {
     return { success: false, message: 'Falta la verificación anti-bots. Por favor, intenta nuevamente.' };
@@ -39,7 +36,6 @@ export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
       }),
     });
     result = await response.json();
-    console.log('Turnstile verification result:', result);
   } catch (error) {
     console.error('Turnstile validation error:', error);
     return { success: false, message: 'Error validando el captcha.' };
@@ -74,13 +70,24 @@ export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
   };
 
   try {
-    const resp = await emailjs.send(
-      SERVICE_ID,
-      TEMPLATE_AUDIT_REQUEST_ID,
-      payload,
-      { publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY }
-    );
-    console.log('EmailJS SUCCESS!', resp.status, resp.text);
+    const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: SERVICE_ID,
+        template_id: TEMPLATE_AUDIT_REQUEST_ID,
+        user_id: PUBLIC_KEY,
+        template_params: payload,
+        accessToken: PRIVATE_KEY,
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`EmailJS request failed with status ${res.status}`);
+    }
+
     return {
       success: true,
       message: '¡Solicitud enviada! Te contactaremos pronto con el reporte de auditoría.',
@@ -95,8 +102,6 @@ export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
 });
 
 export const useContact = routeAction$(async (data, requestEvent) => {
-  console.log('useContact data: ', data);
-
   const token = (data as any)['cf-turnstile-response'] as string | undefined;
   if (!token) {
     return { success: false, message: 'Falta la verificación anti-bots. Por favor, intenta nuevamente.' };
@@ -121,7 +126,6 @@ export const useContact = routeAction$(async (data, requestEvent) => {
       body: JSON.stringify({ secret: SECRET_KEY, response: token, remoteip }),
     });
     result = await response.json();
-    console.log('Turnstile verification result:', result);
   } catch (error) {
     console.error('Turnstile validation error:', error);
     return { success: false, message: 'Error validando el captcha.' };
@@ -155,13 +159,21 @@ export const useContact = routeAction$(async (data, requestEvent) => {
     proyecto: (data as any).proyecto,
   };
 
+  
   try {
-    await emailjs.send(
-      SERVICE_ID,
-      TEMPLATE_CONTACT_ID,
-      payload,
-      { publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY }
-    );
+    await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: SERVICE_ID,
+        template_id: TEMPLATE_CONTACT_ID,
+        user_id: PUBLIC_KEY,
+        template_params: payload,
+        accessToken: PRIVATE_KEY,
+      }),
+    });
     return { success: true, message: '¡Mensaje enviado correctamente! Te responderemos pronto.' };
   } catch (err: any) {
     console.error('EmailJS error', err);
