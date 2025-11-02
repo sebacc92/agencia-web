@@ -1,6 +1,6 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 import { LuChevronDownCircle } from "@qwikest/icons/lucide";
-import ImageHero from "~/media/images/oso_panda_usando_notebook.png?jsx";
+import ImagePanda from "~/media/images/oso_panda_usando_notebook.png?quality=72&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
@@ -35,9 +35,10 @@ export default component$(() => {
               <div class="relative animate-float max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                 {/* Nube voladora con movimiento sutil */}
                 <div>
-                  <ImageHero
+                  <ImagePanda
                     alt="Panda trabajando en laptop sobre nube voladora"
                     class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation w-full"
+                    sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
                   />
                 </div>
 

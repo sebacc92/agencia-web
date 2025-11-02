@@ -99,7 +99,7 @@ export default component$(() => {
                 <div class="relative bg-white border-2 border-purple-200 rounded-3xl pb-4 lg:p-4 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
                   <div class="relative overflow-hidden rounded-t-2xl mb-4">
                     <img
-                      src="/images/dai.jpeg"
+                      src="/images/dai.webp"
                       alt="María - Lead Designer"
                       class="w-full object-cover object-top rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                       style={{height: "350px"}}
