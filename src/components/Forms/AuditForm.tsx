@@ -11,11 +11,9 @@ interface AuditFormProps {
 
 export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
   const action = useAuditWebsite();
-  
   const handled = useSignal<any>(null);
 
   useVisibleTask$(({ track }) => {
-    // rastrea cambios en la respuesta de la action
     const value = track(() => action.value);
     track(() => action.isRunning);
 
@@ -25,17 +23,12 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       const type = value.success ? 'success' : 'error';
       const message = value.message ?? (value.success ? '¡Solicitud enviada!' : 'Ocurrió un error');
 
-      // cierra modal solo si fue exitoso
-      if (value.success) {
-        onCloseModal$?.();
-      }
-
-      // muestra el toast
+      if (value.success) onCloseModal$?.();
       onShowToast$?.({ type, message });
     }
   });
 
-  const TURNSTILE_SITE_KEY = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY;
 
   return (
     <Form action={action}>
@@ -62,14 +55,13 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           required
         />
 
-        {/* Cloudflare Turnstile */}
         <div
-            class="cf-turnstile"
-            data-sitekey={TURNSTILE_SITE_KEY}
-            data-theme="light"
-            data-size="normal"
-            data-action="contact"
-            data-cdata="contact-form"
+          class="cf-turnstile"
+          data-sitekey={TURNSTILE_SITE_KEY}
+          data-theme="light"
+          data-size="normal"
+          data-action="audit"
+          data-cdata="audit-form"
         ></div>
 
         <Button type="submit" class="mt-4 w-full" disabled={action.isRunning}>
