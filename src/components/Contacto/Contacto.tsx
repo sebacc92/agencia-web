@@ -1,4 +1,4 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 import { useContact } from "~/routes/index";
@@ -12,8 +12,57 @@ export default component$(() => {
     const toastType = useSignal<'success' | 'error'>('success');
     const toastMsg = useSignal('');
     const { showPopover } = usePopover('contact-toast');
+    const turnstileLoaded = useSignal(false);
 
     const formRef = useSignal<HTMLFormElement>();
+
+    // Cargar Turnstile de forma diferida para mejorar el rendimiento
+    const loadTurnstile = $(() => {
+        if (turnstileLoaded.value) return;
+        if (typeof window !== 'undefined' && !document.querySelector('script[src*="turnstile"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            script.async = true;
+            script.defer = true;
+            // Usar requestAnimationFrame para evitar reflow forzado
+            requestAnimationFrame(() => {
+                document.head.appendChild(script);
+                turnstileLoaded.value = true;
+            });
+        }
+    });
+
+    // Cargar Turnstile cuando el formulario esté visible
+    useVisibleTask$(({ track }) => {
+        // Track el formRef para que se ejecute cuando esté disponible
+        track(() => formRef.value);
+        
+        const formElement = formRef.value;
+        if (!formElement) return;
+
+        // Usar Intersection Observer para cargar solo cuando sea necesario
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    loadTurnstile();
+                    // Desconectar después de cargar
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '200px' } // Cargar 200px antes de que sea visible
+        );
+
+        observer.observe(formElement);
+
+        // También cargar al hacer focus en cualquier input del formulario
+        const handleFocus = () => loadTurnstile();
+        formElement.addEventListener('focus', handleFocus, { once: true, capture: true });
+
+        return () => {
+            observer.disconnect();
+            formElement.removeEventListener('focus', handleFocus, { capture: true });
+        };
+    });
 
     // Mostrar toast y resetear al terminar
     useVisibleTask$(({ track }) => {
@@ -72,7 +121,7 @@ export default component$(() => {
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
 
                             <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
-                                <Form action={action} class="space-y-6">
+                                <Form action={action} class="space-y-6" ref={formRef}>
                                     {/* Nombre y Email */}
                                     <div class="grid md:grid-cols-2 gap-6">
                                         <div>

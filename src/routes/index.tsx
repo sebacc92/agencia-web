@@ -217,4 +217,13 @@ export const head: DocumentHead = {
     { name: "geo.position", content: "-34.603722;-58.381592" },
     { name: "ICBM", content: "-34.603722, -58.381592" },
   ],
+  links: [
+    // Preload de la imagen LCP para mejorar el rendimiento
+    {
+      rel: "preload",
+      as: "image",
+      href: "/media/images/oso_panda_usando_notebook.png",
+      fetchPriority: "high",
+    },
+  ],
 };

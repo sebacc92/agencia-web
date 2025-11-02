@@ -16,17 +16,17 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        {/* DNS prefetch para recursos externos */}
+        <link rel="dns-prefetch" href="https://challenges.cloudflare.com" />
+        {/* Preconnect para recursos críticos */}
+        <link rel="preconnect" href="https://challenges.cloudflare.com" crossOrigin="anonymous" />
         {!isDev && (
           <link
             rel="manifest"
             href={`${import.meta.env.BASE_URL}manifest.json`}
           />
         )}
-        <script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          async
-          defer
-        ></script>
+        {/* Cloudflare Turnstile se carga solo cuando se necesita (en el formulario) */}
         <RouterHead />
       </head>
       <body lang="en">
