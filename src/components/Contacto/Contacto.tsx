@@ -1,4 +1,4 @@
-import { component$, useSignal, useStylesScoped$, useVisibleTask$, isDev } from "@builder.io/qwik";
+import { component$, useSignal, useStylesScoped$, useVisibleTask$, $ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
 import { useContact } from "~/routes/index";
@@ -8,215 +8,213 @@ import { usePopover } from "@qwik-ui/headless";
 declare const grecaptcha: any;
 
 export default component$(() => {
-  useStylesScoped$(`
+    useStylesScoped$(`
     @keyframes gradient { 0%, 100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
     .animate-gradient { background-size: 200% auto; animation: gradient 3s ease infinite; }
     .card { padding: 2rem; border-radius: 1.5rem; }
     @media (max-width: 768px) { .card { padding: 1.5rem; } }
   `);
 
-  const action = useContact();
+    const action = useContact();
 
-  // reCAPTCHA v2
-  const recaptchaRef = useSignal<Element>();
-  const recaptchaToken = useSignal<string | null>(null);
+    // reCAPTCHA v3
+    const recaptchaToken = useSignal<string>('');
+    const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY_V3;
 
-  // Toast local a esta sección
-  const toastType = useSignal<'success' | 'error'>('success');
-  const toastMsg = useSignal('');
-  const { showPopover } = usePopover('contact-toast');
+    // Toast
+    const toastType = useSignal<'success' | 'error'>('success');
+    const toastMsg = useSignal('');
+    const { showPopover } = usePopover('contact-toast');
 
-  const formRef = useSignal<HTMLFormElement>();
+    const formRef = useSignal<HTMLFormElement>();
 
-  // Renderizar reCAPTCHA (solo en prod)
-  useVisibleTask$(({ track }) => {
-    if (isDev) return;
-    track(() => recaptchaRef.value);
+    // Mostrar toast y resetear al terminar
+    useVisibleTask$(({ track }) => {
+        track(() => action.value);
+        if (!action.value) return;
 
-    const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY_V2;
-    if (!RECAPTCHA_SITE_KEY) {
-      console.error('Falta VITE_RECAPTCHA_SITE_KEY_V2');
-      return;
-    }
+        const { success, message } = action.value;
+        toastType.value = success ? 'success' : 'error';
+        toastMsg.value = message ?? (success ? '¡Mensaje enviado!' : 'Ocurrió un error');
+        showPopover();
 
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.render && recaptchaRef.value) {
-      grecaptcha.render(recaptchaRef.value, {
-        sitekey: RECAPTCHA_SITE_KEY,
-        callback: (token: string) => { recaptchaToken.value = token; },
-        'expired-callback': () => { recaptchaToken.value = null; },
-        'error-callback': () => { recaptchaToken.value = null; },
-      });
-    }
-  });
+        if (success) {
+            formRef.value?.reset();
+            recaptchaToken.value = '';
+        }
+    });
 
-  // Mostrar toast y resetear form/captcha al terminar
-  useVisibleTask$(({ track }) => {
-    track(() => action.value);
-    if (!action.value) return;
+    const handleSubmitWithCaptcha$ = $(async () => {
+        // En dev, no exigimos token (server también puede saltear verificación)
+        // if (isDev) {
+        //     formRef.value?.requestSubmit();
+        //     return;
+        // }
 
-    const { success, message } = action.value;
-    toastType.value = success ? 'success' : 'error';
-    toastMsg.value = message ?? (success ? '¡Mensaje enviado!' : 'Ocurrió un error');
-    showPopover();
+        if (!RECAPTCHA_SITE_KEY) {
+            toastType.value = 'error';
+            toastMsg.value = 'Falta VITE_RECAPTCHA_SITE_KEY_V3';
+            showPopover();
+            return;
+        }
 
-    if (success) {
-      // reset form y captcha
-      formRef.value?.reset();
-      if (typeof grecaptcha !== 'undefined') {
-        try { grecaptcha.reset(); } catch {}
-      }
-      recaptchaToken.value = null;
-    }
-  });
+        try {
+            // Asegura que la librería esté lista
+            await new Promise<void>((resolve) => {
+                if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+                    grecaptcha.ready(() => resolve());
+                } else {
+                    // reintento simple
+                    const start = Date.now();
+                    const timer = setInterval(() => {
+                        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+                            clearInterval(timer);
+                            grecaptcha.ready(() => resolve());
+                        }
+                        if (Date.now() - start > 5000) {
+                            clearInterval(timer);
+                            resolve(); // seguimos igual para no bloquear
+                        }
+                    }, 100);
+                }
+            });
 
-  const disabled = action.isRunning || (!isDev && !recaptchaToken.value);
+            if (typeof grecaptcha === 'undefined' || !grecaptcha.execute) {
+                // si no está disponible, seguimos (el server fallará con mensaje claro)
+                recaptchaToken.value = '';
+                formRef.value?.requestSubmit();
+                return;
+            }
 
-  return (
-    <section id="contacto" class="relative bg-gradient-to-br from-white via-emerald-50/40 to-cyan-50/30 overflow-hidden py-22">
-      {/* Fondo decorativo */}
-      <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-        <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-emerald-300/30 to-cyan-300/30 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-cyan-300/20 to-emerald-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-emerald-300/20 to-teal-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "4s" }}></div>
-      </div>
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+            console.log('token', token)
+            recaptchaToken.value = token;
+            console.log('token', token)
+            // Enviar el Form con el token en el hidden input
+            formRef.value?.requestSubmit();
+        } catch (e) {
+            console.error('Error al ejecutar reCAPTCHA:', e);
+            recaptchaToken.value = '';
+            formRef.value?.requestSubmit();
+        }
+    });
 
-      <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div class="text-center mb-12">
-          <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
-            <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Contacto</span>
-          </div>
-
-          <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-            ¿Listo para
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> Crecer</span>
-            ?
-          </h3>
-          <p class="text-lg md:text-xl text-gray-700 mt-4 max-w-2xl mx-auto">
-            Contanos sobre tu proyecto y descubrí cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center max-w-3xl mx-auto">
-          <div class="animate-fade-up lg:max-w-none lg:mx-0" style={{ animationDelay: "0.3s" }}>
-            <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
-
-              <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
-                <Form action={action} ref={formRef} class="space-y-6">
-                  {/* Nombre y Email */}
-                  <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">Nombre completo *</label>
-                      <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Tu nombre"
-                        class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
-                        required
-                        disabled={action.isRunning}
-                      />
-                    </div>
-
-                    <div>
-                      <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Correo electrónico *</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="tu@email.com"
-                        class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
-                        required
-                        disabled={action.isRunning}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Teléfono */}
-                  <div>
-                    <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">Teléfono (opcional)</label>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      placeholder="+34 600 000 000"
-                      class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
-                      disabled={action.isRunning}
-                    />
-                  </div>
-
-                  {/* Proyecto */}
-                  <div>
-                    <label for="proyecto" class="block text-sm font-semibold text-gray-900 mb-2">Contanos sobre tu proyecto (opcional)</label>
-                    <textarea
-                      id="proyecto"
-                      name="proyecto"
-                      rows={5}
-                      placeholder="¿Qué necesitas? ¿Cuáles son tus objetivos?"
-                      class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50 resize-none"
-                      disabled={action.isRunning}
-                    ></textarea>
-                  </div>
-
-                  {/* reCAPTCHA v2 */}
-                  {!isDev && (
-                    <div class="flex flex-col items-center gap-2 pt-2">
-                      <div ref={recaptchaRef}></div>
-                      {!recaptchaToken.value && (
-                        <p class="text-xs text-gray-500">Marca el reCAPTCHA para habilitar el envío</p>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Token oculto */}
-                  <input type="hidden" name="g-recaptcha-response" value={recaptchaToken.value ?? ''} />
-
-                  {/* Submit */}
-                  <div class="text-center pt-4">
-                    <Button
-                      type="submit"
-                      class={`
-                        inline-flex items-center justify-center w-full md:w-auto px-8 py-4
-                        bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl
-                        hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl
-                        transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                      `}
-                      disabled={disabled}
-                    >
-                      {action.isRunning ? (
-                        <>
-                          <span class="mr-2">⏳</span> Enviando...
-                        </>
-                      ) : (
-                        <>
-                          <span class="mr-2">📩</span> Enviar mensaje
-                        </>
-                      )}
-                    </Button>
-                  </div>
-
-                  {/* Nota de seguridad */}
-                  <p class="text-center text-xs text-gray-600">
-                    🔒 Tus datos están seguros. Solo los usamos para responder tu consulta.
-                  </p>
-                </Form>
-              </div>
+    return (
+        <section id="contacto" class="relative bg-gradient-to-br from-white via-emerald-50/40 to-cyan-50/30 overflow-hidden py-22">
+            {/* Fondo decorativo */}
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+                <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-emerald-300/30 to-cyan-300/30 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-cyan-300/20 to-emerald-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-emerald-300/20 to-teal-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "4s" }}></div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Toast bottom-center para Contacto */}
-      <Toast
-        id="contact-toast"
-        type={toastType.value}
-        title={toastType.value === 'success' ? '¡Listo!' : 'Ups...'}
-        message={toastMsg.value}
-        duration={4000}
-      />
-    </section>
-  );
+            <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+                {/* Header */}
+                <div class="text-center mb-12">
+                    <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
+                        <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Contacto</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                        ¿Listo para
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> Crecer</span>
+                        ?
+                    </h3>
+                    <p class="text-lg md:text-xl text-gray-700 mt-4 max-w-2xl mx-auto">
+                        Contanos sobre tu proyecto y descubrí cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center max-w-3xl mx-auto">
+                    <div class="animate-fade-up lg:max-w-none lg:mx-0" style={{ animationDelay: "0.3s" }}>
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent rounded-3xl"></div>
+
+                            <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-8 md:p-12 shadow-lg">
+                                <Form action={action} ref={formRef} class="space-y-6">
+                                    {/* Nombre y Email */}
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">Nombre completo *</label>
+                                            <input
+                                                type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                                                class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
+                                                required disabled={action.isRunning}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Correo electrónico *</label>
+                                            <input
+                                                type="email" id="email" name="email" placeholder="tu@email.com"
+                                                class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
+                                                required disabled={action.isRunning}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Teléfono */}
+                                    <div>
+                                        <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">Teléfono (opcional)</label>
+                                        <input
+                                            type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000"
+                                            class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50"
+                                            disabled={action.isRunning}
+                                        />
+                                    </div>
+
+                                    {/* Proyecto */}
+                                    <div>
+                                        <label for="proyecto" class="block text-sm font-semibold text-gray-900 mb-2">Contanos sobre tu proyecto (opcional)</label>
+                                        <textarea
+                                            id="proyecto" name="proyecto" rows={5} placeholder="¿Qué necesitas? ¿Cuáles son tus objetivos?"
+                                            class="w-full rounded-md border px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all bg-white/50 resize-none"
+                                            disabled={action.isRunning}
+                                        ></textarea>
+                                    </div>
+
+                                    {/* Hidden inputs para reCAPTCHA v3 */}
+                                    <input type="hidden" name="g-recaptcha-response" value={recaptchaToken.value} />
+                                    <input type="hidden" name="recaptcha_action" value="contact" />
+
+                                    {/* Submit (pedimos token y luego enviamos) */}
+                                    <div class="text-center pt-4">
+                                        <Button
+                                            type="button"
+                                            onClick$={handleSubmitWithCaptcha$}
+                                            class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            disabled={action.isRunning}
+                                        >
+                                            {action.isRunning ? (
+                                                <>
+                                                    <span class="mr-2">⏳</span> Enviando...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <span class="mr-2">📩</span> Enviar mensaje
+                                                </>
+                                            )}
+                                        </Button>
+                                    </div>
+
+                                    {/* Nota seguridad */}
+                                    <p class="text-center text-xs text-gray-600">
+                                        🔒 Tus datos están seguros. Solo los usamos para responder tu consulta.
+                                    </p>
+                                </Form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Toast bottom-center */}
+            <Toast
+                id="contact-toast"
+                type={toastType.value}
+                title={toastType.value === 'success' ? '¡Listo!' : 'Ups...'}
+                message={toastMsg.value}
+                duration={4000}
+            />
+        </section>
+    );
 });

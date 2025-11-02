@@ -61,15 +61,20 @@ export const useAuditWebsite = routeAction$(async (data, requestEvent) => {
   }
 });
 
-export const useContact = routeAction$(async (data, event) => {
+export const useContact = routeAction$(async (data, requestEvent) => {
+  console.log('data: ', data);
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  const PRIVATE_KEY = event.env.get('EMAILJS_PRIVATE_KEY');
+  const PRIVATE_KEY = requestEvent.env.get('EMAILJS_PRIVATE_KEY');
 
-  const IS_TEST_MODE = import.meta.env.DEV; // en dev: no validamos captcha ni enviamos real si querés
-  const RECAPTCHA_SECRET = event.env.get('RECAPTCHA_SECRET_KEY_V2');
+  // reCAPTCHA v3
+  const RECAPTCHA_SECRET = requestEvent.env.get('RECAPTCHA_SECRET_KEY_V3');
   const token = (data as any)['g-recaptcha-response'] as string | undefined;
+  const expectedAction = ((data as any)['recaptcha_action'] ?? 'contact') as string;
+
+  const IS_TEST_MODE = import.meta.env.DEV; // en dev podés saltear verificación/ envío real
+  const SCORE_THRESHOLD = 0.6; // ajustable
 
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     console.error('Faltan credenciales de EmailJS');
@@ -78,11 +83,11 @@ export const useContact = routeAction$(async (data, event) => {
 
   if (!IS_TEST_MODE) {
     if (!RECAPTCHA_SECRET) {
-      console.error('Falta RECAPTCHA_SECRET_KEY_V2');
+      console.error('Falta RECAPTCHA_SECRET_KEY_V3');
       return { success: false, message: 'Error de configuración de reCAPTCHA' };
     }
     if (!token) {
-      return { success: false, message: 'Por favor completa el reCAPTCHA' };
+      return { success: false, message: 'Por favor intenta nuevamente (captcha).' };
     }
 
     try {
@@ -92,16 +97,22 @@ export const useContact = routeAction$(async (data, event) => {
         body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: token }),
       });
       const json = await res.json();
+      // json: { success, score, action, challenge_ts, hostname }
       if (!json.success) {
-        console.warn('reCAPTCHA inválido', json['error-codes']);
-        return { success: false, message: 'No pudimos validar el reCAPTCHA. Intenta nuevamente.' };
+        return { success: false, message: 'No pudimos validar el captcha. Intenta nuevamente.' };
+      }
+      if (json.action && json.action !== expectedAction) {
+        return { success: false, message: 'Acción de captcha inválida.' };
+      }
+      if (typeof json.score === 'number' && json.score < SCORE_THRESHOLD) {
+        return { success: false, message: 'Detección de actividad sospechosa. Intenta de nuevo.' };
       }
     } catch (err) {
-      console.error('Error verificando reCAPTCHA', err);
+      console.error('Error verificando reCAPTCHA v3', err);
       return { success: false, message: 'Error al verificar reCAPTCHA' };
     }
   } else {
-    console.log('[CONTACTO] Modo test: salteando verificación reCAPTCHA');
+    console.log('[CONTACTO] Test mode: salteando verificación reCAPTCHA v3');
   }
 
   const payload = {
@@ -113,7 +124,7 @@ export const useContact = routeAction$(async (data, event) => {
   };
 
   if (IS_TEST_MODE) {
-    console.log('[CONTACTO] Modo test: simulando envío EmailJS', payload);
+    console.log('[CONTACTO] Test mode: simulando envío EmailJS', payload);
     return { success: true, message: '¡Mensaje enviado! (Simulado en modo test)' };
   }
 
@@ -151,7 +162,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "AgenciaTech - Diseño Web, IA y Marketing Digital para Startups",
+  title: "Cleverisma - Diseño Web, IA y Marketing Digital para Startups",
   meta: [
     {
       name: "description",
@@ -163,7 +174,7 @@ export const head: DocumentHead = {
     },
     {
       name: "author",
-      content: "AgenciaTech",
+      content: "Cleverisma",
     },
     // Open Graph / Facebook
     {
@@ -172,11 +183,11 @@ export const head: DocumentHead = {
     },
     {
       property: "og:url",
-      content: "https://agenciatech.com/",
+      content: "https://cleverisma.com/",
     },
     {
       property: "og:title",
-      content: "AgenciaTech - Diseño Web, IA y Marketing Digital para Startups",
+      content: "Cleverisma - Diseño Web, IA y Marketing Digital para Startups",
     },
     {
       property: "og:description",
@@ -184,7 +195,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://agenciatech.com/og-image.jpg",
+      content: "https://cleverisma.com/og-image.jpg",
     },
     // Twitter
     {
@@ -193,11 +204,11 @@ export const head: DocumentHead = {
     },
     {
       property: "twitter:url",
-      content: "https://agenciatech.com/",
+      content: "https://cleverisma.com/",
     },
     {
       property: "twitter:title",
-      content: "AgenciaTech - Diseño Web, IA y Marketing Digital para Startups",
+      content: "Cleverisma - Diseño Web, IA y Marketing Digital para Startups",
     },
     {
       property: "twitter:description",
@@ -205,7 +216,7 @@ export const head: DocumentHead = {
     },
     {
       property: "twitter:image",
-      content: "https://agenciatech.com/twitter-image.jpg",
+      content: "https://cleverisma.com/twitter-image.jpg",
     },
     // Additional SEO
     {
