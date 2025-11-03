@@ -1,20 +1,30 @@
-import { $, component$, useSignal } from "@builder.io/qwik";
+import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { LuChevronDownCircle } from "@qwikest/icons/lucide";
 import ImagePanda from "~/media/images/oso_panda_usando_notebook.png?quality=72&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
 import Toast from "~/components/ui/toast/toast";
+import { FloatingEmojis } from "~/components/FloatingEmojis";
 import { usePopover } from '@qwik-ui/headless';
 
 export default component$(() => {
   const showAuditModal = useSignal(false);
+  const aninmationsLoaded = useSignal(false);
   const toastType = useSignal<'success' | 'error'>('success');
   const toastMsg = useSignal('');
   const { showPopover } = usePopover('audit-toast');
   const onCloseModal$ = $(() => {
     showAuditModal.value = false;
   });
+  useVisibleTask$(
+    () => {
+      // Simplemente cambiamos la señal a 'true'.
+      // Qwik re-renderizará mínimamente solo las clases.
+      aninmationsLoaded.value = true;
+    },
+    { strategy: 'document-idle' } // <-- ¡Esta es la magia!
+  );
   const onShowToast$ = $((payload: { type: 'success' | 'error'; message: string }) => {
     toastType.value = payload.type;
     toastMsg.value = payload.message;
@@ -36,28 +46,27 @@ export default component$(() => {
           <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] lg:gap-12 items-center">
             {/* Image Column - Shows first on mobile */}
             <div class="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mb-0">
-              <div class="relative animate-float max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+              <div
+                class={[
+                  'relative max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg',
+                  { 'animate-float': aninmationsLoaded.value }
+                ]}
+              >
                 {/* Nube voladora con movimiento sutil */}
                 <div>
                   <ImagePanda
                     alt="Panda trabajando en laptop sobre nube voladora"
-                    class="drop-shadow-2xl hover:scale-105 transition-transform duration-700 panda-float-animation w-full"
+                    class={[
+                      'drop-shadow-2xl hover:scale-105 transition-transform duration-700 w-full',
+                      { 'panda-float-animation': aninmationsLoaded.value }
+                    ]}
                     sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
                     loading="eager"
                     fetchPriority="high"
                   />
                 </div>
 
-                {/* Elementos flotantes alrededor que crean movimiento dinámico */}
-                <div class="absolute top-8 left-30 text-2xl animate-bounce hidden md:block" style="animation-duration: 3s; animation-delay: 0.5s;">
-                  ✨
-                </div>
-                <div class="absolute bottom-10 right-20 text-3xl animate-pulse hidden md:block" style="animation-duration: 2s; animation-delay: 1s;">
-                  🚀
-                </div>
-                <div class="absolute top-1/2 left-10 text-xl animate-float hidden md:block" style="animation-duration: 3.5s; animation-delay: 1.5s;">
-                  ⭐
-                </div>
+                <FloatingEmojis />
               </div>
             </div>
 
