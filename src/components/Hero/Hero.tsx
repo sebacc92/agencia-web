@@ -17,13 +17,28 @@ export default component$(() => {
   const onCloseModal$ = $(() => {
     showAuditModal.value = false;
   });
+  // Optimizado: Usar document-idle y aplicar clases de forma asíncrona para evitar reflows
+  // El cambio de clases se aplica después del LCP para no afectar el rendimiento inicial
   useVisibleTask$(
     () => {
-      // Simplemente cambiamos la señal a 'true'.
-      // Qwik re-renderizará mínimamente solo las clases.
-      aninmationsLoaded.value = true;
+      // Usar requestIdleCallback si está disponible, sino requestAnimationFrame
+      // Esto asegura que el cambio de clases no cause un reflow forzado
+      // Nota: window está disponible porque useVisibleTask$ solo se ejecuta en el cliente
+      const win = window as typeof window & { requestIdleCallback?: typeof requestIdleCallback };
+      if (typeof win.requestIdleCallback === 'function') {
+        win.requestIdleCallback(() => {
+          aninmationsLoaded.value = true;
+        }, { timeout: 2000 });
+      } else {
+        // Fallback para navegadores que no soportan requestIdleCallback
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            aninmationsLoaded.value = true;
+          });
+        }, 100);
+      }
     },
-    { strategy: 'document-idle' } // <-- ¡Esta es la magia!
+    { strategy: 'document-idle' }
   );
   const onShowToast$ = $((payload: { type: 'success' | 'error'; message: string }) => {
     toastType.value = payload.type;
@@ -36,9 +51,9 @@ export default component$(() => {
   });
   return (
     <main class="min-h-screen flex flex-col bg-gray-50 relative">
-      {/* Subtle Background Elements */}
-      <div class="absolute inset-0 bg-gradient-to-br from-purple-200 via-white to-cyan-50"></div>
-      <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
+      {/* Subtle Background Elements - Optimizado: Usar will-change para mejor rendimiento */}
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-200 via-white to-cyan-50" style="will-change: auto;"></div>
+      <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30" style="will-change: transform;"></div>
 
       {/* Main Content Container */}
       <div class="flex-1 flex items-center relative z-10">
@@ -46,26 +61,24 @@ export default component$(() => {
           <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] lg:gap-12 items-center">
             {/* Image Column - Shows first on mobile */}
             <div class="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mb-0">
+              {/* Optimizado: Reducir anidamiento innecesario y simplificar estructura DOM */}
               <div
                 class={[
                   'relative max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg',
                   { 'animate-float': aninmationsLoaded.value }
                 ]}
+                style={{ willChange: aninmationsLoaded.value ? 'transform' : 'auto' }}
               >
-                {/* Nube voladora con movimiento sutil */}
-                <div>
-                  <ImagePanda
-                    alt="Panda trabajando en laptop sobre nube voladora"
-                    class={[
-                      'drop-shadow-2xl hover:scale-105 transition-transform duration-700 w-full',
-                      { 'panda-float-animation': aninmationsLoaded.value }
-                    ]}
-                    sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                </div>
-
+                <ImagePanda
+                  alt="Panda trabajando en laptop sobre nube voladora"
+                  class={[
+                    'drop-shadow-2xl hover:scale-105 transition-transform duration-700 w-full',
+                    { 'panda-float-animation': aninmationsLoaded.value }
+                  ]}
+                  sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
+                  loading="eager"
+                  fetchPriority="high"
+                />
                 <FloatingEmojis />
               </div>
             </div>

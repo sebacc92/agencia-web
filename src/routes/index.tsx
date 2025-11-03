@@ -218,11 +218,8 @@ export const head: DocumentHead = {
     { name: "ICBM", content: "-34.603722, -58.381592" },
   ],
   links: [
-    // Preload de la imagen LCP para mejorar el rendimiento
-    {
-      rel: "preload",
-      as: "image",
-      href: "/images/oso_panda_usando_notebook.png"
-    },
+    // Nota: El preload se omite porque la imagen ya tiene loading="eager" y fetchPriority="high"
+    // Además, Qwik genera URLs optimizadas con hashes que cambian en cada build
+    // La imagen se carga eficientemente mediante el componente ImagePanda optimizado
   ],
 };
