@@ -62,17 +62,21 @@ export default component$(() => {
             {/* Image Column - Shows first on mobile */}
             <div class="flex justify-center lg:justify-end order-first lg:order-last mt-6 lg:mb-0">
               {/* Optimizado: Reducir anidamiento innecesario y simplificar estructura DOM */}
+              {/* Aspect-ratio reserva espacio para evitar CLS: imagen original es 1408x736 ≈ 1.91:1 */}
               <div
                 class={[
                   'relative max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg',
                   { 'animate-float': aninmationsLoaded.value }
                 ]}
-                style={{ willChange: aninmationsLoaded.value ? 'transform' : 'auto' }}
+                style={{ 
+                  willChange: aninmationsLoaded.value ? 'transform' : 'auto',
+                  aspectRatio: '1408 / 736' // Reserva espacio para evitar layout shift (CLS)
+                }}
               >
                 <ImagePanda
                   alt="Panda trabajando en laptop sobre nube voladora"
                   class={[
-                    'drop-shadow-2xl hover:scale-105 transition-transform duration-700 w-full',
+                    'drop-shadow-2xl hover:scale-105 transition-transform duration-700 w-full h-auto',
                     { 'panda-float-animation': aninmationsLoaded.value }
                   ]}
                   sizes="(min-width: 1024px) 512px, (min-width: 768px) 448px, (min-width: 640px) 384px, 90vw"
