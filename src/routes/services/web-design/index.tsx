@@ -1,491 +1,339 @@
-import { component$, useSignal } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { LuApple, LuBed, LuBookOpen, LuBuilding, LuBuilding2, LuCalculator, LuCamera, LuChevronDownCircle, LuDumbbell, LuEye, LuGlobe, LuGraduationCap, LuHeadphones, LuHeart, LuHome, LuMapPin, LuScale, LuShoppingBag, LuSliders, LuSparkles, LuStethoscope, LuTarget, LuTrendingUp, LuUsers, LuUtensils, LuWind, LuZap, LuAward, LuClock, LuShield } from "@qwikest/icons/lucide";
+import { component$, $ } from "@builder.io/qwik";
+import { type DocumentHead, Link, useNavigate } from "@builder.io/qwik-city";
 import Button from "~/components/ui/button/button";
-import WorkProcess from "~/components/WorkProcess/WorkProcess";
 
 export default component$(() => {
-  const activeTab = useSignal('business');
+  const nav = useNavigate();
+
+  const scrollToContact$ = $(async () => {
+    // Navegar a la página principal
+    await nav('/#contacto');
+    
+    // Esperar a que la página se cargue completamente y luego hacer scroll
+    // Intentar múltiples veces para asegurar que el elemento esté disponible
+    const scrollToElement = () => {
+      const contactoElement = document.getElementById('contacto');
+      if (contactoElement) {
+        // Ajustar el scroll para considerar el header fijo
+        const headerOffset = 80;
+        const elementPosition = contactoElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        return true;
+      }
+      return false;
+    };
+
+    // Intentar inmediatamente
+    if (!scrollToElement()) {
+      // Si no está disponible, intentar después de un delay
+      setTimeout(() => {
+        if (!scrollToElement()) {
+          // Último intento después de más tiempo
+          setTimeout(scrollToElement, 300);
+        }
+      }, 100);
+    }
+  });
+
   return (
-    <>
-      {/* Service Hero Section */}
-      <main class="pt-16 min-h-screen flex justify-center items-center relative overflow-hidden">
-        {/* Subtle Background Elements */}
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-200 via-white to-cyan-50"></div>
-        <div class="absolute bottom-2/4 lg:bottom-1/4 right-1/3 lg:right-1/6 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30"></div>
+    <div class="min-h-screen bg-gradient-to-br from-white via-purple-50/40 to-blue-50/30">
+      {/* Hero Section */}
+      <section class="relative overflow-hidden pt-24 pb-16">
+        {/* Background */}
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+          <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-300/30 to-blue-300/30 rounded-full blur-3xl motion-safe:animate-pulse"></div>
+          <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/20 to-orange-300/20 rounded-full blur-3xl motion-safe:animate-pulse" style="animation-delay: 2s"></div>
+        </div>
 
-        <div class="container relative z-10">
-          <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-8">
-              <span class="text-indigo-400 text-sm font-medium">🌐 Servicio especializado</span>
+        <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div class="text-center mb-12">
+            <div class="inline-block mb-4 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full">
+              <span class="text-purple-800 text-sm font-semibold uppercase tracking-wider">
+                Servicios de Diseño Web
+              </span>
             </div>
-
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-              Diseño Web{' '}
-              <span class="bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                Profesional
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
+              Soluciones Web{' '}
+              <span class="bg-linear-to-r from-purple-600 via-purple-500 to-cyan-600 bg-clip-text text-transparent">
+                a Medida
               </span>
             </h1>
-
-            <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Creamos sitios web modernos y optimizados que no solo se ven increíbles,
-              sino que convierten visitantes en clientes.
+            <p class="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
+              Desde landing pages hasta aplicaciones web complejas. Encontramos la solución perfecta para tu negocio.
             </p>
-
-            <Button class="mt-8" variant="neumorphic-green" size="lg">
-              Consulta Gratuita
-            </Button>
-          </div>
-        </div>
-        {/* Scroll Indicator */}
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-          <button
-            class="group cursor-pointer animate-bounce hover:scale-110 transition-all duration-300 p-2 rounded-full hover:bg-white/10"
-            onClick$={() => {
-              const servicesSection = document.getElementById('designs');
-              if (servicesSection) {
-                servicesSection.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }
-            }}
-          >
-            <LuChevronDownCircle
-              class="w-8 h-8 text-gray-500 group-hover:text-green-500 transition-colors duration-300"
-            />
-          </button>
-        </div>
-      </main>
-
-      {/* Designs Section */}
-      <section id="designs" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-700 mb-4">
-              Tipos de Diseño Web
-            </h2>
-            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
-              Elige el tipo de sitio web según las necesidades de tu negocio o marca personal.
-            </p>
-          </div>
-          <div class="flex justify-center mb-8 space-x-4">
-            <button
-              onClick$={() => activeTab.value = 'business'}
-              class={activeTab.value === 'business' ? 'bg-[#7c3aed] text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-[#7c3aed]' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
-            >
-              Para Negocios
-            </button>
-            <button
-              onClick$={() => activeTab.value = 'professionals'}
-              class={activeTab.value === 'professionals' ? 'bg-[#7c3aed] text-white px-6 py-2 rounded-t-md font-semibold border-b-2 border-[#7c3aed]' : 'bg-slate-200 text-slate-700 px-6 py-2 rounded-t-md font-semibold border-b-2 border-slate-200 hover:bg-slate-300 transition'}
-            >
-              Para Profesionales
-            </button>
-          </div>
-          {activeTab.value === 'business' && (
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-              <Link href="/services/web-design/economico">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuSparkles class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Económico
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/empresas">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuBuilding class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Empresas
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/autogestionables">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuSliders class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Autogestionables
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/tiendas">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuShoppingBag class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Tiendas
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/inmobiliarias">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuHome class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Inmobiliarias
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/hoteles">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuBed class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Hoteles
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/prepagas">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuHeart class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Prepagas
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/pymes">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuBuilding2 class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Pymes
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/barrios-cerrados">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuMapPin class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Barrios cerrados
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/escuelas">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuGraduationCap class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Escuelas
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/restaurantes">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuUtensils class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Restaurantes
-                  </h3>
-                </div>
-              </Link>
-              <Link href="/services/web-design/cursos">
-                <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                  <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuBookOpen class="text-3xl text-slate-700" />
-                  </div>
-                  <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                    Cursos
-                  </h3>
-                </div>
-              </Link>
-            </div>
-          )}
-          {activeTab.value === 'professionals' && (
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuCalculator class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Contadores
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuScale class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Abogados
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuHeadphones class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Psicologos
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuCamera class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Fotografos
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuApple class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Nutricionistas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuDumbbell class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Entrenadores
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuStethoscope class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Medicos
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuEye class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Oftamologicos
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuHeart class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Odontologos
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuGlobe class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Traductores
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuZap class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Electricistas
-                </h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 text-center border border-slate-200 cursor-pointer shadow-[6px_6px_12px_rgba(0,0,0,0.1),-6px_-6px_12px_rgba(255,255,255,0.8)] transition-all duration-300 hover:shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:bg-purple-50 hover:-translate-y-2 hover:border-purple-300">
-                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <LuWind class="text-3xl text-slate-700" />
-                </div>
-                <h3 class="text-2xl font-semibold text-slate-700 mb-4">
-                  Tecnicos
-                </h3>
-              </div>
-            </div>
-          )}
-          <div class="text-center">
-            <Link
-              href="#contact"
-              class="bg-[#7c3aed] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6d3aed] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition"
-            >
-              Consultar por otros tipos de diseños
-            </Link>
           </div>
         </div>
       </section>
 
-      <WorkProcess />
+      {/* Services Section */}
+      <section class="relative py-16 pb-24">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {/* Landing Page */}
+            <div class="group relative motion-safe:animate-fade-up">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl" aria-hidden="true"></div>
 
-      {/* Features Section */}
-      <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-700 mb-4">
-              ¿Por qué necesitas un sitio web profesional?
-            </h2>
-            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
-              En el mundo digital actual, tu sitio web es tu tarjeta de presentación y tu mejor vendedor 24/7.
-            </p>
-          </div>
+              <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
+                <div class="mb-6">
+                  <div class="flex items-start gap-6 mb-4">
+                    <div class="relative flex-shrink-0">
+                      <div class="w-20 h-20 bg-gradient-to-br from-purple-700 to-indigo-700 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-purple-300 text-white">
+                        📄
+                      </div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full motion-safe:animate-ping opacity-75"></div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full"></div>
+                    </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuTrendingUp class="w-8 h-8 text-white" />
+                    <div class="flex-1">
+                      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                        Landing Page
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-800 font-medium text-base mb-4">
+                    Una página única y optimizada diseñada para convertir visitantes en clientes. Perfecta para promociones, lanzamientos o campañas específicas.
+                  </p>
+                </div>
+
+                <div class="mb-6">
+                  <h3 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">¿Para qué sirve?</h3>
+                  <ul class="space-y-3">
+                    {[
+                      'Promocionar un producto o servicio específico',
+                      'Captar leads y generar conversiones',
+                      'Lanzar campañas de marketing',
+                      'Crear páginas de aterrizaje para anuncios',
+                      'Presentar ofertas especiales o descuentos',
+                    ].map((txt) => (
+                      <li class="flex items-start text-gray-800" key={txt}>
+                        <span class="inline-block w-1.5 h-1.5 bg-purple-700 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                        <span class="text-sm md:text-base">{txt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="mb-6 pt-6 border-t border-gray-200">
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900 mb-2">
+                      $90.000 <span class="text-lg font-normal text-gray-600">ARS</span>
+                    </div>
+                    <div class="text-xl font-semibold text-purple-700 mb-1">
+                      o $70 USD
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick$={scrollToContact$}
+                  class="w-full inline-flex items-center justify-center px-6 py-4 rounded-xl text-white no-underline bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
+                >
+                  <span class="flex items-center justify-center gap-2">
+                    Solicitar Presupuesto
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </button>
               </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Aumenta tu Credibilidad</h3>
-              <p class="text-slate-600">
-                Un sitio web profesional genera confianza y muestra que tu emprendimiento es serio y establecido.
-              </p>
             </div>
 
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuUsers class="w-8 h-8 text-white" />
+            {/* Sitio Web Completo */}
+            <div class="group relative motion-safe:animate-fade-up" style="animation-delay: 0.1s">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl" aria-hidden="true"></div>
+
+              <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
+                <div class="mb-6">
+                  <div class="flex items-start gap-6 mb-4">
+                    <div class="relative flex-shrink-0">
+                      <div class="w-20 h-20 bg-gradient-to-br from-purple-700 to-indigo-700 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-purple-300 text-white">
+                        🌐
+                      </div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full motion-safe:animate-ping opacity-75"></div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full"></div>
+                    </div>
+
+                    <div class="flex-1">
+                      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                        Sitio Web Completo
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-800 font-medium text-base mb-4">
+                    Un sitio web completo con múltiples páginas, navegación intuitiva y todas las funcionalidades que tu negocio necesita para destacar online.
+                  </p>
+                </div>
+
+                <div class="mb-6">
+                  <h3 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">¿Para qué sirve?</h3>
+                  <ul class="space-y-3">
+                    {[
+                      'Establecer presencia profesional en internet',
+                      'Mostrar todos tus productos o servicios',
+                      'Generar confianza y credibilidad',
+                      'Atraer clientes a través de múltiples páginas',
+                      'Incluir blog, galería, contacto y más',
+                    ].map((txt) => (
+                      <li class="flex items-start text-gray-800" key={txt}>
+                        <span class="inline-block w-1.5 h-1.5 bg-purple-700 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                        <span class="text-sm md:text-base">{txt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="mb-6 pt-6 border-t border-gray-200">
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900 mb-2">
+                      $250.000 <span class="text-lg font-normal text-gray-600">ARS</span>
+                    </div>
+                    <div class="text-xl font-semibold text-purple-700 mb-1">
+                      o $200 USD
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick$={scrollToContact$}
+                  class="w-full inline-flex items-center justify-center px-6 py-4 rounded-xl text-white no-underline bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
+                >
+                  <span class="flex items-center justify-center gap-2">
+                    Solicitar Presupuesto
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </button>
               </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Llega a Más Clientes</h3>
-              <p class="text-slate-600">
-                Expande tu alcance más allá de las redes sociales y crea una presencia online sólida.
-              </p>
             </div>
 
-            <div class="text-center p-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LuTarget class="w-8 h-8 text-white" />
+            {/* Web Apps */}
+            <div class="group relative motion-safe:animate-fade-up" style="animation-delay: 0.2s">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 group-hover:blur-3xl" aria-hidden="true"></div>
+
+              <div class="relative bg-white border-2 border-purple-200 rounded-3xl p-8 h-full shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:border-purple-400">
+                <div class="mb-6">
+                  <div class="flex items-start gap-6 mb-4">
+                    <div class="relative flex-shrink-0">
+                      <div class="w-20 h-20 bg-gradient-to-br from-purple-700 to-indigo-700 rounded-2xl flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border-2 border-purple-300 text-white">
+                        ⚡
+                      </div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full motion-safe:animate-ping opacity-75"></div>
+                      <div class="absolute -top-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full"></div>
+                    </div>
+
+                    <div class="flex-1">
+                      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                        Web Apps
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-800 font-medium text-base mb-4">
+                    Aplicaciones web interactivas con funcionalidades avanzadas, bases de datos, autenticación de usuarios y lógica de negocio personalizada.
+                  </p>
+                </div>
+
+                <div class="mb-6">
+                  <h3 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">¿Para qué sirve?</h3>
+                  <ul class="space-y-3">
+                    {[
+                      'Automatizar procesos de negocio',
+                      'Gestionar datos y usuarios',
+                      'Crear plataformas interactivas',
+                      'Desarrollar sistemas personalizados',
+                      'Integrar con APIs y servicios externos',
+                    ].map((txt) => (
+                      <li class="flex items-start text-gray-800" key={txt}>
+                        <span class="inline-block w-1.5 h-1.5 bg-purple-700 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                        <span class="text-sm md:text-base">{txt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="mb-6 pt-6 border-t border-gray-200">
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900 mb-2">
+                      Consultar
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">
+                      El precio depende de los requerimientos y necesidades específicas de cada proyecto.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick$={scrollToContact$}
+                  class="w-full inline-flex items-center justify-center px-6 py-4 rounded-xl text-white no-underline bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 group-hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
+                >
+                  <span class="flex items-center justify-center gap-2">
+                    Consultar Presupuesto
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </button>
               </div>
-              <h3 class="text-xl font-semibold text-slate-700 mb-2">Convierte Más Ventas</h3>
-              <p class="text-slate-600">
-                Un sitio optimizado convierte visitantes en clientes reales con llamadas a la acción efectivas.
-              </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Our Websites Section */}
-      <section class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-700 mb-4">
-              ¿Por qué elegir nuestros sitios web?
-            </h2>
-            <p class="text-xl text-slate-500 max-w-3xl mx-auto">
-              Descubre los beneficios que hacen que nuestros sitios web sean la mejor opción para tu negocio.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuTrendingUp class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Crecimiento</h4>
-              <p class="text-sm text-slate-600">
-                Diseñado para escalar junto a tu emprendimiento
-              </p>
-            </div>
-
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuUsers class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Audiencia</h4>
-              <p class="text-sm text-slate-600">
-                Conecta con tus clientes ideales las 24 horas
-              </p>
-            </div>
-
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuTarget class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Conversión</h4>
-              <p class="text-sm text-slate-600">
-                Convierte visitantes en clientes reales
-              </p>
-            </div>
-
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuAward class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Profesionalismo</h4>
-              <p class="text-sm text-slate-600">
-                Proyecta una imagen seria y confiable
-              </p>
-            </div>
-
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuClock class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Rapidez</h4>
-              <p class="text-sm text-slate-600">
-                Sitio web listo en 7-10 días hábiles
-              </p>
-            </div>
-
-            <div class="text-center p-6 rounded-xl bg-white border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <LuHeadphones class="w-6 h-6 text-white" />
-              </div>
-              <h4 class="font-semibold text-slate-700 mb-2">Soporte</h4>
-              <p class="text-sm text-slate-600">
-                Asistencia técnica durante 3 meses
-              </p>
-            </div>
-          </div>
-
-          {/* Guarantee Section */}
-          <div class="mt-12 p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 max-w-3xl mx-auto">
-            <div class="flex items-center mb-4">
-              <LuShield class="w-6 h-6 text-green-600 mr-3" />
-              <h4 class="font-semibold text-slate-700 text-lg">Garantía de Satisfacción</h4>
-            </div>
-            <p class="text-slate-600">
-              AgenciaTech es una empresa consolidada con más de 5 años de experiencia. Te brindamos respaldo profesional y garantía de calidad en cada proyecto, asegurando que tu inversión genere resultados concretos para tu emprendimiento.
-            </p>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section class="py-20 bg-neutral-800/50">
-        <div class="container mx-auto ">
-          <div class="card text-center p-12 max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-6">¿Listo para crear algo increíble?</h2>
-            <p class="mt-4 text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
-              Hablemos de tu proyecto web y cómo podemos ayudarte a alcanzar tus objetivos.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <button class="btn btn-primary px-8 py-4 text-lg">
-                Consulta Gratuita
+      <section class="relative py-16 bg-gradient-to-r from-purple-600 to-indigo-600">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            ¿Listo para comenzar tu proyecto?
+          </h2>
+          <p class="text-lg text-purple-100 mb-8">
+            Contáctanos y te ayudaremos a encontrar la solución perfecta para tu negocio.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="neumorphic-green" 
+              size="lg"
+              onClick$={scrollToContact$}
+            >
+              Contactar Ahora
+            </Button>
+            <Link href="/" class="no-underline">
+              <button
+                class="btn inline-flex items-center justify-center px-10 py-4 text-lg rounded-xl font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-white/10 text-white border-2 border-white/30 hover:bg-white/20 hover:border-white/50"
+              >
+                Volver al Inicio
               </button>
-              <button class="btn btn-secondary px-8 py-4 text-lg">
-                Ver Portafolio
-              </button>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Diseño Web Profesional - AgenciaTech | Sitios Web Modernos",
+  title: "Servicios de Diseño Web - Landing Pages, Sitios Completos y Web Apps | Cleverisma",
   meta: [
-    {
-      name: "description",
-      content: "Servicios profesionales de diseño web: portafolios, sitios corporativos y portales web personalizados. Diseños responsivos y optimizados para startups.",
-    },
-    {
-      name: "keywords",
-      content: "diseño web, sitios web profesionales, portafolios, sitios corporativos, portales web, diseño responsivo",
-    },
+    { name: "description", content: "Ofrecemos servicios de diseño web: landing pages desde $90.000 ARS, sitios web completos desde $250.000 ARS y web apps personalizadas. Soluciones a medida para tu negocio." },
+    { name: "keywords", content: "diseño web, landing page, sitio web completo, web apps, desarrollo web, precios diseño web, presupuesto web" },
+    { name: "author", content: "Cleverisma" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://cleverisma.com/services/web-design" },
+    { property: "og:title", content: "Servicios de Diseño Web - Landing Pages, Sitios Completos y Web Apps | Cleverisma" },
+    { property: "og:description", content: "Landing pages desde $90.000 ARS, sitios web completos desde $250.000 ARS y web apps personalizadas. Soluciones a medida para tu negocio." },
+    { property: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:url", content: "https://cleverisma.com/services/web-design" },
+    { property: "twitter:title", content: "Servicios de Diseño Web - Landing Pages, Sitios Completos y Web Apps | Cleverisma" },
+    { property: "twitter:description", content: "Landing pages desde $90.000 ARS, sitios web completos desde $250.000 ARS y web apps personalizadas." },
+    { name: "robots", content: "index, follow" },
   ],
 };
+

@@ -154,10 +154,6 @@
           "hash": "949802815999862943"
         },
         {
-          "file": "src/routes/blog/index.tsx",
-          "hash": "13590512926938584994"
-        },
-        {
           "file": "src/routes/contact/index.tsx",
           "hash": "2512557143989304286"
         },

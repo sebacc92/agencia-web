@@ -52,7 +52,6 @@ export default component$(() => {
             <ul class="space-y-2">
               <li><a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">Sobre Nosotros</a></li>
               <li><a href="#portfolio" class="text-gray-600 hover:text-purple-600 transition-colors">Portafolio</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-purple-600 transition-colors">Blog</a></li>
               <li><a href="#contacto" class="text-gray-600 hover:text-purple-600 transition-colors">Contacto</a></li>
             </ul>
           </div>

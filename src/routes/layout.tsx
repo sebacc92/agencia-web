@@ -8,7 +8,9 @@ export default component$(() => {
   return (
     <>
       <Header />
-      <Slot />
+      <main class="pt-20 lg:pt-0">
+        <Slot />
+      </main>
       <ScrollToTop />
       <WhatsappButton />
       <Footer />
