@@ -195,9 +195,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Cleverisma - Diseño Web, IA y Marketing Digital para Startups",
+  title: "Cleverisma - Diseño Web, IA y Marketing Digital",
   meta: [
-    { name: "description", content: "Agencia especializada en diseño web moderno, automatizaciones con IA y marketing digital estratégico para startups y empresas tecnológicas. Escalamos tu presencia digital." },
+    { name: "description", content: "Agencia de diseño web moderno, automatizaciones con IA y marketing estratégico. Enfocados en la optimización y rendimiento,. ¡Escalamos tu presencia digital!" },
     { name: "keywords", content: "diseño web, automatización IA, marketing digital, startups, agencia digital, desarrollo web, inteligencia artificial, transformación digital, growth hacking, UX/UI" },
     { name: "author", content: "Cleverisma" },
     { property: "og:type", content: "website" },
