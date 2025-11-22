@@ -1,85 +1,116 @@
 import { component$ } from "@builder.io/qwik";
+import ImgPortfolioSebastian from '~/media/images/portfolio-sebastian.png?quality=75&jsx';
+import ImgPortfolioItalianos from '~/media/images/portfolio-italianos.png?quality=75&jsx';
+import ImgPortfolioFabian from '~/media/images/portfolio-fabian.png?quality=75&jsx';
 
 export default component$(() => {
+  const projects = [
+    {
+      title: "Sebastian Cardoso",
+      description: "Portfolio personal y servicios de desarrollo web de alto rendimiento.",
+      image: ImgPortfolioSebastian,
+      link: "https://sebastiancardoso.com/es/",
+      tags: ["Desarrollo Web", "Personal Branding"]
+    },
+    {
+      title: "Italianos en Miramar",
+      description: "Plataforma comunitaria para conectar a la comunidad italiana en Miramar.",
+      image: ImgPortfolioItalianos,
+      link: "https://italianosenmiramar.com/es/",
+      tags: ["Comunidad", "Servicios"]
+    },
+    {
+      title: "Coach Fabian Avendaño",
+      description: "Sitio web para programas de entrenamiento personalizado y transformación integral.",
+      image: ImgPortfolioFabian,
+      link: "https://coach-fabian-avendano.netlify.app/es/",
+      tags: ["Fitness", "Coaching"]
+    }
+  ];
+
   return (
     <section id="portfolio" class="relative bg-gradient-to-br from-white via-indigo-50/40 to-purple-50/30 overflow-hidden py-22">
       {/* Animated Background Elements */}
       <div class="absolute inset-0">
-        {/* Grid pattern - Light version */}
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
-        {/* Large geometric shapes - Indigo/purple colors */}
         <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-indigo-300/30 to-purple-300/30 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-purple-300/20 to-indigo-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "2s"}}></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-indigo-300/20 to-cyan-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "4s"}}></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-purple-300/20 to-indigo-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         {/* Title Section */}
-        <div class="text-center">
-            <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
-                <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Portafolio</span>
-            </div>
+        <div class="text-center mb-16">
+          <div class="inline-block mb-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up">
+            <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Portafolio</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            Nuestros Proyectos
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> Destacados</span>
+          </h2>
+          <p class="text-lg text-gray-700 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            Explora cómo ayudamos a nuestros clientes a transformar su presencia digital con diseño moderno y tecnología de punta.
+          </p>
         </div>
 
-        {/* Main Content Section */}
-        <div class="text-center max-w-4xl mx-auto">
-          <div class="animate-fade-up" style={{animationDelay: "0.2s"}}>
-            <div class="space-y-8">
-              {/* Main Heading */}
-              <div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                  🚀 Estamos construyendo algo
-                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> increíble</span>
-                </h2>
-                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-                  Como agencia nueva, estamos trabajando en nuestros primeros proyectos emocionantes. Cada proyecto es una oportunidad para demostrar nuestra pasión por el diseño web moderno, las automatizaciones inteligentes y el marketing digital estratégico.
-                </p>
-              </div>
-
-              {/* Coming Soon Message */}
-              <div class="relative">
-                {/* Background decorative element */}
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-300/10 to-transparent rounded-3xl"></div>
-
-                <div class="relative z-10 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-2xl p-8 md:p-12 shadow-lg">
-                  <div class="space-y-6">
-                    <div class="text-6xl md:text-7xl">⚡</div>
-                    <p class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                      ¡Próximamente!
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                      Estamos desarrollando proyectos innovadores que mostrarán todo nuestro potencial. Desde sitios web de alto rendimiento hasta automatizaciones con IA que transforman negocios, cada proyecto será una muestra de nuestra dedicación y expertise.
-                    </p>
-                  </div>
+        {/* Projects Grid */}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div key={index} class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+              {/* Image Container */}
+              <div class="relative h-48 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <project.image
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  alt={project.title}
+                />
+                <div class="absolute bottom-4 left-4 right-4 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-white font-medium hover:underline"
+                  >
+                    Visitar Sitio
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
                 </div>
               </div>
 
-              {/* Call to Action */}
-              <div class="animate-fade-up" style={{animationDelay: "0.4s"}}>
-                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
-                  <h3 class="text-2xl font-bold mb-4">¿Quieres ser parte de nuestros primeros proyectos?</h3>
-                  <p class="text-indigo-100 mb-6 text-lg">
-                    Estamos buscando empresas valientes que quieran crecer con nosotros. ¡Seamos pioneros juntos!
-                  </p>
-                  <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                      href="/contact"
-                      class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                    >
-                      Empezar un Proyecto
-                    </a>
-                    <a
-                      href="#about"
-                      class="inline-block border-2 border-white/30 text-white font-semibold px-8 py-3 rounded-xl hover:bg-white/10 transition-all duration-300"
-                    >
-                      Conocer Más Sobre Nosotros
-                    </a>
+              {/* Content */}
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} class="px-3 py-1 text-xs font-medium text-indigo-600 bg-indigo-50 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                  {project.title}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                {/* Performance Indicator */}
+                <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                  <div class="relative w-14 h-14 flex-shrink-0">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="8" />
+                      <circle cx="50" cy="50" r="40" fill="#e5faef" stroke="#10b981" stroke-width="8" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="0" />
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <span class="text-sm font-bold text-green-600">100</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-sm font-bold text-gray-900">Rendimiento</span>
+                    <span class="text-xs text-gray-500">Google PageSpeed</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -108,7 +108,7 @@ export default component$(() => {
 
                   <div class="relative bg-white border-2 border-blue-200 rounded-2xl p-8 hover:border-blue-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
-                      0+
+                      3+
                     </div>
                     <p class="text-lg font-semibold text-gray-900 mb-1">Proyectos Completados</p>
                     <p class="text-sm text-gray-600">Startups y empresas satisfechas</p>
@@ -123,7 +123,7 @@ export default component$(() => {
 
                   <div class="relative bg-white border-2 border-purple-200 rounded-2xl p-8 hover:border-purple-400 transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg">
                     <div class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">
-                      0%
+                      100%
                     </div>
                     <p class="text-lg font-semibold text-gray-900 mb-1">Clientes Satisfechos</p>
                     <p class="text-sm text-gray-600">Tasa de retención excepcional</p>
