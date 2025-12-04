@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { routeAction$, type DocumentHead } from "@builder.io/qwik-city";
 import Hero from "~/components/Hero/Hero";
+import AuthoritySection from "~/components/Authority/AuthoritySection";
 import Services from "~/components/Services/Services";
 import WorkProcess from "~/components/WorkProcess/WorkProcess";
 import About from "~/components/About/About";
@@ -159,7 +160,7 @@ export const useContact = routeAction$(async (data, requestEvent) => {
     proyecto: (data as any).proyecto,
   };
 
-  
+
   try {
     await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
@@ -185,6 +186,7 @@ export default component$(() => {
   return (
     <>
       <Hero />
+      <AuthoritySection />
       <Services />
       <WorkProcess />
       <About />

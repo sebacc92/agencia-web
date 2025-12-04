@@ -1,6 +1,6 @@
 import { component$, Slot, $ } from "@builder.io/qwik";
 
-export type ButtonVariant = "primary" | "secondary" | "neumorphic-green";
+export type ButtonVariant = "primary" | "secondary" | "neumorphic-green" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps {
@@ -27,7 +27,8 @@ export default component$<ButtonProps>((props) => {
   const variantClasses = {
     primary: "bg-gradient-to-r from-purple-600 to-cyan-600 text-white hover:shadow-lg hover:scale-105 hover:shadow-purple-500/25",
     secondary: "bg-gray-100 text-gray-900 border-2 border-gray-200 hover:bg-gray-200 hover:border-purple-600",
-    "neumorphic-green": "bg-gradient-to-br from-emerald-500 to-emerald-800 text-white shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 hover:shadow-xl border border-emerald-400/20"
+    "neumorphic-green": "bg-gradient-to-br from-emerald-500 to-emerald-800 text-white shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 hover:shadow-xl border border-emerald-400/20",
+    ghost: "bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900"
   };
 
   const sizeClasses = {

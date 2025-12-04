@@ -1,7 +1,6 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { LuChevronDownCircle } from "@qwikest/icons/lucide";
-import ImageAllDevicesBlack from "~/media/images/all-devices-black.webp?quality=72&jsx";
-import WebScoreAnimated from "./WebScoreAnimated";
+import ImagePageSpeed from "~/media/images/pagespeed-100.png?quality=90&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
@@ -14,7 +13,7 @@ export default component$(() => {
   const toastType = useSignal<'success' | 'error'>('success');
   const toastMsg = useSignal('');
   const { showPopover } = usePopover('audit-toast');
-  
+
   const onCloseModal$ = $(() => {
     showAuditModal.value = false;
   });
@@ -47,56 +46,51 @@ export default component$(() => {
   });
 
   return (
-    <main class="min-h-screen flex flex-col bg-gray-50 relative overflow-hidden">
-      {/* Background optimizado - sin will-change innecesario */}
-      <div class="absolute inset-0 bg-linear-to-br from-purple-200 via-white to-cyan-50"></div>
-      <div 
-        class="absolute bottom-1/2 lg:bottom-1/4 right-1/3 lg:right-1/6 w-72 h-72 sm:w-96 sm:h-96 bg-cyan-100 rounded-full blur-3xl opacity-30 pointer-events-none"
-        aria-hidden="true"
-      ></div>
+    <main class="min-h-[90vh] flex flex-col bg-white relative overflow-hidden">
+      {/* Background sutil y limpio */}
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-50/50 via-white to-white"></div>
 
       {/* Main Content Container */}
       <div class="flex-1 flex items-center relative z-10">
-        <div class="container mx-auto py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            
-            {/* Text Column - Primero en móvil y desktop */}
-            <div class="space-y-6 sm:space-y-8 text-center lg:text-left">
-              {/* Badge mejorado */}
-              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 shadow-sm">
-                <span class="text-purple-700 text-sm font-medium">🚀 Desarrollo Web de Alto Rendimiento</span>
-                <span class="text-purple-600" aria-hidden="true">⚡</span>
+        <div class="container mx-auto py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 w-full">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Text Column */}
+            <div class="space-y-8 text-center lg:text-left">
+              {/* Badge */}
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-200">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-green-700 text-sm font-bold tracking-wide uppercase">Qwik Technology Partner</span>
               </div>
 
-              {/* Headline con mejor jerarquía */}
-              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                Webs{' '}
-                <span class="bg-linear-to-r from-purple-600 via-purple-500 to-cyan-600 bg-clip-text text-transparent">
-                  ultra-rápidas{' '}
+              {/* Headline Agresivo */}
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-tight text-gray-900 tracking-tight">
+                ¿Tu web carga lento? <br class="hidden lg:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500">
+                  Estás perdiendo el 20% de tus ventas.
                 </span>
-                que convierten
               </h1>
 
-              {/* Subheadline mejorado */}
-              <p class="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Creamos sitios web veloces que mejoran tus Core Web Vitals. Más velocidad, más retención, mejor SEO, más clientes. Simple.
+              {/* Subheadline Persuasivo */}
+              <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                Desarrollamos Apps, Sitios y Landings de <span class="text-gray-900 font-bold">Carga Instantánea</span>.
+                Usamos tecnología Qwik para eliminar los tiempos de espera.
+                <span class="block mt-2">
+                  Google te amará, tus clientes comprarán más.
+                </span>
               </p>
 
-              {/* CTA Buttons mejorados */}
-              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
-                <Button 
-                  variant="neumorphic-green" 
-                  size="lg"
-                  class="w-full sm:w-auto"
-                >
-                  Quiero mi Sitio Web
-                </Button>
+              {/* CTA Buttons */}
+              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
                 <Modal
                   title="Solicitar Auditoría Gratuita"
                   description="Analizaremos tu sitio web y te enviaremos un reporte detallado con mejoras específicas"
                   showFooter={false}
-                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 border-2 border-purple-300 rounded-lg hover:from-purple-100 hover:to-pink-100 hover:border-purple-500 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-                  triggerText="Auditar mi Web Gratis"
+                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-bold text-base uppercase tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 bg-green-600 text-white rounded-lg hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-1"
+                  triggerText="QUIERO MI AUDITORÍA GRATIS"
                   showSig={showAuditModal}
                 >
                   <AuditForm
@@ -104,26 +98,49 @@ export default component$(() => {
                     onShowToast$={onShowToast$}
                   />
                 </Modal>
+
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  class="w-full sm:w-auto text-gray-600 hover:text-gray-900 font-semibold"
+                  onClick$={() => {
+                    const el = document.getElementById('services');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Ver cómo funciona
+                </Button>
               </div>
             </div>
 
-            {/* Image Column - Segundo en móvil, optimizado */}
-            <div class="order-last lg:order-0">
-              <div class="relative">
-                {/* Imagen optimizada con mejor responsive */}
-                <ImageAllDevicesBlack
-                  alt="Sitio web mostrado en múltiples dispositivos: computadora, tablet y móvil"
-                  class={[
-                    'w-full h-auto max-w-full drop-shadow-2xl',
-                    animationsLoaded.value && 'hover:scale-[1.02] transition-transform duration-700'
-                  ]}
-                  loading="eager"
-                  fetchPriority="high"
-                />
-                
-                {/* Scores - Mejorado con mejor espaciado */}
-                <div class="mt-6 sm:mt-8">
-                  <WebScoreAnimated />
+            {/* Image Column */}
+            <div class="order-first lg:order-last mb-8 lg:mb-0">
+              <div class="relative mx-auto max-w-[300px] sm:max-w-[400px] lg:max-w-full">
+                {/* Glow effect */}
+                <div class="absolute -inset-4 bg-green-500/20 blur-3xl rounded-full opacity-70 animate-pulse"></div>
+
+                {/* Imagen PageSpeed */}
+                <div class="relative transform transition-transform duration-700 hover:scale-105">
+                  <ImagePageSpeed
+                    alt="Puntaje perfecto 100/100 en Google PageSpeed Insights"
+                    class="w-full h-auto drop-shadow-2xl rounded-2xl"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+
+                  {/* Floating Badge */}
+                  <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden sm:block animate-bounce duration-[3000ms]">
+                    <div class="flex items-center gap-3">
+                      <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-xs font-bold text-green-700 border-2 border-white">🚀</div>
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-700 border-2 border-white">⚡</div>
+                      </div>
+                      <div>
+                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Core Web Vitals</p>
+                        <p class="text-sm font-bold text-gray-900">Optimizados</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,23 +149,23 @@ export default component$(() => {
         </div>
       </div>
 
-      {/* Scroll Indicator mejorado - más sutil y accesible */}
-      <div class="relative z-10 flex justify-center pb-6 sm:pb-8">
+      {/* Scroll Indicator */}
+      <div class="relative z-10 flex justify-center pb-8">
         <a
           href="#services"
-          class="group inline-flex flex-col items-center gap-2 cursor-pointer p-3 rounded-full hover:bg-white/20 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
-          aria-label="Desplazarse hacia abajo para ver los servicios"
+          class="group flex flex-col items-center gap-2 cursor-pointer transition-all duration-300"
+          aria-label="Desplazarse hacia abajo"
         >
-          <span class="text-xs text-gray-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Ver servicios
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-widest group-hover:text-green-600 transition-colors">
+            Descubre más
           </span>
           <LuChevronDownCircle
-            class="w-8 h-8 text-gray-400 group-hover:text-purple-600 transition-all duration-300 motion-safe:animate-bounce group-hover:scale-110"
+            class="w-6 h-6 text-gray-300 group-hover:text-green-600 transition-all duration-300 group-hover:translate-y-1"
             aria-hidden="true"
           />
         </a>
       </div>
-      
+
       {/* Toast component */}
       <Toast
         id="audit-toast"
