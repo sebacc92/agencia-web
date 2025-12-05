@@ -63,34 +63,46 @@ export default component$(() => {
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span class="text-green-700 text-sm font-bold tracking-wide uppercase">Qwik Technology Partner</span>
+                <span class="text-green-700 text-sm font-bold tracking-wide uppercase">Suscripción Tecnológica Activa</span>
               </div>
 
-              {/* Headline Agresivo */}
+              {/* Headline WaaS */}
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-tight text-gray-900 tracking-tight">
-                ¿Tu web carga lento? <br class="hidden lg:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500">
-                  Estás perdiendo el 20% de tus ventas.*
+                Tu Sitio Web debería ser <br class="hidden lg:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
+                  tu mejor vendedor,
                 </span>
+                <br class="hidden lg:block" /> no un gasto fijo.
               </h1>
 
-              {/* Subheadline Persuasivo */}
+              {/* Subheadline WaaS */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
-                Desarrollamos Apps, Sitios y Landings de <span class="text-gray-900 font-bold">Carga Instantánea</span>.
-                Usamos tecnología Qwik para eliminar los tiempos de espera.
+                Obtén una web de <span class="text-gray-900 font-bold">Ultra-Velocidad (Qwik)</span> con todo incluido por una cuota mensual accesible.
                 <span class="block mt-2">
-                  Google te amará, tus clientes comprarán más.
+                  Sin grandes inversiones iniciales. Tecnología de punta a tu alcance.
                 </span>
               </p>
 
               {/* CTA Buttons */}
               <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  class="w-full sm:w-auto font-bold text-base uppercase tracking-wide shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                  onClick$={() => {
+                    const el = document.getElementById('services');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Ver Planes y Precios
+                </Button>
+
                 <Modal
-                  title="Solicitar Auditoría Gratuita"
-                  description="Analizaremos tu sitio web y te enviaremos un reporte detallado con mejoras específicas"
+                  title="Consulta con un Experto"
+                  description="Agenda una breve llamada para ver si nuestro modelo de suscripción encaja con tu negocio."
                   showFooter={false}
-                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-bold text-base uppercase tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 bg-green-600 text-white rounded-lg hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-1"
-                  triggerText="QUIERO MI AUDITORÍA GRATIS"
+                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 bg-white text-gray-700 border-2 border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300"
+                  triggerText="Hablar con un experto"
                   showSig={showAuditModal}
                 >
                   <AuditForm
@@ -98,30 +110,6 @@ export default component$(() => {
                     onShowToast$={onShowToast$}
                   />
                 </Modal>
-
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  class="w-full sm:w-auto text-gray-600 hover:text-gray-900 font-semibold"
-                  onClick$={() => {
-                    const el = document.getElementById('services');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Ver cómo funciona
-                </Button>
-              </div>
-
-              {/* Subtle Citation */}
-              <div class="pt-2 text-center lg:text-left">
-                <a
-                  href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-xs text-gray-400 hover:text-gray-600 underline decoration-dotted cursor-help transition-colors"
-                >
-                  * Fuente: Estudio Google/SOASTA sobre Latencia Móvil
-                </a>
               </div>
             </div>
 
@@ -148,8 +136,8 @@ export default component$(() => {
                         <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-700 border-2 border-white">⚡</div>
                       </div>
                       <div>
-                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Core Web Vitals</p>
-                        <p class="text-sm font-bold text-gray-900">Optimizados</p>
+                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">All-in-One</p>
+                        <p class="text-sm font-bold text-gray-900">Suscripción Activa</p>
                       </div>
                     </div>
                   </div>

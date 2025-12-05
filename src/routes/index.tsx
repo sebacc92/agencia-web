@@ -186,8 +186,8 @@ export default component$(() => {
   return (
     <>
       <Hero />
-      <AuthoritySection />
       <Services />
+      <AuthoritySection />
       <WorkProcess />
       <About />
       <Portfolio />

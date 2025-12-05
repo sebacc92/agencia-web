@@ -6,9 +6,12 @@ export default component$(() => {
         <section class="py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-sm font-bold tracking-wide text-gray-500 uppercase">
-                        La ciencia detrás de la velocidad:
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        ¿Por qué la velocidad importa?
                     </h2>
+                    <p class="mt-4 text-lg text-gray-600">
+                        No es solo técnica, es rentabilidad.
+                    </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
