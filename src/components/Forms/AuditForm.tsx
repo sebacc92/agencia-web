@@ -64,12 +64,12 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           data-cdata="audit-form"
         ></div>
 
-        <Button type="submit" class="mt-4 w-full font-bold uppercase tracking-wide" disabled={action.isRunning}>
-          {action.isRunning ? 'Analizando...' : 'ANALIZAR RENTABILIDAD GRATIS'}
+        <Button type="submit" class="mt-4 w-full font-bold uppercase tracking-wide bg-green-600 hover:bg-green-500 text-white shadow-lg hover:shadow-green-500/30 transition-all duration-300" disabled={action.isRunning}>
+          {action.isRunning ? 'Analizando...' : 'DETECTAR FUGAS DE DINERO (GRATIS)'}
         </Button>
 
         <p class="mt-3 text-xs text-gray-500 text-center leading-relaxed">
-          🔒 Te enviaremos un video privado de 1 min mostrándote cuánto dinero estás perdiendo por velocidad.
+          🔒 Te enviaremos un video privado de 1 min mostrando exactamente cuánto dinero pierdes por lentitud.
         </p>
       </div>
     </Form>

@@ -70,7 +70,7 @@ export default component$(() => {
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-tight text-gray-900 tracking-tight">
                 ¿Tu web carga lento? <br class="hidden lg:block" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500">
-                  Estás perdiendo el 20% de tus ventas.
+                  Estás perdiendo el 20% de tus ventas.*
                 </span>
               </h1>
 
@@ -110,6 +110,18 @@ export default component$(() => {
                 >
                   Ver cómo funciona
                 </Button>
+              </div>
+
+              {/* Subtle Citation */}
+              <div class="pt-2 text-center lg:text-left">
+                <a
+                  href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs text-gray-400 hover:text-gray-600 underline decoration-dotted cursor-help transition-colors"
+                >
+                  * Fuente: Estudio Google/SOASTA sobre Latencia Móvil
+                </a>
               </div>
             </div>
 
