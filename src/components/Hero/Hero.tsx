@@ -1,11 +1,12 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { LuChevronDownCircle, LuZap, LuLayout, LuServer } from "@qwikest/icons/lucide"; // Nuevos iconos
+import { LuChevronDownCircle, LuServer, LuZap } from "@qwikest/icons/lucide"; // Nuevos iconos
 import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=90&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
 import Toast from "~/components/ui/toast/toast";
 import { usePopover } from '@qwik-ui/headless';
+import WebScoreAnimated from "./WebScoreAnimated";
 
 export default component$(() => {
   const showAuditModal = useSignal(false);
@@ -147,32 +148,11 @@ export default component$(() => {
                     loading="eager"
                     fetchPriority="high"
                   />
+                </div>
 
-                  {/* Floating Badge 1: Velocidad */}
-                  <div class="absolute -top-6 -right-6 bg-white p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 hidden sm:block animate-bounce duration-[3000ms] z-20">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                        <LuZap class="w-6 h-6" />
-                      </div>
-                      <div>
-                        <p class="text-xs text-gray-400 font-bold uppercase">Score</p>
-                        <p class="text-lg font-black text-gray-900">100/100</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Badge 2: Diseño (Nuevo) */}
-                  <div class="absolute -bottom-6 -left-6 bg-gray-900 p-3 sm:p-4 rounded-xl shadow-2xl border border-gray-800 hidden sm:block animate-bounce duration-[4000ms] z-20">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
-                        <LuLayout class="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p class="text-xs text-gray-400 font-bold uppercase">Diseño</p>
-                        <p class="text-sm font-bold text-white">Premium UI/UX</p>
-                      </div>
-                    </div>
-                  </div>
+                {/* Animated Scores */}
+                <div class="mt-8">
+                  <WebScoreAnimated />
                 </div>
               </div>
             </div>
