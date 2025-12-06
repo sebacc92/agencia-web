@@ -1,6 +1,6 @@
 import { component$, useSignal, $ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import { LuCheck, LuArrowRight, LuSparkles, LuInfo } from "@qwikest/icons/lucide";
+import { LuCheck, LuArrowRight, LuSparkles, LuInfo, LuCalendarClock } from "@qwikest/icons/lucide";
 
 // --- CONFIGURACIÓN DE NEGOCIO ---
 const EXCHANGE_RATE = 1500; // 1 USD = 1500 ARS
@@ -48,7 +48,7 @@ const PLANS: Plan[] = [
     features: [
       'Diseño Estratégico (Landing o Multi-página)',
       'Velocidad de Carga Instantánea (Qwik)',
-      'Botón WhatsApp Flotante (Leads Directos)', // <-- AGREGADO AQUÍ
+      'Botón WhatsApp Flotante (Leads Directos)',
       'SEO Técnico (Para aparecer en Google)',
       'Hosting Edge y Dominio (Incluidos 2 años)',
       'Correos Corporativos (tu@marca.com)',
@@ -78,7 +78,7 @@ const PLANS: Plan[] = [
       'Tienda Headless (Carga < 1s entre productos)',
       'Gestión Fácil (Productos, Precios, Stock)',
       'Pasarelas Seguras (Mercado Pago / Stripe)',
-      'Diseño Mobile-First (Compra sin Fricción)', // <-- REEMPLAZA AL STICKY
+      'Diseño Mobile-First (Compra sin Fricción)',
       'Optimización de Imágenes con IA',
       'Carrito de Compras Optimizado'
     ],
@@ -148,7 +148,7 @@ export default component$(() => {
             Planes Claros, <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">Sin Sorpresas</span>
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transparencia total. Elige pagar una suscripción mensual (todo incluido) o comprar tu web de por vida.
+            Transparencia total. Financia tu web en 24 cuotas o haz un pago único bonificado.
           </p>
 
           {/* CONTROLES */}
@@ -173,7 +173,7 @@ export default component$(() => {
             {/* Frecuencia */}
             <div class="flex items-center gap-3">
               <span class={`text-sm font-bold ${isMonthly.value ? 'text-gray-900' : 'text-gray-500'}`}>
-                Suscripción (WaaS)
+                Plan Cuotas (24 meses)
               </span>
               <button
                 onClick$={() => isMonthly.value = !isMonthly.value}
@@ -227,7 +227,7 @@ export default component$(() => {
                   ) : (
                     <>
                       {isMonthly.value ? (
-                        // --- VISTA WAAS (MENSUAL) ---
+                        // --- VISTA PLAN CUOTAS (MENSUAL) ---
                         <div class="animate-fadeIn">
                           <div class="flex items-center gap-2 mb-1">
                             <span class={`text-xs font-bold uppercase tracking-wide ${plan.highlight ? 'text-green-600' : 'text-gray-500'}`}>
@@ -254,9 +254,17 @@ export default component$(() => {
                           <div class="mt-4 pt-4 border-t border-dashed border-gray-200">
                             <div class="flex items-baseline">
                               <span class="text-2xl font-bold text-green-600">+ {formatPrice(plan.offerMonthlyUsd)}</span>
-                              <span class="text-gray-500 text-sm ml-1">/mes</span>
+                              <span class="text-gray-500 text-sm ml-1 font-medium">por mes</span>
                             </div>
-                            <p class="text-xs text-gray-400 mt-1">Suscripción todo incluido. Cancela cuando quieras.</p>
+
+                            {/* AQUÍ ESTÁ LA ACLARACIÓN DE LOS 24 MESES */}
+                            <div class="flex items-start gap-1.5 mt-2">
+                              <LuCalendarClock class="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" />
+                              <p class="text-xs text-gray-500 leading-tight">
+                                Durante <strong>24 meses</strong>. <br />
+                                Luego la web es 100% tuya.
+                              </p>
+                            </div>
                           </div>
                         </div>
                       ) : (
@@ -287,7 +295,6 @@ export default component$(() => {
                             <LuSparkles class="w-3 h-3" />
                             Sin cuotas mensuales por 2 años
                           </p>
-                          {/* INFO VISIBLE */}
                           <div class="mt-2 bg-gray-50 p-2 rounded border border-gray-100 flex items-start gap-2">
                             <LuInfo class="w-3 h-3 text-gray-400 mt-0.5 shrink-0" />
                             <p class="text-[10px] text-gray-500 leading-tight">
@@ -313,7 +320,6 @@ export default component$(() => {
                       </span>
                     </li>
                   ))}
-                  {/* TRANSPARENCIA DE RENOVACIÓN */}
                   {!isCustom && !isMonthly.value && plan.renewalText && (
                     <li class="flex items-start gap-3 pt-2 border-t border-gray-100 mt-2">
                       <div class="bg-blue-50 text-blue-600 rounded-full p-1 shrink-0">

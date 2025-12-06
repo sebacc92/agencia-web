@@ -1,6 +1,6 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { LuChevronDownCircle, LuZap, LuRocket, LuLayout, LuServer } from "@qwikest/icons/lucide"; // Nuevos iconos
-import ImagePageSpeed from "~/media/images/pagespeed-100.png?quality=90&jsx";
+import { LuChevronDownCircle, LuZap, LuLayout, LuServer } from "@qwikest/icons/lucide"; // Nuevos iconos
+import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=90&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
@@ -120,6 +120,17 @@ export default component$(() => {
                   </p>
                 </Modal>
               </div>
+
+              {/* Secondary Lead Magnet: Auditoría */}
+              <div class="mt-6 text-sm text-gray-500 font-medium flex items-center justify-center lg:justify-start gap-1">
+                ¿Ya tienes web?
+                <button
+                  onClick$={() => showAuditModal.value = true}
+                  class="text-gray-900 underline decoration-gray-300 hover:decoration-green-500 hover:text-green-700 transition-all"
+                >
+                  Solicita una Auditoría Técnica Gratuita
+                </button>
+              </div>
             </div>
 
             {/* Image Column */}
@@ -177,12 +188,6 @@ export default component$(() => {
             </p>
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
 
-              {/* SHOPIFY */}
-              <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
-                <span class="text-2xl font-bold text-gray-800 group-hover:text-[#95BF47] transition-colors">shopify</span>
-                <span class="text-[10px] bg-gray-200 px-1 rounded text-gray-600">Headless</span>
-              </div>
-
               {/* QWIK */}
               <div class="flex items-center gap-2 group">
                 <LuZap class="w-6 h-6 text-gray-400 group-hover:text-[#AC7EF4]" />
@@ -198,6 +203,12 @@ export default component$(() => {
               {/* STRAPI */}
               <div class="flex items-center gap-2 group">
                 <span class="text-xl font-bold text-gray-700 group-hover:text-[#4945FF] transition-colors">Strapi</span>
+              </div>
+
+              {/* SHOPIFY */}
+              <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
+                <span class="text-2xl font-bold text-gray-800 group-hover:text-[#95BF47] transition-colors">shopify</span>
+                <span class="text-[10px] bg-gray-200 px-1 rounded text-gray-600">Headless</span>
               </div>
 
             </div>
