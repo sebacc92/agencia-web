@@ -10,7 +10,7 @@ export default component$(() => {
       // Este texto cubre ambos casos: web nueva o existente.
       description: "Si ya tienes web, la auditamos. Si no, diseñamos tu plan desde cero. Definimos objetivos claros antes de escribir una línea de código.",
       colors: {
-        badge: "bg-blue-600",
+        badge: "bg-blue-700",
         bgIcon: "bg-blue-50 text-blue-600",
         border: "border-blue-200",
         hoverBorder: "group-hover:border-blue-400",
@@ -24,7 +24,7 @@ export default component$(() => {
       // Eliminamos tecnicismos excesivos, vendemos "personalización" y "velocidad".
       description: "Nada de plantillas lentas de WordPress. Construimos tu activo digital a medida con tecnología Qwik para una velocidad de carga instantánea.",
       colors: {
-        badge: "bg-purple-600",
+        badge: "bg-purple-700",
         bgIcon: "bg-purple-50 text-purple-600",
         border: "border-purple-200",
         hoverBorder: "group-hover:border-purple-400",
@@ -38,7 +38,7 @@ export default component$(() => {
       // El beneficio final: Tráfico y Ventas.
       description: "Entrega final optimizada. Tu negocio queda listo para indexar en Google, recibir tráfico masivo y convertir visitas en dinero.",
       colors: {
-        badge: "bg-green-600",
+        badge: "bg-green-700",
         bgIcon: "bg-green-50 text-green-600",
         border: "border-green-200",
         hoverBorder: "group-hover:border-green-400",

@@ -178,6 +178,7 @@ export default component$(() => {
               <button
                 onClick$={() => isMonthly.value = !isMonthly.value}
                 class={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${isMonthly.value ? 'bg-green-600' : 'bg-gray-600'}`}
+                aria-label="Alternar frecuencia de pago"
               >
                 <span class={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform duration-200 ${isMonthly.value ? 'translate-x-1' : 'translate-x-7'}`} />
               </button>
@@ -205,7 +206,7 @@ export default component$(() => {
 
                 {/* BADGE */}
                 {plan.badge && (
-                  <div class="absolute top-0 right-0 -mt-4 mr-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-md">
+                  <div class="absolute top-0 right-0 -mt-4 mr-4 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-md">
                     {plan.badge}
                   </div>
                 )}
@@ -230,11 +231,11 @@ export default component$(() => {
                         // --- VISTA PLAN CUOTAS (MENSUAL) ---
                         <div class="animate-fadeIn">
                           <div class="flex items-center gap-2 mb-1">
-                            <span class={`text-xs font-bold uppercase tracking-wide ${plan.highlight ? 'text-green-600' : 'text-gray-500'}`}>
+                            <span class={`text-xs font-bold uppercase tracking-wide ${plan.highlight ? 'text-green-700' : 'text-gray-500'}`}>
                               Pago Inicial (Setup)
                             </span>
                             {IS_LAUNCH_MODE && (
-                              <span class="bg-red-100 text-red-600 text-[10px] px-1.5 py-0.5 rounded font-bold">
+                              <span class="bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded font-bold">
                                 OFERTA BETA
                               </span>
                             )}
@@ -242,7 +243,7 @@ export default component$(() => {
 
                           <div class="flex items-baseline gap-2">
                             {IS_LAUNCH_MODE && (
-                              <span class="text-lg text-gray-400 line-through decoration-red-400">
+                              <span class="text-lg text-gray-500 line-through decoration-red-400">
                                 {formatPrice(plan.baseSetupUsd)}
                               </span>
                             )}
@@ -275,7 +276,7 @@ export default component$(() => {
                               Precio Final
                             </span>
                             {IS_LAUNCH_MODE && (
-                              <span class="bg-blue-100 text-blue-600 text-[10px] px-1.5 py-0.5 rounded font-bold">
+                              <span class="bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded font-bold">
                                 AHORRO TOTAL
                               </span>
                             )}
@@ -283,7 +284,7 @@ export default component$(() => {
 
                           <div class="flex flex-col">
                             {IS_LAUNCH_MODE && (
-                              <span class="text-lg text-gray-400 line-through decoration-gray-400">
+                              <span class="text-lg text-gray-500 line-through decoration-gray-400">
                                 {formatPrice(plan.baseOneTimeUsd)}
                               </span>
                             )}
@@ -338,7 +339,7 @@ export default component$(() => {
                   class={`
                     w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-base transition-all transform hover:-translate-y-1 mt-auto
                     ${plan.highlight
-                      ? 'bg-green-600 text-white shadow-lg hover:bg-green-700 hover:shadow-green-500/30'
+                      ? 'bg-green-700 text-white shadow-lg hover:bg-green-800 hover:shadow-green-500/30'
                       : isCustom
                         ? 'bg-white text-gray-900 hover:bg-gray-100'
                         : 'bg-green-50 text-green-700 hover:bg-green-100'}

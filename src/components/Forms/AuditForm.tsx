@@ -35,9 +35,9 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
 
       {/* Nombre */}
       <div>
-        <Label class="label" for="nombre">Tu Nombre</Label>
+        <Label class="label" for="audit-nombre">Tu Nombre</Label>
         <input
-          id="nombre"
+          id="audit-nombre"
           name="nombre"
           placeholder="Ej: Juan Pérez"
           type="text"
@@ -48,9 +48,9 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
 
       {/* Email */}
       <div>
-        <Label class="label" for="email">Tu Email</Label>
+        <Label class="label" for="audit-email">Tu Email</Label>
         <input
-          id="email"
+          id="audit-email"
           name="email"
           placeholder="tu@email.com"
           type="email"
@@ -62,9 +62,9 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       {/* Web + Teléfono */}
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <Label class="label" for="website">Sitio Web (Opcional)</Label>
+          <Label class="label" for="audit-website">Sitio Web (Opcional)</Label>
           <input
-            id="website"
+            id="audit-website"
             name="website"
             placeholder="Si tienes..."
             type="text"
@@ -72,9 +72,9 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           />
         </div>
         <div>
-          <Label class="label" for="telefono">WhatsApp (Opcional)</Label>
+          <Label class="label" for="audit-telefono">WhatsApp (Opcional)</Label>
           <input
-            id="telefono"
+            id="audit-telefono"
             name="telefono"
             placeholder="+54 9 11..."
             type="tel"
@@ -85,9 +85,9 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
 
       {/* Proyecto / Necesidad */}
       <div>
-        <Label class="label" for="proyecto">¿Qué necesitas?</Label>
+        <Label class="label" for="audit-proyecto">¿Qué necesitas?</Label>
         <textarea
-          id="proyecto"
+          id="audit-proyecto"
           name="proyecto"
           placeholder="Ej: Quiero lanzar una tienda online, rediseñar mi web, etc."
           class="w-full rounded-md border px-3 py-2 h-24 resize-none"

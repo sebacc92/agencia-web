@@ -6,7 +6,7 @@ export default component$(() => {
         {
             company: 'Amazon',
             icon: LuTimer,
-            color: 'text-orange-500',
+            color: 'text-orange-600',
             bg: 'bg-orange-50',
             stat: '-1% Ventas',
             context: 'por cada 100ms de retraso',
@@ -69,7 +69,7 @@ export default component$(() => {
                                 <div class={`p-3 rounded-xl ${item.bg} ${item.color}`}>
                                     <item.icon class="w-6 h-6" />
                                 </div>
-                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">{item.company}</span>
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">{item.company}</span>
                             </div>
 
                             {/* Big Stat */}
@@ -92,7 +92,7 @@ export default component$(() => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 hover:text-green-600 transition-colors"
+                                class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-500 hover:text-green-600 transition-colors"
                             >
                                 Ver estudio
                                 <LuExternalLink class="w-3 h-3" />

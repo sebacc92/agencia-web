@@ -65,7 +65,7 @@ export default component$(() => {
                 />
 
                 {/* PageSpeed Badge */}
-                <div class="absolute top-3 right-3 z-20 bg-green-600 px-3 py-1 rounded-full shadow-lg border border-green-500 flex items-center gap-2">
+                <div class="absolute top-3 right-3 z-20 bg-green-700 px-3 py-1 rounded-full shadow-lg border border-green-500 flex items-center gap-2">
                   <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                   <span class="text-xs font-bold text-white">CORE WEB VITALS: 100/100</span>
                 </div>
@@ -107,7 +107,7 @@ export default component$(() => {
                       <circle cx="50" cy="50" r="40" fill="#e5faef" stroke="#10b981" stroke-width="8" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="0" />
                     </svg>
                     <div class="absolute inset-0 flex items-center justify-center">
-                      <span class="text-sm font-bold text-green-600">100</span>
+                      <span class="text-sm font-bold text-green-700">100</span>
                     </div>
                   </div>
                   <div class="flex flex-col">

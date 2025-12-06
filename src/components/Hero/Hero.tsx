@@ -127,7 +127,7 @@ export default component$(() => {
                 ¿Ya tienes web?
                 <button
                   onClick$={() => showAuditModal.value = true}
-                  class="text-gray-900 underline decoration-gray-300 hover:decoration-green-500 hover:text-green-700 transition-all"
+                  class="text-orange-600 underline decoration-gray-300 hover:decoration-green-500 hover:text-green-700 transition-all"
                 >
                   Solicita una Auditoría Técnica Gratuita
                 </button>
@@ -188,8 +188,10 @@ export default component$(() => {
 
               {/* SHOPIFY */}
               <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
-                <span class="text-2xl font-bold text-gray-800 group-hover:text-[#95BF47] transition-colors">shopify</span>
-                <span class="text-[10px] bg-gray-200 px-1 rounded text-gray-600">Headless</span>
+                <span class="text-2xl font-bold text-green-700">
+                  shopify
+                </span>
+                <span class="text-[10px] bg-gray-400 px-1 rounded text-gray-900 font-bold">Headless</span>
               </div>
 
             </div>
