@@ -13,7 +13,7 @@ export default component$(() => {
         badge: "bg-blue-600",
         bgIcon: "bg-blue-50 text-blue-600",
         border: "border-blue-200",
-        hoverBorder: "hover:border-blue-400",
+        hoverBorder: "group-hover:border-blue-400",
         glow: "from-blue-400 to-cyan-300"
       }
     },
@@ -27,7 +27,7 @@ export default component$(() => {
         badge: "bg-purple-600",
         bgIcon: "bg-purple-50 text-purple-600",
         border: "border-purple-200",
-        hoverBorder: "hover:border-purple-400",
+        hoverBorder: "group-hover:border-purple-400",
         glow: "from-purple-400 to-pink-300"
       }
     },
@@ -41,7 +41,7 @@ export default component$(() => {
         badge: "bg-green-600",
         bgIcon: "bg-green-50 text-green-600",
         border: "border-green-200",
-        hoverBorder: "hover:border-green-400",
+        hoverBorder: "group-hover:border-green-400",
         glow: "from-green-400 to-emerald-300"
       }
     }
@@ -85,27 +85,27 @@ export default component$(() => {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div key={index} class="relative group z-10">
+              <div key={index} class="relative group z-10 transition-all duration-300 hover:-translate-y-2">
+
+                {/* Number Badge */}
+                <div class={`
+                  absolute -top-5 left-1/2 -translate-x-1/2 z-20
+                  w-10 h-10 rounded-full ${step.colors.badge} text-white 
+                  flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white
+                `}>
+                  {step.number}
+                </div>
 
                 {/* Card Container */}
                 <div class={`
                   h-full bg-white rounded-2xl p-8 
                   border-2 ${step.colors.border} ${step.colors.hoverBorder}
-                  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl
+                  transition-all duration-300 group-hover:shadow-xl
                   flex flex-col items-center text-center relative overflow-hidden
                 `}>
 
                   {/* Glow Effect on Hover */}
                   <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${step.colors.glow}`}></div>
-
-                  {/* Number Badge */}
-                  <div class={`
-                    absolute -top-5 left-1/2 -translate-x-1/2 
-                    w-10 h-10 rounded-full ${step.colors.badge} text-white 
-                    flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white
-                  `}>
-                    {step.number}
-                  </div>
 
                   {/* Icon */}
                   <div class={`

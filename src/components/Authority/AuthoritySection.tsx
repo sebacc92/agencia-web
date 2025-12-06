@@ -12,7 +12,7 @@ export default component$(() => {
             context: 'por cada 100ms de retraso',
             description: 'El gigante del retail descubrió que incluso una fracción de segundo en latencia impacta directamente en la facturación anual.',
             source: 'Amazon Latency Study',
-            link: 'https://www.gigaspaces.com/blog/amazon-found-every-100ms-of-latency-cost-them-1-in-sales'
+            link: 'https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/'
         },
         {
             company: 'Google & Deloitte',
@@ -23,7 +23,7 @@ export default component$(() => {
             context: 'al mejorar 0.1s la velocidad',
             description: 'El estudio "Milliseconds Make Millions" demostró que mejoras imperceptibles en móviles disparan las ventas en retail y turismo.',
             source: 'Milliseconds Make Millions Report',
-            link: 'https://www2.deloitte.com/content/dam/Deloitte/ie/Documents/Consulting/Milliseconds_Make_Millions_report.pdf'
+            link: 'https://www.deloitte.com/ie/en/services/consulting/research/milliseconds-make-millions.html'
         },
         {
             company: 'Akamai',
@@ -55,7 +55,7 @@ export default component$(() => {
                         </span>
                     </h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        Las empresas más grandes del mundo han demostrado que la velocidad no es una métrica técnica, es una métrica financiera.
+                        Las empresas más grandes del mundo han demostrado que la velocidad<br /> no es una métrica técnica, es una métrica financiera.
                     </p>
                 </div>
 
