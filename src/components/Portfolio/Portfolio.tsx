@@ -65,9 +65,9 @@ export default component$(() => {
                 />
 
                 {/* PageSpeed Badge */}
-                <div class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg border border-green-200 flex items-center gap-2">
-                  <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                  <span class="text-xs font-bold text-green-700">PageSpeed: 100/100</span>
+                <div class="absolute top-3 right-3 z-20 bg-green-600 px-3 py-1 rounded-full shadow-lg border border-green-500 flex items-center gap-2">
+                  <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                  <span class="text-xs font-bold text-white">CORE WEB VITALS: 100/100</span>
                 </div>
 
                 <div class="absolute bottom-4 left-4 right-4 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">

@@ -54,6 +54,34 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           class="w-full rounded-md border px-3 py-2"
           required
         />
+      </div>
+
+      <div class="mt-3 grid grid-cols-2 gap-3">
+        <div>
+          <Label class="label" for="phone">WhatsApp (Opcional)</Label>
+          <input
+            id="phone"
+            name="phone"
+            placeholder="+54 9 11..."
+            type="tel"
+            class="w-full rounded-md border px-3 py-2"
+          />
+        </div>
+        <div>
+          <Label class="label" for="revenue">Facturación Mensual</Label>
+          <select
+            id="revenue"
+            name="revenue"
+            class="w-full rounded-md border px-3 py-2 bg-white"
+          >
+            <option value="startup">Startup (&lt; $1k)</option>
+            <option value="growing">Creciendo ($1k - $10k)</option>
+            <option value="scaling">Escalando ($10k+)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-3">
 
         <div
           class="cf-turnstile"
@@ -72,6 +100,6 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
           🔒 Análisis de viabilidad sin compromiso. Te responderemos en 24hs.
         </p>
       </div>
-    </Form>
+    </Form >
   );
 });

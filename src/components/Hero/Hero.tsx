@@ -1,5 +1,5 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { LuChevronDownCircle } from "@qwikest/icons/lucide";
+import { LuChevronDownCircle, LuZap, LuRocket, LuLayout, LuServer } from "@qwikest/icons/lucide"; // Nuevos iconos
 import ImagePageSpeed from "~/media/images/pagespeed-100.png?quality=90&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
@@ -18,7 +18,6 @@ export default component$(() => {
     showAuditModal.value = false;
   });
 
-  // Optimización: cargar animaciones después del LCP
   useVisibleTask$(
     () => {
       const win = window as typeof window & { requestIdleCallback?: typeof requestIdleCallback };
@@ -47,39 +46,44 @@ export default component$(() => {
 
   return (
     <main class="min-h-[90vh] flex flex-col bg-white relative overflow-hidden">
-      {/* Background sutil y limpio */}
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-50/50 via-white to-white"></div>
+      {/* Background sofisticado */}
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-50/40 via-white to-white"></div>
+
+      {/* Grid Pattern sutil */}
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       {/* Main Content Container */}
-      <div class="flex-1 flex items-center relative z-10">
-        <div class="container mx-auto py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 w-full">
+      <div class="flex-1 flex flex-col justify-center relative z-10 pt-10 pb-0">
+        <div class="container mx-auto py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-8 w-full">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* Text Column */}
-            <div class="space-y-8 text-center lg:text-left">
-              {/* Badge */}
-              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-200">
+            <div class="space-y-8 text-center lg:text-left relative">
+
+              {/* Badge Dual: Cubre Creación y Optimización */}
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 shadow-lg group hover:scale-105 transition-transform cursor-default">
                 <span class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span class="text-green-700 text-sm font-bold tracking-wide uppercase">Suscripción Tecnológica Activa</span>
+                <span class="text-white text-xs sm:text-sm font-bold tracking-wide uppercase">
+                  Agencia de Alto Rendimiento
+                </span>
               </div>
 
-              {/* Headline WaaS */}
+              {/* Headline Híbrido */}
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-tight text-gray-900 tracking-tight">
-                Tu Sitio Web debería ser <br class="hidden lg:block" />
+                Lanzamos y Aceleramos <br class="hidden lg:block" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
-                  tu mejor vendedor,
+                  Negocios Digitales.
                 </span>
-                <br class="hidden lg:block" /> no un gasto fijo.
               </h1>
 
-              {/* Subheadline WaaS */}
+              {/* Subheadline Inclusivo (Nuevo vs Lento) */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
-                Obtén una web de <span class="text-gray-900 font-bold">Ultra-Velocidad (Qwik)</span> con todo incluido por una cuota mensual accesible.
+                Ya sea que necesites una <span class="text-gray-900 font-bold">web nueva desde cero</span> o revivir un sitio lento que pierde ventas.
                 <span class="block mt-2">
-                  Sin grandes inversiones iniciales. Tecnología de punta a tu alcance.
+                  Diseñamos activos digitales que cargan en milisegundos y convierten visitas en dinero.
                 </span>
               </p>
 
@@ -88,7 +92,7 @@ export default component$(() => {
                 <Button
                   variant="primary"
                   size="lg"
-                  class="w-full sm:w-auto font-bold text-base uppercase tracking-wide shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                  class="w-full sm:w-auto font-bold text-base shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
                   onClick$={() => {
                     const el = document.getElementById('services');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -97,47 +101,64 @@ export default component$(() => {
                   Ver Planes y Precios
                 </Button>
 
+                {/* Modal ajustado conceptualmente */}
                 <Modal
-                  title="Consulta con un Experto"
-                  description="Agenda una breve llamada para ver si nuestro modelo de suscripción encaja con tu negocio."
+                  title="Consulta Estratégica"
+                  description="Hablemos de tu proyecto. Si ya tienes web, la auditamos gratis. Si no, diseñamos tu lanzamiento."
                   showFooter={false}
-                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 bg-white text-gray-700 border-2 border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300"
-                  triggerText="Hablar con un experto"
+                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 bg-white text-gray-700 border-2 border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 hover:text-green-700"
+                  triggerText="Hablar con un Experto"
                   showSig={showAuditModal}
                 >
                   <AuditForm
                     onCloseModal$={onCloseModal$}
                     onShowToast$={onShowToast$}
                   />
+                  {/* Nota visual dentro del modal para nuevos clientes */}
+                  <p class="text-center text-xs text-gray-400 mt-4">
+                    ¿Aún no tienes sitio web? Deja el campo URL vacío o pon "Nuevo".
+                  </p>
                 </Modal>
               </div>
             </div>
 
             {/* Image Column */}
-            <div class="order-first lg:order-last mb-8 lg:mb-0">
-              <div class="relative mx-auto max-w-[300px] sm:max-w-[400px] lg:max-w-full">
+            <div class="order-first lg:order-last mb-8 lg:mb-0 relative">
+              <div class="relative mx-auto max-w-[300px] sm:max-w-[400px] lg:max-w-full group">
                 {/* Glow effect */}
-                <div class="absolute -inset-4 bg-green-500/20 blur-3xl rounded-full opacity-70 animate-pulse"></div>
+                <div class="absolute -inset-4 bg-gradient-to-tr from-green-500/20 to-teal-500/20 blur-3xl rounded-full opacity-70 animate-pulse"></div>
 
-                {/* Imagen PageSpeed */}
-                <div class="relative transform transition-transform duration-700 hover:scale-105">
+                {/* Imagen Principal */}
+                <div class="relative transform transition-transform duration-700 group-hover:scale-[1.02]">
                   <ImagePageSpeed
-                    alt="Puntaje perfecto 100/100 en Google PageSpeed Insights"
-                    class="w-full h-auto drop-shadow-2xl rounded-2xl"
+                    alt="Dashboard de rendimiento web"
+                    class="w-full h-auto drop-shadow-2xl rounded-2xl border border-gray-100/50"
                     loading="eager"
                     fetchPriority="high"
                   />
 
-                  {/* Floating Badge */}
-                  <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden sm:block animate-bounce duration-[3000ms]">
+                  {/* Floating Badge 1: Velocidad */}
+                  <div class="absolute -top-6 -right-6 bg-white p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 hidden sm:block animate-bounce duration-[3000ms] z-20">
                     <div class="flex items-center gap-3">
-                      <div class="flex -space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-xs font-bold text-green-700 border-2 border-white">🚀</div>
-                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-700 border-2 border-white">⚡</div>
+                      <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                        <LuZap class="w-6 h-6" />
                       </div>
                       <div>
-                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">All-in-One</p>
-                        <p class="text-sm font-bold text-gray-900">Suscripción Activa</p>
+                        <p class="text-xs text-gray-400 font-bold uppercase">Score</p>
+                        <p class="text-lg font-black text-gray-900">100/100</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Badge 2: Diseño (Nuevo) */}
+                  <div class="absolute -bottom-6 -left-6 bg-gray-900 p-3 sm:p-4 rounded-xl shadow-2xl border border-gray-800 hidden sm:block animate-bounce duration-[4000ms] z-20">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
+                        <LuLayout class="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p class="text-xs text-gray-400 font-bold uppercase">Diseño</p>
+                        <p class="text-sm font-bold text-white">Premium UI/UX</p>
                       </div>
                     </div>
                   </div>
@@ -147,21 +168,55 @@ export default component$(() => {
 
           </div>
         </div>
+
+        {/* LOGO STRIP / TECH STACK (Corregido y Honesto) */}
+        <div class="w-full border-t border-gray-100 bg-gray-50/50 backdrop-blur-sm mt-8 sm:mt-0">
+          <div class="container mx-auto px-4 py-8">
+            <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
+              Potenciado por Infraestructura Enterprise
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+
+              {/* SHOPIFY */}
+              <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
+                <span class="text-2xl font-bold text-gray-800 group-hover:text-[#95BF47] transition-colors">shopify</span>
+                <span class="text-[10px] bg-gray-200 px-1 rounded text-gray-600">Headless</span>
+              </div>
+
+              {/* QWIK */}
+              <div class="flex items-center gap-2 group">
+                <LuZap class="w-6 h-6 text-gray-400 group-hover:text-[#AC7EF4]" />
+                <span class="text-xl font-bold text-gray-700 group-hover:text-[#AC7EF4] transition-colors">Qwik</span>
+              </div>
+
+              {/* NETLIFY */}
+              <div class="flex items-center gap-2 group">
+                <LuServer class="w-6 h-6 text-gray-400 group-hover:text-[#00C7B7]" />
+                <span class="text-xl font-bold text-gray-700 group-hover:text-[#00C7B7] transition-colors">Netlify Edge</span>
+              </div>
+
+              {/* STRAPI */}
+              <div class="flex items-center gap-2 group">
+                <span class="text-xl font-bold text-gray-700 group-hover:text-[#4945FF] transition-colors">Strapi</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div class="relative z-10 flex justify-center pb-8">
+      <div class="relative z-10 flex justify-center pb-6 bg-gray-50/50">
         <a
           href="#services"
-          class="group flex flex-col items-center gap-2 cursor-pointer transition-all duration-300"
-          aria-label="Desplazarse hacia abajo"
+          class="group flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 hover:translate-y-1"
+          aria-label="Ver servicios"
         >
-          <span class="text-xs text-gray-400 font-medium uppercase tracking-widest group-hover:text-green-600 transition-colors">
-            Descubre más
+          <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest group-hover:text-green-600">
+            Explorar Soluciones
           </span>
           <LuChevronDownCircle
-            class="w-6 h-6 text-gray-300 group-hover:text-green-600 transition-all duration-300 group-hover:translate-y-1"
-            aria-hidden="true"
+            class="w-5 h-5 text-gray-300 group-hover:text-green-600 transition-colors"
           />
         </a>
       </div>
@@ -170,7 +225,7 @@ export default component$(() => {
       <Toast
         id="audit-toast"
         type={toastType.value}
-        title={toastType.value === 'success' ? '¡Listo!' : 'Ups...'}
+        title={toastType.value === 'success' ? '¡Solicitud Recibida!' : 'Error'}
         message={toastMsg.value}
         duration={4000}
       />

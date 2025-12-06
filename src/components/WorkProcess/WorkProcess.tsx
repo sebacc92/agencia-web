@@ -1,117 +1,140 @@
 import { component$ } from "@builder.io/qwik";
-import { LuRadar, LuZap, LuTrendingUp } from "@qwikest/icons/lucide";
+import { LuTarget, LuCode2, LuRocket, LuArrowRight } from "@qwikest/icons/lucide";
 
 export default component$(() => {
   const steps = [
     {
       number: "01",
-      icon: LuRadar,
-      title: "Diagnóstico",
-      description: "Identificamos los cuellos de botella que frenan tus ventas.",
+      icon: LuTarget,
+      title: "Estrategia & Diseño",
+      // Este texto cubre ambos casos: web nueva o existente.
+      description: "Si ya tienes web, la auditamos. Si no, diseñamos tu plan desde cero. Definimos objetivos claros antes de escribir una línea de código.",
       colors: {
-        badge: "bg-orange-500",
-        border: "border-orange-300",
-        hover: "hover:border-orange-400",
-        text: "group-hover:text-orange-700",
-        gradient: "from-orange-400 to-orange-500",
-        glowFrom: "from-orange-400",
-        glowTo: "to-orange-400"
+        badge: "bg-blue-600",
+        bgIcon: "bg-blue-50 text-blue-600",
+        border: "border-blue-200",
+        hoverBorder: "hover:border-blue-400",
+        glow: "from-blue-400 to-cyan-300"
       }
     },
     {
       number: "02",
-      icon: LuZap,
-      title: "Inyección Qwik",
-      description: "Implementamos código de alto rendimiento (Resumability) para carga instantánea.",
+      icon: LuCode2,
+      title: "Desarrollo Acelerado",
+      // Eliminamos tecnicismos excesivos, vendemos "personalización" y "velocidad".
+      description: "Nada de plantillas lentas de WordPress. Construimos tu activo digital a medida con tecnología Qwik para una velocidad de carga instantánea.",
       colors: {
-        badge: "bg-purple-500",
-        border: "border-purple-300",
-        hover: "hover:border-purple-400",
-        text: "group-hover:text-purple-700",
-        gradient: "from-purple-400 to-purple-500",
-        glowFrom: "from-purple-400",
-        glowTo: "to-purple-400"
+        badge: "bg-purple-600",
+        bgIcon: "bg-purple-50 text-purple-600",
+        border: "border-purple-200",
+        hoverBorder: "hover:border-purple-400",
+        glow: "from-purple-400 to-pink-300"
       }
     },
     {
       number: "03",
-      icon: LuTrendingUp,
-      title: "Escalado",
-      description: "Tu web vuela, Google te posiciona mejor y la conversión sube.",
+      icon: LuRocket,
+      title: "Lanzamiento & Growth",
+      // El beneficio final: Tráfico y Ventas.
+      description: "Entrega final optimizada. Tu negocio queda listo para indexar en Google, recibir tráfico masivo y convertir visitas en dinero.",
       colors: {
-        badge: "bg-green-500",
-        border: "border-green-300",
-        hover: "hover:border-green-400",
-        text: "group-hover:text-green-700",
-        gradient: "from-green-400 to-green-500",
-        glowFrom: "from-green-400",
-        glowTo: "to-green-400"
+        badge: "bg-green-600",
+        bgIcon: "bg-green-50 text-green-600",
+        border: "border-green-200",
+        hoverBorder: "hover:border-green-400",
+        glow: "from-green-400 to-emerald-300"
       }
     }
   ];
 
   return (
-    <section class="relative bg-gradient-to-br from-white via-purple-50/40 to-blue-50/30 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div class="absolute inset-0">
-        {/* Grid pattern - Light version */}
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
-        {/* Large geometric shapes - Light pastel colors */}
-        <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-300/30 to-blue-300/30 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/20 to-orange-300/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-emerald-300/20 to-cyan-300/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 4s"></div>
-      </div>
+    <section class="relative bg-white overflow-hidden py-24">
+      {/* Background sutil para no distraer */}
+      <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50"></div>
 
       <div class="container relative z-10 mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        {/* Process Section */}
-        <div class="relative">
-          {/* Background decorative element */}
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-300/10 to-transparent rounded-3xl"></div>
 
-          <div class="relative z-10 text-center pb-12">
-            <div class="inline-block my-6 px-4 py-2 bg-purple-100 border border-purple-300 rounded-full animate-fade-up" style="animation-delay: 0.1s">
-              <span class="text-purple-700 text-sm font-semibold uppercase tracking-wider">Metodología Ágil</span>
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 animate-fade-up" style="animation-delay: 0.2s">
-              Proceso <span class="text-cyan-500">Quirúrgico</span>
-            </h2>
-            <p class="text-lg md:text-xl text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-up" style="animation-delay: 0.3s">
-              Sin burocracia. Resultados en tiempo récord.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 md:gap-6 relative">
-              {steps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} class="relative group animate-fade-up" style={`animation-delay: ${0.4 + index * 0.1}s`}>
-                    <div class="relative">
-                      {/* Glow effect */}
-                      <div class={`absolute -inset-2 bg-gradient-to-r ${step.colors.glowFrom} ${step.colors.glowTo} rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`}></div>
-
-                      <div class={`relative bg-white border-2 border-gray-100 rounded-2xl p-8 hover:${step.colors.border} transition-all duration-500 hover:-translate-y-2 group-hover:shadow-lg h-full flex flex-col items-center`}>
-                        {/* Step Number Badge */}
-                        <div class={`absolute -top-4 -left-4 w-10 h-10 ${step.colors.badge} rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg`}>
-                          {step.number}
-                        </div>
-
-                        {/* Icon Container */}
-                        <div class="relative mb-6 inline-block">
-                          <div class={`w-24 h-24 bg-gradient-to-br ${step.colors.gradient} bg-opacity-10 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                            <Icon width={48} height={48} />
-                          </div>
-                        </div>
-
-                        <h3 class={`font-bold text-2xl mb-3 text-gray-900 ${step.colors.text} transition-colors`}>{step.title}</h3>
-                        <p class="text-gray-600 font-medium">{step.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Header Section */}
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span class="text-xs font-bold text-gray-600 uppercase tracking-wide">Metodología Ágil</span>
           </div>
+
+          <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">
+            Del concepto a la venta <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              en 3 pasos simples.
+            </span>
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed">
+            Eliminamos la burocracia de las agencias tradicionales. <br class="hidden sm:block" />
+            Sin vueltas, sin demoras y enfocado 100% en tu ROI.
+          </p>
         </div>
+
+        {/* Steps Grid */}
+        <div class="grid md:grid-cols-3 gap-8 relative">
+
+          {/* Connector Line (Desktop Only) */}
+          <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent -translate-y-1/2 z-0"></div>
+
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div key={index} class="relative group z-10">
+
+                {/* Card Container */}
+                <div class={`
+                  h-full bg-white rounded-2xl p-8 
+                  border-2 ${step.colors.border} ${step.colors.hoverBorder}
+                  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl
+                  flex flex-col items-center text-center relative overflow-hidden
+                `}>
+
+                  {/* Glow Effect on Hover */}
+                  <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${step.colors.glow}`}></div>
+
+                  {/* Number Badge */}
+                  <div class={`
+                    absolute -top-5 left-1/2 -translate-x-1/2 
+                    w-10 h-10 rounded-full ${step.colors.badge} text-white 
+                    flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white
+                  `}>
+                    {step.number}
+                  </div>
+
+                  {/* Icon */}
+                  <div class={`
+                    mt-6 mb-6 w-20 h-20 rounded-2xl ${step.colors.bgIcon}
+                    flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3
+                  `}>
+                    <Icon class="w-10 h-10" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  {/* Mobile Arrow (Visual Cue) */}
+                  {index < steps.length - 1 && (
+                    <div class="md:hidden mt-6 text-gray-300">
+                      <LuArrowRight class="w-6 h-6 rotate-90" />
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );
