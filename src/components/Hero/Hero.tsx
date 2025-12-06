@@ -1,6 +1,6 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { LuChevronDownCircle, LuServer, LuZap } from "@qwikest/icons/lucide"; // Nuevos iconos
-import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=90&jsx";
+import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=75&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
@@ -147,6 +147,7 @@ export default component$(() => {
                     class="w-full h-auto drop-shadow-2xl rounded-2xl border border-gray-100/50"
                     loading="eager"
                     fetchPriority="high"
+                    sizes="(min-width: 1024px) 50vw, (min-width: 640px) 400px, 300px"
                   />
                 </div>
 
