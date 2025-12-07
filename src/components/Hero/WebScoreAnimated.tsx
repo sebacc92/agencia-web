@@ -58,6 +58,7 @@ export default component$(() => {
     }
   `);
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const intervals: number[] = [];
     const timeouts: NodeJS.Timeout[] = [];

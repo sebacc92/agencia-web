@@ -20,6 +20,7 @@ export default component$(() => {
   const inputMessage = useSignal('');
   const isTyping = useSignal(false);
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     // Auto-open chatbot after 30 seconds for new visitors
     const timer = setTimeout(() => {
@@ -56,7 +57,7 @@ export default component$(() => {
         text: botResponse,
         timestamp: new Date()
       };
-      
+
       messages.value = [...messages.value, botMessage];
       isTyping.value = false;
     }, 1500);
@@ -64,31 +65,31 @@ export default component$(() => {
 
   const getBotResponse = $((userMessage: string): string => {
     const message = userMessage.toLowerCase();
-    
+
     if (message.includes('precio') || message.includes('costo') || message.includes('presupuesto')) {
       return 'Nuestros precios varían según el proyecto: diseño web desde $800, automatizaciones IA desde $600, y marketing digital desde $700. ¿Te gustaría una cotización personalizada?';
     }
-    
+
     if (message.includes('tiempo') || message.includes('entrega') || message.includes('deadline')) {
       return 'Los tiempos de entrega varían: sitios web básicos (2-3 semanas), plataformas complejas (6-8 semanas), campañas de marketing (3-4 semanas). ¿Cuál es tu timeline ideal?';
     }
-    
+
     if (message.includes('servicio') || message.includes('qué hacen') || message.includes('qué ofrecen')) {
       return 'Somos especialistas en diseño web moderno, automatizaciones con IA y marketing digital estratégico. ¿Te interesa algún servicio en particular?';
     }
-    
+
     if (message.includes('portfolio') || message.includes('proyectos') || message.includes('trabajos')) {
       return '¡Claro! Puedes ver nuestros casos de éxito en agencia-tech.com/portfolio. Tenemos proyectos destacados en e-commerce, chatbots IA y campañas de marketing. ¿Te interesa algún sector específico?';
     }
-    
+
     if (message.includes('contacto') || message.includes('hablar') || message.includes('llamar')) {
       return '¡Perfecto! Puedes contactarnos en hola@agenciatech.com o al +54 11 1234-5678. También puedes completar nuestro formulario en agencia-tech.com/contact para una consulta gratuita.';
     }
-    
+
     if (message.includes('gracias') || message.includes('thank you')) {
       return '¡De nada! 😊 ¿Hay algo más en lo que pueda ayudarte?';
     }
-    
+
     return '¡Excelente pregunta! Me encantaría ayudarte con eso. ¿Podrías darme más detalles sobre tu proyecto? También puedes contactarnos directamente en hola@agenciatech.com para una consulta más detallada.';
   });
 
@@ -98,6 +99,7 @@ export default component$(() => {
       {!isOpen.value && (
         <button
           onClick$={() => isOpen.value = true}
+          aria-label="Toggle Chatbot"
           class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 animate-pulse"
         >
           <span class="text-white text-xl">🤖</span>
@@ -134,22 +136,20 @@ export default component$(() => {
                 class={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  class={`max-w-xs px-4 py-2 rounded-2xl ${
-                    message.type === 'user'
+                  class={`max-w-xs px-4 py-2 rounded-2xl ${message.type === 'user'
                       ? 'bg-indigo-500 text-white'
                       : 'bg-neutral-700 text-neutral-300'
-                  }`}
+                    }`}
                 >
                   <p class="text-sm">{message.text}</p>
-                  <p class={`text-xs mt-1 ${
-                    message.type === 'user' ? 'text-indigo-100' : 'text-neutral-400'
-                  }`}>
+                  <p class={`text-xs mt-1 ${message.type === 'user' ? 'text-indigo-100' : 'text-neutral-400'
+                    }`}>
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
               </div>
             ))}
-            
+
             {isTyping.value && (
               <div class="flex justify-start">
                 <div class="bg-neutral-700 text-neutral-300 px-4 py-2 rounded-2xl">

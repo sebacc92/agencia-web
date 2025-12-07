@@ -33,10 +33,11 @@ export default component$(() => {
     });
 
     // Cargar Turnstile cuando el formulario esté visible
+    // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(({ track }) => {
         // Track el formRef para que se ejecute cuando esté disponible
         track(() => formRef.value);
-        
+
         const formElement = formRef.value;
         if (!formElement) return;
 
@@ -65,6 +66,7 @@ export default component$(() => {
     });
 
     // Mostrar toast y resetear al terminar
+    // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(({ track }) => {
         track(() => action.value);
         if (!action.value) return;
@@ -72,12 +74,12 @@ export default component$(() => {
         const { success, message } = action.value;
         toastType.value = success ? 'success' : 'error';
         toastMsg.value = message ?? (success ? '¡Mensaje enviado!' : 'Ocurrió un error');
-        
+
         // Usar requestAnimationFrame para evitar reflow forzado
         // cuando se muestre el popover y se modifique el DOM
         requestAnimationFrame(() => {
             showPopover();
-            
+
             if (success) {
                 // Resetear el formulario en el siguiente frame para evitar reflow
                 requestAnimationFrame(() => {

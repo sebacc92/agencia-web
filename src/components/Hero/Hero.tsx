@@ -19,6 +19,7 @@ export default component$(() => {
     showAuditModal.value = false;
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(
     () => {
       const win = window as typeof window & { requestIdleCallback?: typeof requestIdleCallback };

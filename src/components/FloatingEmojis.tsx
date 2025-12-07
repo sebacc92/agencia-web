@@ -6,6 +6,7 @@ export const FloatingEmojis = component$(() => {
 
   // Esto se ejecutará DESPUÉS de que el componente sea visible
   // y después de que el LCP se haya pintado.
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     isVisible.value = true;
   });

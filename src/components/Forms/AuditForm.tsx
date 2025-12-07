@@ -13,6 +13,7 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
   const action = useContact();
   const handled = useSignal<any>(null);
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     const value = track(() => action.value);
     track(() => action.isRunning);
