@@ -20,7 +20,7 @@ export default component$(() => {
       tags: ["Comunidad", "Servicios"]
     },
     {
-      title: "Coach Fabian Avendaño",
+      title: "Coach Fitness",
       description: "Sitio web para programas de entrenamiento personalizado y transformación integral.",
       image: ImgPortfolioFabian,
       link: "https://coach-fabian-avendano.netlify.app/es/",

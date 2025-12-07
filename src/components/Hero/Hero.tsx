@@ -189,9 +189,8 @@ export default component$(() => {
               {/* SHOPIFY */}
               <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
                 <span class="text-2xl font-bold text-green-700">
-                  shopify
+                  Shopify
                 </span>
-                <span class="text-[10px] bg-gray-400 px-1 rounded text-gray-900 font-bold">Headless</span>
               </div>
 
             </div>
