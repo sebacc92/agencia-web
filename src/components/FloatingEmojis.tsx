@@ -1,20 +1,8 @@
 // src/components/ui/floating-emojis.tsx
-import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 
 export const FloatingEmojis = component$(() => {
-  const isVisible = useSignal(false);
-
-  // Esto se ejecutará DESPUÉS de que el componente sea visible
-  // y después de que el LCP se haya pintado.
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
-    isVisible.value = true;
-  });
-
-  if (!isVisible.value) {
-    return null; // No renderizar nada al inicio
-  }
-
+  // Render emojis directly, relying on CSS for animation and responsive display
   return (
     <>
       <div class="absolute top-8 left-30 text-2xl animate-bounce hidden md:block" style="animation-duration: 3s; animation-delay: 0.5s;">

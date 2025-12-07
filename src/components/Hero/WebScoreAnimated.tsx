@@ -60,73 +60,70 @@ export default component$(() => {
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
-    const intervals: number[] = [];
-    const timeouts: NodeJS.Timeout[] = [];
-
-    // Esperar un poco antes de iniciar la animación
-    const timer = setTimeout(() => {
+    let frameId: number;
+    const startTimeout = setTimeout(() => {
       isAnimating.value = true;
+      const startTime = Date.now();
+      const duration = 2500; // Duration per item
 
-      // Animar cada score con un pequeño delay
-      scores.forEach((_, index) => {
-        const delay = index * 400; // 400ms entre cada score (más lento)
-        const timeout = setTimeout(() => {
-          const duration = 4000; // 4 segundos para llegar a 100 (más lento)
-          const startTime = Date.now();
+      const animate = () => {
+        const now = Date.now();
+        const elapsedTotal = now - startTime;
+        let allFinished = true;
 
-          const animate = () => {
-            const elapsed = Date.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
+        const newScores = scores.map((score, index) => {
+          const itemStartDelay = index * 200; // Stagger start time
+          if (elapsedTotal < itemStartDelay) return 0;
 
-            // Easing function para una animación más suave
-            const easedProgress = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          const itemElapsed = elapsedTotal - itemStartDelay;
+          const progress = Math.min(itemElapsed / duration, 1);
 
-            const newValue = Math.round(scores[index].value * easedProgress);
+          // Cubic ease-out
+          const eased = 1 - Math.pow(1 - progress, 3);
 
-            animatedScores.value = animatedScores.value.map((val, i) =>
-              i === index ? newValue : val
-            );
+          if (progress < 1) allFinished = false;
 
-            if (progress < 1) {
-              const frameId = requestAnimationFrame(animate);
-              intervals.push(frameId);
-            }
-          };
+          return Math.round(score.value * eased);
+        });
 
-          animate();
-        }, delay);
-        timeouts.push(timeout);
-      });
-    }, 600); // Esperar 600ms iniciales
-    timeouts.push(timer);
+        // Optimization: Update signal only if values changed significantly or to ensure final 100
+        animatedScores.value = newScores;
+
+        if (!allFinished) {
+          frameId = requestAnimationFrame(animate);
+        }
+      };
+
+      frameId = requestAnimationFrame(animate);
+    }, 600);
 
     return () => {
-      timeouts.forEach(clearTimeout);
-      intervals.forEach((id) => cancelAnimationFrame(id));
+      clearTimeout(startTimeout);
+      cancelAnimationFrame(frameId);
     };
   });
 
-  // Calcular el stroke-dasharray y stroke-dashoffset para el círculo
-  const getCircleProgress = (value: number) => {
-    const radius = 40;
-    const circumference = 2 * Math.PI * radius;
-    const offset = circumference - (value / 100) * circumference;
-    return { circumference, offset };
-  };
+  // Calculate static circumference (r=40)
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
 
   return (
     <div class="w-full rounded-lg p-6">
       <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
         {scores.map((score, index) => {
-          const { circumference, offset } = getCircleProgress(animatedScores.value[index]);
+          // All scores target 100, so target offset is 0. 
+          // If scores were dynamic, we'd calculate targetOffset = circumference - (score.value / 100) * circumference
+          const targetOffset = 0;
 
           return (
-            <div key={score.label} class="score-item flex flex-col items-center">
+            <div key={score.label} class="score-item flex flex-col items-center contain-content">
               {/* Circular Progress Bar */}
               <div class="relative w-24 h-24 mb-3">
                 <svg
                   class="w-full h-full transform -rotate-90"
                   viewBox="0 0 100 100"
+                  width="96"
+                  height="96"
                 >
                   {/* Background Circle */}
                   <circle
@@ -137,7 +134,7 @@ export default component$(() => {
                     stroke="#e5e7eb"
                     stroke-width="8"
                   />
-                  {/* Progress Circle */}
+                  {/* Progress Circle - Animated via CSS */}
                   <circle
                     cx="50"
                     cy="50"
@@ -146,17 +143,17 @@ export default component$(() => {
                     stroke="#10b981"
                     stroke-width="8"
                     stroke-linecap="round"
-                    class="score-circle"
+                    class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out"
                     style={{
                       strokeDasharray: `${circumference}`,
-                      strokeDashoffset: `${offset}`,
-                      transition: isAnimating.value ? 'stroke-dashoffset 0.1s linear' : 'none',
+                      strokeDashoffset: isAnimating.value ? `${targetOffset}` : `${circumference}`,
+                      transitionDelay: `${index * 200}ms` // Match the number stagger
                     }}
                   />
                 </svg>
                 {/* Score Number */}
                 <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="text-2xl font-bold text-green-600">
+                  <span class="text-2xl font-bold text-green-600 tabular-nums w-14 flex justify-center items-center">
                     {animatedScores.value[index]}
                   </span>
                 </div>

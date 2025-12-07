@@ -1,4 +1,4 @@
-import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { $, component$, useSignal } from "@builder.io/qwik";
 import { LuChevronDownCircle, LuServer, LuZap } from "@qwikest/icons/lucide"; // Nuevos iconos
 import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=75&jsx";
 import Button from "~/components/ui/button/button";
@@ -10,7 +10,7 @@ import WebScoreAnimated from "./WebScoreAnimated";
 
 export default component$(() => {
   const showAuditModal = useSignal(false);
-  const animationsLoaded = useSignal(false);
+  // animationsLoaded removed as it was unused
   const toastType = useSignal<'success' | 'error'>('success');
   const toastMsg = useSignal('');
   const { showPopover } = usePopover('audit-toast');
@@ -19,24 +19,7 @@ export default component$(() => {
     showAuditModal.value = false;
   });
 
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(
-    () => {
-      const win = window as typeof window & { requestIdleCallback?: typeof requestIdleCallback };
-      if (typeof win.requestIdleCallback === 'function') {
-        win.requestIdleCallback(() => {
-          animationsLoaded.value = true;
-        }, { timeout: 2000 });
-      } else {
-        setTimeout(() => {
-          requestAnimationFrame(() => {
-            animationsLoaded.value = true;
-          });
-        }, 100);
-      }
-    },
-    { strategy: 'document-idle' }
-  );
+
 
   const onShowToast$ = $((payload: { type: 'success' | 'error'; message: string }) => {
     toastType.value = payload.type;
@@ -148,6 +131,7 @@ export default component$(() => {
                     class="w-full h-auto drop-shadow-2xl rounded-2xl border border-gray-100/50"
                     loading="eager"
                     fetchPriority="high"
+                    decoding="sync"
                     sizes="(min-width: 1024px) 50vw, (min-width: 640px) 400px, 300px"
                   />
                 </div>
