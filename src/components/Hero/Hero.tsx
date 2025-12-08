@@ -119,7 +119,7 @@ export default component$(() => {
             </div>
 
             {/* Image Column */}
-            <div class="order-first lg:order-last mb-8 lg:mb-0 relative">
+            <div class="relative mb-8 lg:mb-0">
               <div class="relative mx-auto max-w-[300px] sm:max-w-[400px] lg:max-w-full group">
                 {/* Glow effect */}
                 <div class="absolute -inset-4 bg-gradient-to-tr from-green-500/20 to-teal-500/20 blur-3xl rounded-full opacity-70 animate-pulse"></div>
@@ -137,7 +137,7 @@ export default component$(() => {
                 </div>
 
                 {/* Animated Scores */}
-                <div class="mt-8">
+                <div class="mt-8 relative -mb-16 lg:mb-0 lg:-mt-12 lg:z-10 lg:px-4">
                   <WebScoreAnimated />
                 </div>
               </div>

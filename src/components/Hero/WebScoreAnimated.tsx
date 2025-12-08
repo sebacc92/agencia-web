@@ -13,8 +13,11 @@ export default component$(() => {
     { label: 'SEO', value: 100 },
   ];
 
-  const animatedScores = useSignal<number[]>(scores.map(() => 0));
+  // Solo usamos señal para disparar la animación CSS de los círculos (una sola vez)
   const isAnimating = useSignal(false);
+
+  // Referencia al contenedor para manipular el DOM directamente sin causar re-renders
+  const containerRef = useSignal<Element>();
 
   useStylesScoped$(`
     .score-circle {
@@ -37,83 +40,80 @@ export default component$(() => {
       animation: fadeIn 0.5s ease-out forwards;
     }
     
-    .score-item:nth-child(1) {
-      animation-delay: 0.1s;
-      opacity: 0;
-    }
-    
-    .score-item:nth-child(2) {
-      animation-delay: 0.2s;
-      opacity: 0;
-    }
-    
-    .score-item:nth-child(3) {
-      animation-delay: 0.3s;
-      opacity: 0;
-    }
-    
-    .score-item:nth-child(4) {
-      animation-delay: 0.4s;
-      opacity: 0;
-    }
+    /* Staggered delays para la aparición inicial */
+    .score-item:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+    .score-item:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
+    .score-item:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
+    .score-item:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
   `);
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
+  useVisibleTask$(({ cleanup }) => {
     let frameId: number;
-    const startTimeout = setTimeout(() => {
-      isAnimating.value = true;
-      const startTime = Date.now();
-      const duration = 2500; // Duration per item
 
-      const animate = () => {
-        const now = Date.now();
-        const elapsedTotal = now - startTime;
+    const startTimeout = setTimeout(() => {
+      // 1. Disparar animaciones CSS (Baratos)
+      isAnimating.value = true;
+
+      // 2. Iniciar animación de números (Manual / Direct DOM)
+      if (!containerRef.value) return;
+
+      // Seleccionamos los spans específicos dentro de este componente
+      const textElements = containerRef.value.querySelectorAll('.score-value-text');
+      const startTime = performance.now();
+      const duration = 2500;
+
+      const animate = (currentTime: number) => {
+        const elapsedTotal = currentTime - startTime;
         let allFinished = true;
 
-        const newScores = scores.map((score, index) => {
-          const itemStartDelay = index * 200; // Stagger start time
-          if (elapsedTotal < itemStartDelay) return 0;
+        textElements.forEach((el, index) => {
+          const targetValue = scores[index].value;
+          const itemStartDelay = index * 200; // Delay sincronizado con CSS
+
+          if (elapsedTotal < itemStartDelay) return;
 
           const itemElapsed = elapsedTotal - itemStartDelay;
           const progress = Math.min(itemElapsed / duration, 1);
 
-          // Cubic ease-out
+          // Cubic ease-out para suavidad
           const eased = 1 - Math.pow(1 - progress, 3);
+          const currentValue = Math.round(targetValue * eased);
+
+          // ACTUALIZACIÓN DIRECTA (Sin Reactividad = Sin Reflow Costoso)
+          el.textContent = currentValue.toString();
 
           if (progress < 1) allFinished = false;
-
-          return Math.round(score.value * eased);
         });
-
-        // Optimization: Update signal only if values changed significantly or to ensure final 100
-        animatedScores.value = newScores;
 
         if (!allFinished) {
           frameId = requestAnimationFrame(animate);
+        } else {
+          // Asegurar el valor final exacto al terminar
+          textElements.forEach((el, index) => {
+            el.textContent = scores[index].value.toString();
+          });
         }
       };
 
       frameId = requestAnimationFrame(animate);
     }, 600);
 
-    return () => {
+    cleanup(() => {
       clearTimeout(startTimeout);
       cancelAnimationFrame(frameId);
-    };
+    });
   });
 
-  // Calculate static circumference (r=40)
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div class="w-full rounded-lg p-6">
-      <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+    <div ref={containerRef} class="hidden lg:block w-full rounded-2xl p-6 relative overflow-visible">
+
+      <div class="grid grid-cols-2 gap-6 sm:grid-cols-4 relative z-10">
         {scores.map((score, index) => {
-          // All scores target 100, so target offset is 0. 
-          // If scores were dynamic, we'd calculate targetOffset = circumference - (score.value / 100) * circumference
-          const targetOffset = 0;
+          const targetOffset = 0; // Objetivo: círculo completo
 
           return (
             <div key={score.label} class="score-item flex flex-col items-center contain-content">
@@ -134,7 +134,7 @@ export default component$(() => {
                     stroke="#e5e7eb"
                     stroke-width="8"
                   />
-                  {/* Progress Circle - Animated via CSS */}
+                  {/* Progress Circle - Animated via CSS Transitions */}
                   <circle
                     cx="50"
                     cy="50"
@@ -143,23 +143,26 @@ export default component$(() => {
                     stroke="#10b981"
                     stroke-width="8"
                     stroke-linecap="round"
-                    class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out"
+                    class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                     style={{
                       strokeDasharray: `${circumference}`,
                       strokeDashoffset: isAnimating.value ? `${targetOffset}` : `${circumference}`,
-                      transitionDelay: `${index * 200}ms` // Match the number stagger
+                      transitionDelay: `${index * 200}ms`
                     }}
                   />
                 </svg>
+
                 {/* Score Number */}
                 <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="text-2xl font-bold text-green-600 tabular-nums w-14 flex justify-center items-center">
-                    {animatedScores.value[index]}
+                  {/* Clase 'score-value-text' usada por JS para actualizar sin reflow */}
+                  <span class="score-value-text text-2xl font-bold text-gray-800 tabular-nums w-14 flex justify-center items-center">
+                    0
                   </span>
                 </div>
               </div>
+
               {/* Label */}
-              <span class="text-sm font-medium text-gray-700 text-center">
+              <span class="text-sm font-bold text-gray-600 text-center tracking-wide mt-1">
                 {score.label}
               </span>
             </div>
@@ -169,4 +172,3 @@ export default component$(() => {
     </div>
   );
 });
-
