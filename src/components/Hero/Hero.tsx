@@ -137,7 +137,7 @@ export default component$(() => {
                 </div>
 
                 {/* Animated Scores */}
-                <div class="mt-8 relative -mb-16 lg:mb-0 lg:-mt-12 lg:z-10 lg:px-4">
+                <div class="mt-8 relative lg:mb-0 lg:z-10 lg:px-4">
                   <WebScoreAnimated />
                 </div>
               </div>
