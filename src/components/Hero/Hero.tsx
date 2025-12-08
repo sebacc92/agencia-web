@@ -57,7 +57,7 @@ export default component$(() => {
               </div>
 
               {/* Headline Híbrido */}
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-tight text-gray-900 tracking-tight">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold leading-tight text-gray-900 tracking-tight">
                 Lanzamos y Aceleramos <br class="hidden lg:block" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
                   Negocios Digitales.
