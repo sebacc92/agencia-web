@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import ImgPortfolioSebastian from '~/media/images/portfolio-sebastian.png?quality=75&jsx';
 import ImgPortfolioItalianos from '~/media/images/portfolio-italianos.png?quality=75&jsx';
 import ImgPortfolioFabian from '~/media/images/portfolio-fabian.png?quality=75&jsx';
+import { CircleScore } from "~/components/ui/CircleScore/CircleScore";
 
 export default component$(() => {
   const projects = [
@@ -102,10 +103,7 @@ export default component$(() => {
                 {/* Performance Indicator */}
                 <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
                   <div class="relative w-14 h-14 flex-shrink-0">
-                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="8" />
-                      <circle cx="50" cy="50" r="40" fill="#e5faef" stroke="#10b981" stroke-width="8" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="0" />
-                    </svg>
+                    <CircleScore score={100} />
                     <div class="absolute inset-0 flex items-center justify-center">
                       <span class="text-sm font-bold text-green-700">100</span>
                     </div>

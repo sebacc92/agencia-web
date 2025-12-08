@@ -18,7 +18,8 @@ export const RouterHead = component$(() => {
 
       {/* Optimizaciones de rendimiento */}
       <meta httpEquiv="x-dns-prefetch-control" content="on" />
-      <link rel="preload" href="/assets/fonts/PlusJakartaSans.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/PlusJakartaSans.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
