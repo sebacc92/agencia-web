@@ -73,7 +73,7 @@ export default component$(() => {
               </p>
 
               {/* CTA Buttons */}
-              <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+              <div class="flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4 pt-4 min-h-[140px] sm:min-h-[80px]">
                 <Button
                   variant="primary"
                   size="lg"
