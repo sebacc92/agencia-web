@@ -66,7 +66,7 @@ export default component$(() => {
 
               {/* Subheadline Inclusivo (Nuevo vs Lento) */}
               <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
-                Ya sea que necesites una <span class="text-gray-900 font-bold">web nueva desde cero</span> o revivir un sitio lento que pierde ventas.
+                <strong class="text-gray-900 font-bold">Lanzamos</strong> tu nueva web desde cero o <strong class="text-gray-900 font-bold">aceleramos</strong> ese sitio lento que te hace perder ventas.
                 <span class="block mt-2">
                   Diseñamos activos digitales que cargan en milisegundos y convierten visitas en dinero.
                 </span>
@@ -78,12 +78,9 @@ export default component$(() => {
                   variant="primary"
                   size="lg"
                   class="w-full sm:w-auto font-bold text-base shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
-                  onClick$={() => {
-                    const el = document.getElementById('services');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick$={() => showAuditModal.value = true}
                 >
-                  Ver Planes y Precios
+                  Auditar mi Sitio Gratis
                 </Button>
 
                 {/* Modal ajustado conceptualmente */}
@@ -106,16 +103,7 @@ export default component$(() => {
                 </Modal>
               </div>
 
-              {/* Secondary Lead Magnet: Auditoría */}
-              <div class="mt-6 text-sm text-gray-500 font-medium flex items-center justify-center lg:justify-start gap-1">
-                ¿Ya tienes web?
-                <button
-                  onClick$={() => showAuditModal.value = true}
-                  class="text-orange-600 underline decoration-gray-300 hover:decoration-green-500 hover:text-green-700 transition-all"
-                >
-                  Solicita una Auditoría Técnica Gratuita
-                </button>
-              </div>
+
             </div>
 
             {/* Image Column */}
