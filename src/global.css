@@ -18,6 +18,13 @@
 
 @theme {
   --font-sans: "PlusJakartaSans", ui-sans-serif, system-ui, sans-serif;
+  --font-space: "SpaceGrotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .font-sans {
+    font-family: "PlusJakartaSans", system-ui, sans-serif;
+  }
 }
 
 :root {

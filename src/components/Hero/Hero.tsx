@@ -38,7 +38,7 @@ export default component$(() => {
       <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       {/* Main Content Container */}
-      <div class="flex-1 flex flex-col justify-center relative z-10 pt-10 pb-0">
+      <div class="flex-1 flex flex-col justify-center relative z-10 pt-4 md:pt-16 pb-0">
         <div class="container mx-auto py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-8 w-full">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -46,7 +46,7 @@ export default component$(() => {
             <div class="space-y-8 text-center lg:text-left relative">
 
               {/* Badge Dual: Cubre Creación y Optimización */}
-              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 shadow-lg group hover:scale-105 transition-transform cursor-default">
+              <div class="inline-flex min-w-[280px] justify-center items-center gap-2 px-4 py-1.5 rounded-full bg-gray-900 border border-gray-800 shadow-lg group hover:scale-105 transition-transform cursor-default">
                 <span class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
