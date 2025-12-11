@@ -109,66 +109,66 @@ export default component$(() => {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div ref={containerRef} class="hidden lg:block w-full rounded-2xl p-6 relative overflow-visible">
+    <div 
+      ref={containerRef} 
+      class="hidden lg:grid grid-cols-2 gap-6 sm:grid-cols-4 w-full rounded-2xl p-6 relative overflow-visible z-10"
+    >
+      {scores.map((score, index) => {
+        const targetOffset = 0;
 
-      <div class="grid grid-cols-2 gap-6 sm:grid-cols-4 relative z-10">
-        {scores.map((score, index) => {
-          const targetOffset = 0; // Objetivo: círculo completo
+        return (
+          <div key={score.label} class="score-item flex flex-col items-center contain-content">
+            {/* Circular Progress Bar */}
+            <div class="relative w-24 h-24 mb-3">
+              <svg
+                class="w-full h-full transform -rotate-90"
+                viewBox="0 0 100 100"
+                width="96"
+                height="96"
+              >
+                {/* Background Circle */}
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  fill="none"
+                  stroke="#e5e7eb"
+                  stroke-width="8"
+                />
+                {/* Progress Circle - Animated via CSS Transitions */}
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  fill="#e5faef"
+                  stroke="#10b981"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  style={{
+                    strokeDasharray: `${circumference}`,
+                    strokeDashoffset: isAnimating.value ? `${targetOffset}` : `${circumference}`,
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                />
+              </svg>
 
-          return (
-            <div key={score.label} class="score-item flex flex-col items-center contain-content">
-              {/* Circular Progress Bar */}
-              <div class="relative w-24 h-24 mb-3">
-                <svg
-                  class="w-full h-full transform -rotate-90"
-                  viewBox="0 0 100 100"
-                  width="96"
-                  height="96"
-                >
-                  {/* Background Circle */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="none"
-                    stroke="#e5e7eb"
-                    stroke-width="8"
-                  />
-                  {/* Progress Circle - Animated via CSS Transitions */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    fill="#e5faef"
-                    stroke="#10b981"
-                    stroke-width="8"
-                    stroke-linecap="round"
-                    class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
-                    style={{
-                      strokeDasharray: `${circumference}`,
-                      strokeDashoffset: isAnimating.value ? `${targetOffset}` : `${circumference}`,
-                      transitionDelay: `${index * 200}ms`
-                    }}
-                  />
-                </svg>
-
-                {/* Score Number */}
-                <div class="absolute inset-0 flex items-center justify-center">
-                  {/* Clase 'score-value-text' usada por JS para actualizar sin reflow */}
-                  <span class="score-value-text text-2xl font-bold text-gray-800 tabular-nums w-14 flex justify-center items-center">
-                    0
-                  </span>
-                </div>
+              {/* Score Number */}
+              <div class="absolute inset-0 flex items-center justify-center">
+                {/* Clase 'score-value-text' usada por JS para actualizar sin reflow */}
+                <span class="score-value-text text-2xl font-bold text-gray-800 tabular-nums w-14 flex justify-center items-center">
+                  0
+                </span>
               </div>
-
-              {/* Label */}
-              <span class="text-sm font-bold text-gray-600 text-center tracking-wide mt-1">
-                {score.label}
-              </span>
             </div>
-          );
-        })}
-      </div>
+
+            {/* Label */}
+            <span class="text-sm font-bold text-gray-600 text-center tracking-wide mt-1">
+              {score.label}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 });
