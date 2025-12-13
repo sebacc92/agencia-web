@@ -63,7 +63,6 @@ const PLANS: Plan[] = [
     id: 'ecommerce',
     title: 'E-commerce Performance',
     subtitle: 'Infraestructura de venta rápida y sin fricción',
-    badge: 'MÁS VENDIDO',
 
     baseSetupUsd: 600,
     baseMonthlyUsd: 85,
@@ -85,7 +84,7 @@ const PLANS: Plan[] = [
     renewalText: 'Renovación Hosting (Año 3): $180 USD/anual',
     ctaText: 'Comenzar E-commerce',
     ctaLink: '/#contact',
-    highlight: true
+    highlight: false
   },
   {
     id: 'custom',

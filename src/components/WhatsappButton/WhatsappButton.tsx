@@ -18,7 +18,7 @@ export default component$(() => {
       class="whatsapp-button"
       title="Contactanos por WhatsApp"
     >
-      <BsWhatsapp width="24" height="24" />
+      <BsWhatsapp width="32" height="32" />
     </a>
   );
 });

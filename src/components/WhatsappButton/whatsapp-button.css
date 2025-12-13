@@ -2,8 +2,8 @@
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  width: 48px;
-  height: 48px;
+  width: 55px;
+  height: 55px;
   background-color: #25d366;
   border-radius: 50%;
   display: flex;
@@ -15,6 +15,11 @@
   transition: transform 0.3s ease;
   z-index: 999;
   will-change: transform;
+}
+
+.whatsapp-button svg {
+  width: 30px;
+  height: 30px;
 }
 
 .whatsapp-button:hover {
@@ -30,7 +35,7 @@
   .whatsapp-button {
     bottom: 1.5rem;
     left: 1.5rem;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
   }
 }
