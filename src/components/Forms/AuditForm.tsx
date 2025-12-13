@@ -2,7 +2,7 @@ import { component$, useSignal, useVisibleTask$, type QRL } from "@builder.io/qw
 import { Form } from '@builder.io/qwik-city';
 import Button from "~/components/ui/button/button";
 import { useContact } from "~/routes/index";
-import { Input, Label } from "~/components/ui";
+import { Input, Label, Textarea } from "~/components/ui";
 
 interface AuditFormProps {
   onCloseModal$?: QRL<() => void>;
@@ -34,66 +34,57 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
   return (
     <Form action={action} class="space-y-4">
 
-      {/* Nombre */}
       <div>
-        <Label class="label" for="audit-nombre">Tu Nombre</Label>
+        <Label for="audit-nombre">Tu Nombre</Label>
         <Input
           id="audit-nombre"
           name="nombre"
           placeholder="Ej: Juan Pérez"
           type="text"
-          class="w-full rounded-md border px-3 py-2"
           required
         />
       </div>
 
-      {/* Email */}
       <div>
-        <Label class="label" for="audit-email">Tu Email</Label>
+        <Label for="audit-email">Tu Email</Label>
         <Input
           id="audit-email"
           name="email"
           placeholder="tu@email.com"
           type="email"
-          class="w-full rounded-md border px-3 py-2"
           required
         />
       </div>
 
-      {/* Web + Teléfono */}
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <Label class="label" for="audit-website">Sitio Web (Opcional)</Label>
+          <Label for="audit-website">Sitio Web (Opcional)</Label>
           <Input
             id="audit-website"
             name="website"
             placeholder="Si tienes..."
             type="text"
-            class="w-full rounded-md border px-3 py-2"
           />
         </div>
         <div>
-          <Label class="label" for="audit-telefono">WhatsApp (Opcional)</Label>
+          <Label for="audit-telefono">WhatsApp (Opcional)</Label>
           <Input
             id="audit-telefono"
             name="telefono"
             placeholder="+54 9 11..."
             type="tel"
-            class="w-full rounded-md border px-3 py-2"
           />
         </div>
       </div>
 
-      {/* Proyecto / Necesidad */}
       <div>
-        <Label class="label" for="audit-proyecto">¿Qué necesitas?</Label>
-        <textarea
+        <Label for="audit-proyecto">¿Qué necesitas?</Label>
+        <Textarea
           id="audit-proyecto"
           name="proyecto"
           placeholder="Ej: Quiero lanzar una tienda online, rediseñar mi web, etc."
-          class="w-full rounded-md border px-3 py-2 h-24 resize-none"
           required
-        ></textarea>
+        />
       </div>
 
       {/* Turnstile & Submit */}

@@ -182,7 +182,7 @@
         },
         {
           "file": "src/components/Contacto/Contacto.tsx",
-          "hash": "15046401912978541854"
+          "hash": "7000314634888796507"
         },
         {
           "file": "src/components/FloatingEmojis.tsx",
@@ -194,15 +194,15 @@
         },
         {
           "file": "src/components/Forms/AuditForm.tsx",
-          "hash": "6036844896212696133"
+          "hash": "1796617738600503034"
         },
         {
           "file": "src/components/Header/Header.tsx",
-          "hash": "14287560612154092793"
+          "hash": "13127088156610962986"
         },
         {
           "file": "src/components/Hero/Hero.tsx",
-          "hash": "6463423630596210353"
+          "hash": "4014503167602017963"
         },
         {
           "file": "src/components/Hero/WebScoreAnimated.tsx",
@@ -210,7 +210,7 @@
         },
         {
           "file": "src/components/Portfolio/Portfolio.tsx",
-          "hash": "14422177242917594121"
+          "hash": "1511757223205522377"
         },
         {
           "file": "src/components/Services/Services.tsx",
@@ -241,35 +241,39 @@
           "hash": "42379585474234227"
         },
         {
-          "file": "src/components/ui/index.ts",
-          "hash": "7374135075502847759"
-        },
-        {
-          "file": "src/components/ui/input/input.tsx",
-          "hash": "551863685616459140"
-        },
-        {
-          "file": "src/components/ui2/CircleScore/CircleScore.tsx",
+          "file": "src/components/ui/CircleScore/CircleScore.tsx",
           "hash": "561524412740412768"
         },
         {
-          "file": "src/components/ui2/button/button.css",
+          "file": "src/components/ui/button/button.css",
           "hash": "1297083944034598338"
         },
         {
-          "file": "src/components/ui2/button/button.tsx",
+          "file": "src/components/ui/button/button.tsx",
           "hash": "3950084348883605427"
         },
         {
-          "file": "src/components/ui2/modal/modal.css",
-          "hash": "10784370914720717611"
+          "file": "src/components/ui/index.ts",
+          "hash": "7698273313518979746"
         },
         {
-          "file": "src/components/ui2/modal/modal.tsx",
-          "hash": "664560367552288486"
+          "file": "src/components/ui/input/input.tsx",
+          "hash": "11400730466406586539"
         },
         {
-          "file": "src/components/ui2/toast/toast.tsx",
+          "file": "src/components/ui/label/label.tsx",
+          "hash": "18135474269300330395"
+        },
+        {
+          "file": "src/components/ui/modal/modal.css",
+          "hash": "10979523461968585351"
+        },
+        {
+          "file": "src/components/ui/modal/modal.tsx",
+          "hash": "5434109836258128654"
+        },
+        {
+          "file": "src/components/ui/toast/toast.tsx",
           "hash": "9962706906052654679"
         },
         {

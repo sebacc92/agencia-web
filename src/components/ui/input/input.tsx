@@ -22,7 +22,7 @@ export const Input = component$<InputProps>(
             onInput$,
           ]}
           class={cn(
-            "rounded-base border-input bg-background text-foreground file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-12 w-full border px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+            "flex h-12 w-full rounded-lg border-2 border-gray-200 bg-white px-4 py-2 text-sm text-gray-900 placeholder:text-gray-400 transition-all duration-200 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50",
             props.class,
           )}
           id={inputId}
