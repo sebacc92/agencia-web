@@ -46,9 +46,18 @@
 }
 
 .modal-panel h2 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  padding: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.modal-panel > p:first-of-type {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
 }
 
 .modal-panel footer {
@@ -248,4 +257,26 @@
 
 .modal-transition[data-open] {
   opacity: 1;
+}
+
+
+.modal-close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: oklch(from var(--foreground) l c h / 0.7);
+  transition: color 0.2sease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close-icon:hover {
+  color: oklch(from var(--foreground) l c h);
+  background: oklch(from var(--foreground) l c h / 0.1);
 }
