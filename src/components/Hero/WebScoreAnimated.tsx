@@ -37,7 +37,8 @@ export default component$(() => {
   });
 
   return (
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-2xl mx-auto">
+    // CAMBIO 1: gap-3 en mobile (más compacto), gap-6 en desktop
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full max-w-2xl mx-auto">
       <ScoreCircle label="Rendimiento" value={scores.performance} />
       <ScoreCircle label="Accesibilidad" value={scores.accessibility} />
       <ScoreCircle label="Recomendaciones" value={scores.bestPractices} />
@@ -53,10 +54,8 @@ export const ScoreCircle = component$((props: { label: string; value: number }) 
   
   // Lógica de colores (Semáforo)
   let colorClass = "text-[#00C950]"; // Verde vibrante tipo Lighthouse
-  // Usamos tu color de fondo específico como base
-  let bgClass = "bg-[#e5faef]"; 
+  let bgClass = "bg-[#e5faef]"; // Tu color menta personalizado
   
-  // Si el puntaje baja, cambiamos colores (opcional, pero recomendado)
   if (props.value < 50) {
     colorClass = "text-red-500";
     bgClass = "bg-red-50";
@@ -66,10 +65,11 @@ export const ScoreCircle = component$((props: { label: string; value: number }) 
   }
 
   return (
-    <div class="flex flex-col items-center gap-3">
-      <div class="relative w-24 h-24 flex items-center justify-center">
+    <div class="flex flex-col items-center gap-2 md:gap-4">
+      {/* CAMBIO 2: w-20 h-20 en mobile (80px), w-24 h-24 en desktop (96px) */}
+      <div class="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-300">
         
-        {/* FONDO CIRCULAR CON TU COLOR #e5faef */}
+        {/* FONDO CIRCULAR */}
         <div class={`absolute inset-0 rounded-full scale-90 ${bgClass}`}></div>
         
         <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -98,13 +98,14 @@ export const ScoreCircle = component$((props: { label: string; value: number }) 
           />
         </svg>
 
-        {/* Número Central */}
-        <div class={`absolute inset-0 flex items-center justify-center font-mono text-xl font-bold ${colorClass.replace('text-', 'text-green-800 ')}`}>
+        {/* Número Central: text-2xl en mobile, text-3xl en desktop */}
+        <div class={`absolute inset-0 flex items-center justify-center font-mono text-xl md:text-2xl font-bold ${colorClass.replace('text-', 'text-green-800 ')}`}>
           {props.value}
         </div>
       </div>
       
-      <span class="text-xs sm:text-sm font-semibold text-gray-600 tracking-wide uppercase">
+      {/* Etiqueta: text-[10px] en mobile para que no ocupe tanto, sm en desktop */}
+      <span class="text-[10px] md:text-xs md:text-sm font-semibold text-gray-600 tracking-wider uppercase text-center leading-tight">
         {props.label}
       </span>
     </div>

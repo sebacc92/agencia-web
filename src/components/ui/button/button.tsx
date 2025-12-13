@@ -1,4 +1,5 @@
-import { component$, Slot, $ } from "@builder.io/qwik";
+import { component$, Slot, $, useStylesScoped$ } from "@builder.io/qwik";
+import styles from "./button.css?inline";
 
 export type ButtonVariant = "primary" | "secondary" | "neumorphic-green" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -13,6 +14,7 @@ export interface ButtonProps {
 }
 
 export default component$<ButtonProps>((props) => {
+  useStylesScoped$(styles);
   const {
     variant = "primary",
     size = "md",
@@ -34,7 +36,7 @@ export default component$<ButtonProps>((props) => {
   const sizeClasses = {
     sm: "px-4 py-2 text-sm rounded-lg",
     md: "px-8 py-3 text-base rounded-xl",
-    lg: "px-20 py-4 text-lg rounded-xl"
+    lg: "px-10 py-4 text-lg rounded-xl"
   };
 
   const classes = [

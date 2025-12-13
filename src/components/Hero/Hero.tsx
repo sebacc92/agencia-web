@@ -77,7 +77,7 @@ export default component$(() => {
                 <Button
                   variant="primary"
                   size="lg"
-                  class="w-fullsm:w-auto border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                  class="w-full sm:w-auto border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
                   onClick$={() => showAuditModal.value = true}
                 >
                   Auditar mi Sitio Gratis
