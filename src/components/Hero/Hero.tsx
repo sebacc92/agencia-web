@@ -1,5 +1,5 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
-import { LuChevronDownCircle, LuServer, LuZap } from "@qwikest/icons/lucide"; // Nuevos iconos
+import { LuChevronDownCircle, LuServer, LuZap, LuCalendarDays, LuShoppingBag, LuDatabase } from "@qwikest/icons/lucide";
 import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=75&jsx";
 import Button from "~/components/ui/button/button";
 import Modal from "~/components/ui/modal/modal";
@@ -77,33 +77,38 @@ export default component$(() => {
                 <Button
                   variant="primary"
                   size="lg"
-                  class="w-full sm:w-auto font-bold text-base shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                  class="w-fullsm:w-auto border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
                   onClick$={() => showAuditModal.value = true}
                 >
                   Auditar mi Sitio Gratis
                 </Button>
 
-                {/* Modal ajustado conceptualmente */}
+                <a
+                  href="https://cal.com/sebastian-cardoso-castillo/estrategia" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  // Mantenemos px-10 py-4 y text-lg para que sea gemelo del Button size="lg"
+                  class="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-lg font-semibold text-gray-600 bg-white border-2 border-gray-200 rounded-xl transition-all duration-300 hover:border-green-500 hover:text-green-700 hover:bg-[#e5faef] hover:shadow-sm"
+                >
+                  <span>Hablar con un Experto</span>
+                  <LuCalendarDays class="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" />
+                </a>
+
+                {/* Modal ajustado conceptualmente (Trigger oculto para que funcione con el otro botón) */}
                 <Modal
                   title="Consulta Estratégica"
                   description="Hablemos de tu proyecto. Si ya tienes web, la auditamos gratis. Si no, diseñamos tu lanzamiento."
                   showFooter={false}
-                  triggerClass="w-full sm:w-auto btn inline-flex items-center justify-center px-8 py-4 font-semibold text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 bg-white text-gray-700 border-2 border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 hover:text-green-700"
-                  triggerText="Hablar con un Experto"
+                  triggerClass="hidden"
+                  triggerText="Open Modal"
                   showSig={showAuditModal}
                 >
                   <AuditForm
                     onCloseModal$={onCloseModal$}
                     onShowToast$={onShowToast$}
                   />
-                  {/* Nota visual dentro del modal para nuevos clientes */}
-                  <p class="text-center text-xs text-gray-400 mt-4">
-                    ¿Aún no tienes sitio web? Deja el campo URL vacío o pon "Nuevo".
-                  </p>
                 </Modal>
               </div>
-
-
             </div>
 
             {/* Image Column */}
@@ -156,12 +161,14 @@ export default component$(() => {
 
               {/* STRAPI */}
               <div class="flex items-center gap-2 group">
+                <LuDatabase class="w-6 h-6 text-gray-400 group-hover:text-green-600 transition-colors" />
                 <span class="text-xl font-bold text-gray-700 group-hover:text-[#4945FF] transition-colors">Strapi</span>
               </div>
 
               {/* SHOPIFY */}
               <div class="flex items-center gap-2 group cursor-help" title="E-commerce Headless">
-                <span class="text-2xl font-bold text-green-700">
+                <LuShoppingBag class="w-6 h-6 text-gray-400 group-hover:text-green-600 transition-colors" />
+                <span class="text-xl font-bold text-gray-700 group-hover:text-green-700 transition-colors">
                   Shopify
                 </span>
               </div>

@@ -1,174 +1,112 @@
-import { component$, useSignal, useVisibleTask$, useStylesScoped$ } from '@builder.io/qwik';
-
-interface ScoreItem {
-  label: string;
-  value: number;
-}
+import { component$, useVisibleTask$, useStore } from "@builder.io/qwik";
 
 export default component$(() => {
-  const scores: ScoreItem[] = [
-    { label: 'Rendimiento', value: 100 },
-    { label: 'Accesibilidad', value: 100 },
-    { label: 'Recomendaciones', value: 100 },
-    { label: 'SEO', value: 100 },
-  ];
-
-  // Solo usamos señal para disparar la animación CSS de los círculos (una sola vez)
-  const isAnimating = useSignal(false);
-
-  // Referencia al contenedor para manipular el DOM directamente sin causar re-renders
-  const containerRef = useSignal<Element>();
-
-  useStylesScoped$(`
-    .score-circle {
-      transform-origin: center;
-      transition: stroke-dashoffset 0.1s linear;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    
-    .score-item {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-    
-    /* Staggered delays para la aparición inicial */
-    .score-item:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
-    .score-item:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
-    .score-item:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
-    .score-item:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
-  `);
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ cleanup }) => {
-    let frameId: number;
-
-    const startTimeout = setTimeout(() => {
-      // 1. Disparar animaciones CSS (Baratos)
-      isAnimating.value = true;
-
-      // 2. Iniciar animación de números (Manual / Direct DOM)
-      if (!containerRef.value) return;
-
-      // Seleccionamos los spans específicos dentro de este componente
-      const textElements = containerRef.value.querySelectorAll('.score-value-text');
-      const startTime = performance.now();
-      const duration = 2500;
-
-      const animate = (currentTime: number) => {
-        const elapsedTotal = currentTime - startTime;
-        let allFinished = true;
-
-        textElements.forEach((el, index) => {
-          const targetValue = scores[index].value;
-          const itemStartDelay = index * 200; // Delay sincronizado con CSS
-
-          if (elapsedTotal < itemStartDelay) return;
-
-          const itemElapsed = elapsedTotal - itemStartDelay;
-          const progress = Math.min(itemElapsed / duration, 1);
-
-          // Cubic ease-out para suavidad
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const currentValue = Math.round(targetValue * eased);
-
-          // ACTUALIZACIÓN DIRECTA (Sin Reactividad = Sin Reflow Costoso)
-          el.textContent = currentValue.toString();
-
-          if (progress < 1) allFinished = false;
-        });
-
-        if (!allFinished) {
-          frameId = requestAnimationFrame(animate);
-        } else {
-          // Asegurar el valor final exacto al terminar
-          textElements.forEach((el, index) => {
-            el.textContent = scores[index].value.toString();
-          });
-        }
-      };
-
-      frameId = requestAnimationFrame(animate);
-    }, 600);
-
-    cleanup(() => {
-      clearTimeout(startTimeout);
-      cancelAnimationFrame(frameId);
-    });
+  const scores = useStore({
+    performance: 0,
+    accessibility: 0,
+    bestPractices: 0,
+    seo: 0,
   });
 
-  const radius = 40;
-  const circumference = 2 * Math.PI * radius;
+  useVisibleTask$(() => {
+    const duration = 1500;
+    const steps = 60;
+    const intervalTime = duration / steps;
+
+    // Metas finales
+    const targetScores = {
+      performance: 100,
+      accessibility: 100,
+      bestPractices: 100,
+      seo: 100,
+    };
+
+    let step = 0;
+    const interval = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+      
+      scores.performance = Math.round(targetScores.performance * easeOut(progress));
+      scores.accessibility = Math.round(targetScores.accessibility * easeOut(progress));
+      scores.bestPractices = Math.round(targetScores.bestPractices * easeOut(progress));
+      scores.seo = Math.round(targetScores.seo * easeOut(progress));
+
+      if (step >= steps) clearInterval(interval);
+    }, intervalTime);
+  });
 
   return (
-    <div 
-      ref={containerRef} 
-      class="hidden lg:grid grid-cols-2 gap-6 sm:grid-cols-4 w-full rounded-2xl p-6 relative overflow-visible z-10"
-    >
-      {scores.map((score, index) => {
-        const targetOffset = 0;
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-2xl mx-auto">
+      <ScoreCircle label="Rendimiento" value={scores.performance} />
+      <ScoreCircle label="Accesibilidad" value={scores.accessibility} />
+      <ScoreCircle label="Recomendaciones" value={scores.bestPractices} />
+      <ScoreCircle label="SEO" value={scores.seo} />
+    </div>
+  );
+});
 
-        return (
-          <div key={score.label} class="score-item flex flex-col items-center contain-content">
-            {/* Circular Progress Bar */}
-            <div class="relative w-24 h-24 mb-3">
-              <svg
-                class="w-full h-full transform -rotate-90"
-                viewBox="0 0 100 100"
-                width="96"
-                height="96"
-              >
-                {/* Background Circle */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="none"
-                  stroke="#e5e7eb"
-                  stroke-width="8"
-                />
-                {/* Progress Circle - Animated via CSS Transitions */}
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="#e5faef"
-                  stroke="#10b981"
-                  stroke-width="8"
-                  stroke-linecap="round"
-                  class="score-circle transition-[stroke-dashoffset] duration-[2500ms] ease-out drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
-                  style={{
-                    strokeDasharray: `${circumference}`,
-                    strokeDashoffset: isAnimating.value ? `${targetOffset}` : `${circumference}`,
-                    transitionDelay: `${index * 200}ms`
-                  }}
-                />
-              </svg>
+export const ScoreCircle = component$((props: { label: string; value: number }) => {
+  const radius = 36;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (props.value / 100) * circumference;
+  
+  // Lógica de colores (Semáforo)
+  let colorClass = "text-[#00C950]"; // Verde vibrante tipo Lighthouse
+  // Usamos tu color de fondo específico como base
+  let bgClass = "bg-[#e5faef]"; 
+  
+  // Si el puntaje baja, cambiamos colores (opcional, pero recomendado)
+  if (props.value < 50) {
+    colorClass = "text-red-500";
+    bgClass = "bg-red-50";
+  } else if (props.value < 90) {
+    colorClass = "text-orange-500";
+    bgClass = "bg-orange-50";
+  }
 
-              {/* Score Number */}
-              <div class="absolute inset-0 flex items-center justify-center">
-                {/* Clase 'score-value-text' usada por JS para actualizar sin reflow */}
-                <span class="score-value-text text-2xl font-bold text-gray-800 tabular-nums w-14 flex justify-center items-center">
-                  0
-                </span>
-              </div>
-            </div>
+  return (
+    <div class="flex flex-col items-center gap-3">
+      <div class="relative w-24 h-24 flex items-center justify-center">
+        
+        {/* FONDO CIRCULAR CON TU COLOR #e5faef */}
+        <div class={`absolute inset-0 rounded-full scale-90 ${bgClass}`}></div>
+        
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+          {/* Track gris muy sutil */}
+          <circle
+            cx="50"
+            cy="50"
+            r={radius}
+            stroke="currentColor"
+            stroke-width="6"
+            fill="transparent"
+            class="text-gray-200/50" 
+          />
+          {/* Progreso Animado */}
+          <circle
+            cx="50"
+            cy="50"
+            r={radius}
+            stroke="currentColor"
+            stroke-width="6"
+            fill="transparent"
+            stroke-dasharray={circumference}
+            stroke-dashoffset={offset}
+            stroke-linecap="round"
+            class={`transition-all duration-500 ease-out ${colorClass}`}
+          />
+        </svg>
 
-            {/* Label */}
-            <span class="text-sm font-bold text-gray-600 text-center tracking-wide mt-1">
-              {score.label}
-            </span>
-          </div>
-        );
-      })}
+        {/* Número Central */}
+        <div class={`absolute inset-0 flex items-center justify-center font-mono text-xl font-bold ${colorClass.replace('text-', 'text-green-800 ')}`}>
+          {props.value}
+        </div>
+      </div>
+      
+      <span class="text-xs sm:text-sm font-semibold text-gray-600 tracking-wide uppercase">
+        {props.label}
+      </span>
     </div>
   );
 });
