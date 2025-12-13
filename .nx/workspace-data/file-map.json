@@ -1,6 +1,6 @@
 {
   "version": "6.0",
-  "nxVersion": "21.6.3",
+  "nxVersion": "22.2.3",
   "pathMappings": {
     "~/*": [
       "./src/*"
@@ -12,7 +12,7 @@
       "my-qwik-empty-starter": [
         {
           "file": ".gitignore",
-          "hash": "12636369212910082877"
+          "hash": "5969981123528032384"
         },
         {
           "file": ".prettierignore",
@@ -32,30 +32,45 @@
         },
         {
           "file": "README.md",
-          "hash": "12695644029125156110"
+          "hash": "3007918230295453978"
+        },
+        {
+          "file": "adapters/netlify-edge/vite.config.ts",
+          "hash": "1266168941863160536"
         },
         {
           "file": "eslint.config.js",
           "hash": "16942524381004217762"
         },
         {
+          "file": "netlify.toml",
+          "hash": "5249544391799455286"
+        },
+        {
           "file": "package.json",
-          "hash": "9336733467346276809",
+          "hash": "9051986198082520229",
           "deps": [
             "npm:@builder.io/qwik",
             "npm:@builder.io/qwik-city",
+            "npm:@emailjs/browser",
             "npm:@eslint/js",
+            "npm:@netlify/edge-functions",
             "npm:@qwik-ui/headless",
             "npm:@qwik-ui/styled",
             "npm:@qwik-ui/utils",
             "npm:@qwikest/icons",
             "npm:@tailwindcss/vite",
             "npm:@types/node",
+            "npm:autoprefixer",
             "npm:class-variance-authority",
+            "npm:cssnano",
             "npm:eslint",
             "npm:eslint-plugin-qwik",
             "npm:globals",
+            "npm:netlify-cli",
             "npm:nx",
+            "npm:postcss",
+            "npm:postcss-preset-env",
             "npm:prettier",
             "npm:prettier-plugin-tailwindcss",
             "npm:qwik-ui",
@@ -71,15 +86,55 @@
         },
         {
           "file": "pnpm-lock.yaml",
-          "hash": "13646645832394638201"
+          "hash": "4455596934783130540"
+        },
+        {
+          "file": "postcss.config.js",
+          "hash": "1271222186267267972"
         },
         {
           "file": "prettier.config.js",
           "hash": "17378294471063641443"
         },
         {
+          "file": "public/_headers",
+          "hash": "7050194284564186297"
+        },
+        {
           "file": "public/favicon.svg",
           "hash": "446107399934622830"
+        },
+        {
+          "file": "public/fonts/PlusJakartaSans.woff2",
+          "hash": "6809438943242656252"
+        },
+        {
+          "file": "public/fonts/SpaceGrotesk.woff2",
+          "hash": "17832133597679423083"
+        },
+        {
+          "file": "public/images/Kintoun.webp",
+          "hash": "17566343389337056680"
+        },
+        {
+          "file": "public/images/Sebastian-Cardoso-Castillo.webp",
+          "hash": "5242469913046566932"
+        },
+        {
+          "file": "public/images/dai.jpeg",
+          "hash": "16027680900011515911"
+        },
+        {
+          "file": "public/images/dai.webp",
+          "hash": "5988916524619760893"
+        },
+        {
+          "file": "public/images/dai2.png",
+          "hash": "6088286970447417490"
+        },
+        {
+          "file": "public/images/emprendedores.png",
+          "hash": "1957072808588178304"
         },
         {
           "file": "public/images/oso_panda_usando_notebook.png",
@@ -91,43 +146,139 @@
         },
         {
           "file": "public/robots.txt",
-          "hash": "3244421341483603138"
+          "hash": "8609248889253801554"
+        },
+        {
+          "file": "public/sitemap.xml",
+          "hash": "5857311404318950644"
         },
         {
           "file": "qwik-ui.config.json",
           "hash": "17189465645030050949"
         },
         {
+          "file": "qwik.env.d copy.ts",
+          "hash": "14507282685410312386"
+        },
+        {
           "file": "qwik.env.d.ts",
           "hash": "1792037603741036108"
         },
         {
-          "file": "src/components/Footer.tsx",
-          "hash": "3485536384059733846"
+          "file": "src/assets/fonts/PlusJakartaSans.woff2",
+          "hash": "6809438943242656252"
         },
         {
-          "file": "src/components/Header.tsx",
-          "hash": "17046233684334964362"
+          "file": "src/assets/fonts/SpaceGrotesk.woff2",
+          "hash": "17832133597679423083"
         },
         {
-          "file": "src/components/ScrollToTop.tsx",
-          "hash": "14279757506212853957"
+          "file": "src/components/About/About.tsx",
+          "hash": "9637005862339411282"
         },
         {
-          "file": "src/components/WhatsappFloat.tsx",
-          "hash": "12075547320775561894"
+          "file": "src/components/Authority/AuthoritySection.tsx",
+          "hash": "12492020013608683948"
+        },
+        {
+          "file": "src/components/Contacto/Contacto.tsx",
+          "hash": "15046401912978541854"
+        },
+        {
+          "file": "src/components/FloatingEmojis.tsx",
+          "hash": "13971995755753341484"
+        },
+        {
+          "file": "src/components/Footer/Footer.tsx",
+          "hash": "2572896278948733311"
+        },
+        {
+          "file": "src/components/Forms/AuditForm.tsx",
+          "hash": "6036844896212696133"
+        },
+        {
+          "file": "src/components/Header/Header.tsx",
+          "hash": "14287560612154092793"
+        },
+        {
+          "file": "src/components/Hero/Hero.tsx",
+          "hash": "6463423630596210353"
+        },
+        {
+          "file": "src/components/Hero/WebScoreAnimated.tsx",
+          "hash": "1350192484196399090"
+        },
+        {
+          "file": "src/components/Portfolio/Portfolio.tsx",
+          "hash": "14422177242917594121"
+        },
+        {
+          "file": "src/components/Services/Services.tsx",
+          "hash": "12413730944144714217"
+        },
+        {
+          "file": "src/components/WhatsappButton/WhatsappButton.tsx",
+          "hash": "9409533962425585108"
+        },
+        {
+          "file": "src/components/WhatsappButton/whatsapp-button.css",
+          "hash": "1818410215309362624"
+        },
+        {
+          "file": "src/components/WorkProcess/WorkProcess.tsx",
+          "hash": "9038137596178718251"
         },
         {
           "file": "src/components/chatbot/chatbot.tsx",
-          "hash": "12196418953358387101"
+          "hash": "13498107824040531352"
         },
         {
           "file": "src/components/router-head/router-head.tsx",
-          "hash": "13869225469366272939"
+          "hash": "13761635152551094922"
+        },
+        {
+          "file": "src/components/scroll-to-top.tsx",
+          "hash": "42379585474234227"
+        },
+        {
+          "file": "src/components/ui/index.ts",
+          "hash": "7374135075502847759"
+        },
+        {
+          "file": "src/components/ui/input/input.tsx",
+          "hash": "551863685616459140"
+        },
+        {
+          "file": "src/components/ui2/CircleScore/CircleScore.tsx",
+          "hash": "561524412740412768"
+        },
+        {
+          "file": "src/components/ui2/button/button.css",
+          "hash": "1297083944034598338"
+        },
+        {
+          "file": "src/components/ui2/button/button.tsx",
+          "hash": "3950084348883605427"
+        },
+        {
+          "file": "src/components/ui2/modal/modal.css",
+          "hash": "10784370914720717611"
+        },
+        {
+          "file": "src/components/ui2/modal/modal.tsx",
+          "hash": "664560367552288486"
+        },
+        {
+          "file": "src/components/ui2/toast/toast.tsx",
+          "hash": "9962706906052654679"
         },
         {
           "file": "src/entry.dev.tsx",
           "hash": "15859778472158270085"
+        },
+        {
+          "file": "src/entry.netlify-edge.tsx",
+          "hash": "749540372990697496"
         },
         {
           "file": "src/entry.preview.tsx",
@@ -135,51 +286,59 @@
         },
         {
           "file": "src/entry.ssr.tsx",
-          "hash": "3490153311941707074"
+          "hash": "8161445429051794672"
         },
         {
           "file": "src/global.css",
-          "hash": "11553612956316288272"
+          "hash": "4225810734654353033"
+        },
+        {
+          "file": "src/media/images/1SLu7tZx-all-devices-black.webp",
+          "hash": "14151045283504146485"
+        },
+        {
+          "file": "src/media/images/Sebastian-Cardoso-Castillo.webp",
+          "hash": "5242469913046566932"
+        },
+        {
+          "file": "src/media/images/all-devices-black.webp",
+          "hash": "2606086813409443982"
+        },
+        {
+          "file": "src/media/images/dai.webp",
+          "hash": "9404579137607681619"
         },
         {
           "file": "src/media/images/oso_panda_usando_notebook.png",
           "hash": "15318841200368468282"
         },
         {
+          "file": "src/media/images/pagespeed-100.png",
+          "hash": "16716987527304600336"
+        },
+        {
+          "file": "src/media/images/portfolio-fabian.png",
+          "hash": "9307254707262594623"
+        },
+        {
+          "file": "src/media/images/portfolio-italianos.png",
+          "hash": "11234773171576440500"
+        },
+        {
+          "file": "src/media/images/portfolio-sebastian.png",
+          "hash": "11767787898972673708"
+        },
+        {
           "file": "src/root.tsx",
-          "hash": "6468435487380231226"
-        },
-        {
-          "file": "src/routes/about/index.tsx",
-          "hash": "949802815999862943"
-        },
-        {
-          "file": "src/routes/contact/index.tsx",
-          "hash": "2512557143989304286"
+          "hash": "13887055973629017236"
         },
         {
           "file": "src/routes/index.tsx",
-          "hash": "6934628907319227404"
+          "hash": "12172848026632579944"
         },
         {
           "file": "src/routes/layout.tsx",
-          "hash": "14776847729617542970"
-        },
-        {
-          "file": "src/routes/portfolio/index.tsx",
-          "hash": "18403789878438488622"
-        },
-        {
-          "file": "src/routes/services/ai-automations/index.tsx",
-          "hash": "3312210193231616849"
-        },
-        {
-          "file": "src/routes/services/digital-marketing/index.tsx",
-          "hash": "5592420056844281678"
-        },
-        {
-          "file": "src/routes/services/web-design/index.tsx",
-          "hash": "17808644173374435005"
+          "hash": "3665286738931904271"
         },
         {
           "file": "tsconfig.json",
@@ -193,5 +352,5 @@
     },
     "nonProjectFiles": []
   },
-  "externalNodesHash": "17899694131527860728"
+  "externalNodesHash": "2595896981419526427"
 }

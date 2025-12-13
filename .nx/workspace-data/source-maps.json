@@ -76,6 +76,14 @@
       "package.json",
       "nx/core/package-json"
     ],
+    "metadata.targetGroups.NPM Scripts.13": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.14": [
+      "package.json",
+      "nx/core/package-json"
+    ],
     "metadata.description": [
       "package.json",
       "nx/core/package-json"
@@ -180,6 +188,34 @@
       "package.json",
       "nx/core/package-json"
     ],
+    "targets.build.server": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.executor": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.options": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.metadata": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.options.script": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.metadata.scriptContent": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.server.metadata.runCommand": [
+      "package.json",
+      "nx/core/package-json"
+    ],
     "targets.build.types": [
       "package.json",
       "nx/core/package-json"
@@ -233,6 +269,34 @@
       "nx/core/package-json"
     ],
     "targets.deploy.metadata.runCommand": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.executor": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.options": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.metadata": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.options.script": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.metadata.scriptContent": [
+      "package.json",
+      "nx/core/package-json"
+    ],
+    "targets.deploy:prod.metadata.runCommand": [
       "package.json",
       "nx/core/package-json"
     ],

@@ -97,7 +97,7 @@ export default component$(() => {
                 {/* Modal ajustado conceptualmente (Trigger oculto para que funcione con el otro botón) */}
                 <Modal
                   title="Consulta Estratégica"
-                  description="Hablemos de tu proyecto. Si ya tienes web, la auditamos gratis. Si no, diseñamos tu lanzamiento."
+                  description="Hablemos de tu proyecto. Si ya tenes sitio web, la auditamos gratis. Si no, diseñamos tu lanzamiento."
                   showFooter={false}
                   triggerClass="hidden"
                   triggerText="Open Modal"

@@ -43,3 +43,7 @@ lerna-debug.log*
 
 # Netlify
 .netlify
+
+
+.nx/cache
+.nx/workspace-data

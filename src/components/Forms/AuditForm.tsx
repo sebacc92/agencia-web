@@ -1,8 +1,8 @@
 import { component$, useSignal, useVisibleTask$, type QRL } from "@builder.io/qwik";
 import { Form } from '@builder.io/qwik-city';
 import Button from "~/components/ui/button/button";
-import { Label } from '@qwik-ui/headless';
 import { useContact } from "~/routes/index";
+import { Input, Label } from "~/components/ui";
 
 interface AuditFormProps {
   onCloseModal$?: QRL<() => void>;
@@ -37,7 +37,7 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       {/* Nombre */}
       <div>
         <Label class="label" for="audit-nombre">Tu Nombre</Label>
-        <input
+        <Input
           id="audit-nombre"
           name="nombre"
           placeholder="Ej: Juan Pérez"
@@ -50,7 +50,7 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       {/* Email */}
       <div>
         <Label class="label" for="audit-email">Tu Email</Label>
-        <input
+        <Input
           id="audit-email"
           name="email"
           placeholder="tu@email.com"
@@ -64,7 +64,7 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
           <Label class="label" for="audit-website">Sitio Web (Opcional)</Label>
-          <input
+          <Input
             id="audit-website"
             name="website"
             placeholder="Si tienes..."
@@ -74,7 +74,7 @@ export default component$<AuditFormProps>(({ onCloseModal$, onShowToast$ }) => {
         </div>
         <div>
           <Label class="label" for="audit-telefono">WhatsApp (Opcional)</Label>
-          <input
+          <Input
             id="audit-telefono"
             name="telefono"
             placeholder="+54 9 11..."
