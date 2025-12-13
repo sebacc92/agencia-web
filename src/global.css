@@ -255,34 +255,6 @@ h6 {
   will-change: transform;
 }
 
-.whatsapp-button {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  width: 56px;
-  height: 56px;
-  background-color: #25d366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-  transition: transform 0.3s ease;
-  z-index: 999;
-  will-change: transform;
-}
-
-.whatsapp-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-}
-
-.whatsapp-button:active {
-  transform: scale(0.95);
-}
-
 .button-menu {
   display: flex;
   flex-direction: column;
@@ -349,13 +321,6 @@ input:focus {
 
   .card {
     padding: var(--space-6);
-  }
-
-  .whatsapp-button {
-    bottom: 1.5rem;
-    left: 1.5rem;
-    width: 50px;
-    height: 50px;
   }
 }
 

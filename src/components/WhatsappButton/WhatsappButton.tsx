@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { BsWhatsapp } from "@qwikest/icons/bootstrap";
+import styles from "./whatsapp-button.css?inline";
 
 export default component$(() => {
+  useStylesScoped$(styles);
   const phoneNumber = "+541123895482";
   const message = encodeURIComponent(
     "Hola, me gustaría solicitar un sitio web para mi negocio. ¿Podrían brindarme más información sobre los servicios y presupuesto?"
