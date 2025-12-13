@@ -126,7 +126,7 @@
               "script": "dev"
             },
             "metadata": {
-              "scriptContent": "vite --mode ssr --port 5179",
+              "scriptContent": "vite --mode ssr --port 5174",
               "runCommand": "pnpm run dev"
             },
             "configurations": {},
@@ -5476,6 +5476,15 @@
         "version": "5.1.0",
         "packageName": "builtins",
         "hash": "sha512-SW9lzGTLvWTP1AY8xeAMZimqDrIaSdLQUcVr9DMef51niJ022Ri87SwRRKYm4A6iHfkPaiVUu/Duw2Wc4J7kKg=="
+      }
+    },
+    "npm:button": {
+      "type": "npm",
+      "name": "npm:button",
+      "data": {
+        "version": "1.1.1",
+        "packageName": "button",
+        "hash": "sha512-/eICyCdXkem6L3i02jNfo7CgY0lDtELov2IhiTAUkkl3kTnnr/Jee0Fjnj4TuLwl8wkdtplZaWWXMCeowmkmpA=="
       }
     },
     "npm:byline": {
@@ -36827,5 +36836,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1765663117492
+  "computedAt": 1765665653846
 }

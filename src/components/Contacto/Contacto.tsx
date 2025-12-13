@@ -1,6 +1,6 @@
 import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
-import Button from "~/components/ui/button/button";
+import Button from "~/components/ui/button2/button";
 import { useContact } from "~/routes/index";
 import Toast from "~/components/ui/toast/toast";
 import { usePopover } from "@qwik-ui/headless";

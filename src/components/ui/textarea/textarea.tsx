@@ -19,7 +19,7 @@ export const Textarea = component$<TextareaProps>(
             onInput$,
           ]}
           class={cn(
-            "[&::-webkit-scrollbar-track]:bg-blue border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm focus-visible:ring-1 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+            "flex min-h-[120px] w-full rounded-xl border border-gray-200/60 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition-all duration-300 ease-in-out hover:border-gray-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary/40 focus:shadow-[0_0_0_3px_rgba(6,182,212,0.1)] disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50 resize-y",
             props.class,
           )}
           id={textareaId}

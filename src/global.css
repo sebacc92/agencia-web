@@ -456,13 +456,7 @@ h6 {
   transform: rotate(-45deg);
 }
 
-input {
-  all: unset;
-}
-
-input:focus {
-  outline: 2px solid oklch(from var(--foreground) l c h);
-}
+/* Input styles are now handled at the component level */
 
 ::-webkit-scrollbar {
   width: 8px;

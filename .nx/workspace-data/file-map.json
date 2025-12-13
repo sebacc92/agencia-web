@@ -48,7 +48,7 @@
         },
         {
           "file": "package.json",
-          "hash": "9051986198082520229",
+          "hash": "17832173112575947137",
           "deps": [
             "npm:@builder.io/qwik",
             "npm:@builder.io/qwik-city",
@@ -86,7 +86,7 @@
         },
         {
           "file": "pnpm-lock.yaml",
-          "hash": "4455596934783130540"
+          "hash": "12575990424221510242"
         },
         {
           "file": "postcss.config.js",
@@ -182,7 +182,7 @@
         },
         {
           "file": "src/components/Contacto/Contacto.tsx",
-          "hash": "7000314634888796507"
+          "hash": "14443384063240720379"
         },
         {
           "file": "src/components/FloatingEmojis.tsx",
@@ -194,15 +194,15 @@
         },
         {
           "file": "src/components/Forms/AuditForm.tsx",
-          "hash": "1796617738600503034"
+          "hash": "13023784189164219637"
         },
         {
           "file": "src/components/Header/Header.tsx",
-          "hash": "13127088156610962986"
+          "hash": "1590753131618569965"
         },
         {
           "file": "src/components/Hero/Hero.tsx",
-          "hash": "4014503167602017963"
+          "hash": "2432866799723981182"
         },
         {
           "file": "src/components/Hero/WebScoreAnimated.tsx",
@@ -245,20 +245,20 @@
           "hash": "561524412740412768"
         },
         {
-          "file": "src/components/ui/button/button.css",
+          "file": "src/components/ui/button2/button.css",
           "hash": "1297083944034598338"
         },
         {
-          "file": "src/components/ui/button/button.tsx",
+          "file": "src/components/ui/button2/button.tsx",
           "hash": "3950084348883605427"
         },
         {
           "file": "src/components/ui/index.ts",
-          "hash": "7698273313518979746"
+          "hash": "8224561189664094292"
         },
         {
           "file": "src/components/ui/input/input.tsx",
-          "hash": "11400730466406586539"
+          "hash": "16019793971984484437"
         },
         {
           "file": "src/components/ui/label/label.tsx",
@@ -271,6 +271,10 @@
         {
           "file": "src/components/ui/modal/modal.tsx",
           "hash": "5434109836258128654"
+        },
+        {
+          "file": "src/components/ui/textarea/textarea.tsx",
+          "hash": "6939859128223762562"
         },
         {
           "file": "src/components/ui/toast/toast.tsx",
@@ -294,7 +298,7 @@
         },
         {
           "file": "src/global.css",
-          "hash": "4225810734654353033"
+          "hash": "11361229467032730460"
         },
         {
           "file": "src/media/images/1SLu7tZx-all-devices-black.webp",
@@ -356,5 +360,5 @@
     },
     "nonProjectFiles": []
   },
-  "externalNodesHash": "2595896981419526427"
+  "externalNodesHash": "10518720410559924690"
 }

@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import Button from "~/components/ui/button/button";
+import Button from "~/components/ui/button2/button";
 
 export interface NavigationItem {
   label: string;

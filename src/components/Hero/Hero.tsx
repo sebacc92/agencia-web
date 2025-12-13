@@ -1,7 +1,7 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 import { LuChevronDownCircle, LuServer, LuZap, LuCalendarDays, LuShoppingBag, LuDatabase } from "@qwikest/icons/lucide";
 import ImagePageSpeed from "~/media/images/1SLu7tZx-all-devices-black.webp?quality=75&jsx";
-import Button from "~/components/ui/button/button";
+import { Button } from "~/components/ui";
 import Modal from "~/components/ui/modal/modal";
 import AuditForm from "~/components/Forms/AuditForm";
 import Toast from "~/components/ui/toast/toast";
@@ -97,7 +97,7 @@ export default component$(() => {
                 {/* Modal ajustado conceptualmente (Trigger oculto para que funcione con el otro botón) */}
                 <Modal
                   title="Consulta Estratégica"
-                  description="Hablemos de tu proyecto. Si ya tenes sitio web, la auditamos gratis. Si no, diseñamos tu lanzamiento."
+                  description="Descubre por qué tu web pierde ventas. Análisis gratuito de rendimiento y SEO."
                   showFooter={false}
                   triggerClass="hidden"
                   triggerText="Open Modal"
