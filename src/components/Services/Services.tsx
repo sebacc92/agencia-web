@@ -55,8 +55,8 @@ const PLANS: Plan[] = [
       'Propiedad total del código al finalizar'
     ],
     renewalText: 'Renovación Hosting (Año 3): $120 USD/anual',
-    ctaText: 'Solicitar Web',
-    ctaLink: '/#contact',
+    ctaText: 'Consultar Disponibilidad',
+    ctaLink: 'https://cal.com/sebastian-cardoso-castillo/estrategia?notes=Interes:WebProfesional',
     highlight: false
   },
   {
@@ -82,8 +82,8 @@ const PLANS: Plan[] = [
       'Carrito de Compras Optimizado'
     ],
     renewalText: 'Renovación Hosting (Año 3): $180 USD/anual',
-    ctaText: 'Comenzar E-commerce',
-    ctaLink: '/#contact',
+    ctaText: 'Planificar mi Tienda',
+    ctaLink: 'https://cal.com/sebastian-cardoso-castillo/estrategia?notes=Interes:Ecommerce',
     highlight: false
   },
   {
@@ -106,8 +106,8 @@ const PLANS: Plan[] = [
       'Panel de Administración Custom',
       'SLA (Garantía de Servicio) Empresarial'
     ],
-    ctaText: 'Agendar Reunión',
-    ctaLink: '/#contact',
+    ctaText: 'Hablar con un Especialista',
+    ctaLink: 'https://cal.com/sebastian-cardoso-castillo/estrategia?notes=Interes:SaaS',
     highlight: false
   }
 ];

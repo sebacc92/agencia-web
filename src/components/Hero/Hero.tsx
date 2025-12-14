@@ -80,11 +80,11 @@ export default component$(() => {
                   class="w-full sm:w-auto border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
                   onClick$={() => showAuditModal.value = true}
                 >
-                  Auditar mi Sitio Gratis
+                  Auditar mi Sitio Web Gratis
                 </Button>
 
                 <a
-                  href="https://cal.com/sebastian-cardoso-castillo/estrategia" 
+                  href="https://cal.com/sebastian-cardoso-castillo/estrategia?notes=Origen:Hero" 
                   target="_blank"
                   rel="noopener noreferrer"
                   // Mantenemos px-10 py-4 y text-lg para que sea gemelo del Button size="lg"
