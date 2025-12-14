@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import Button from "~/components/ui/button2/button";
+import { Button } from "~/components/ui";
 
 export interface NavigationItem {
   label: string;
@@ -43,13 +43,6 @@ export default component$(() => {
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-          </div>
-
-          {/* Desktop CTA Button */}
-          <div class="hidden lg:block">
-            <Button variant="neumorphic-green" size="lg">
-              Hablanos
-            </Button>
           </div>
 
           {/* Menú desplegable (mobile) */}
@@ -96,7 +89,7 @@ export default component$(() => {
               </Link>
             ))}
             <div class="pt-6">
-              <Button variant="neumorphic-green" size="lg" class="w-full">
+              <Button look="gradient" size="lg" class="w-full">
                 Empezar mi proyecto
               </Button>
             </div>

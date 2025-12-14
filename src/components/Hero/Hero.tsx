@@ -75,7 +75,7 @@ export default component$(() => {
               {/* CTA Buttons */}
               <div class="flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4 pt-4 min-h-[140px] sm:min-h-[80px]">
                 <Button
-                  variant="primary"
+                  look="primary"
                   size="lg"
                   class="w-full sm:w-auto border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
                   onClick$={() => showAuditModal.value = true}
@@ -96,7 +96,7 @@ export default component$(() => {
 
                 {/* Modal ajustado conceptualmente (Trigger oculto para que funcione con el otro botón) */}
                 <Modal
-                  title="Consulta Estratégica"
+                  title="Solicitud de Auditoría Técnica"
                   description="Descubre por qué tu web pierde ventas. Análisis gratuito de rendimiento y SEO."
                   showFooter={false}
                   triggerClass="hidden"
@@ -143,7 +143,7 @@ export default component$(() => {
         <div class="w-full border-t border-gray-100 bg-gray-50/50 backdrop-blur-sm mt-8 sm:mt-0">
           <div class="container mx-auto px-4 py-8">
             <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
-              Potenciado por Infraestructura Enterprise
+              Stack Tecnológico de Última Generación
             </p>
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
 

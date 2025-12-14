@@ -22,7 +22,7 @@
   border: none;
   color: oklch(from var(--foreground) l c h);
   background-color: oklch(from var(--background) l c h);
-  max-width: 28rem;
+  max-width: 32rem;
   width: 100%;
   overflow: hidden;
   margin: auto;
